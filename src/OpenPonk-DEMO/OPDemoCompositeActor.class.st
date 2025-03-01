@@ -1,7 +1,54 @@
 Class {
 	#name : 'OPDemoCompositeActor',
 	#superclass : 'OPDemoActor',
-	#category : 'OpenPonk-DEMO-OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'OpenPonk-DEMO-DiagramElements'
+	#tag : 'DiagramElements'
 }
+
+{ #category : 'testing' }
+OPDemoCompositeActor class >> isComposite [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+
+	||
+	^ super isComposite 
+]
+
+{ #category : 'acccessing' }
+OPDemoCompositeActor >> beInternal [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+
+	|newInternalActor|
+	super beInternal.
+	newInternalActor := OPDemoInternalActor new.
+	^ newInternalActor 
+]
+
+{ #category : 'initialization' }
+OPDemoCompositeActor >> initialize [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+
+	||
+	super beComposite.
+]
+
+{ #category : 'testing' }
+OPDemoCompositeActor >> isComposite [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+
+	||
+	^ super isComposite 
+]
+
+{ #category : 'testing' }
+OPDemoCompositeActor >> isInternal [
+	"comment stating purpose of instance-side method"
+	"scope: class-variables  &  instance-variables"
+
+	||
+	^ super isInternal 
+]

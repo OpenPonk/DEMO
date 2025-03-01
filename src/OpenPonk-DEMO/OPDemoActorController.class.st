@@ -1,7 +1,7 @@
 Class {
 	#name : 'OPDemoActorController',
 	#superclass : 'OPDemoElementController',
-	#category : 'OpenPonk-DEMO-OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-DiagramControllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'OpenPonk-DEMO-DiagramControllers'
+	#tag : 'DiagramControllers'
 }

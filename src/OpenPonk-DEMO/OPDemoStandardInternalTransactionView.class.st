@@ -1,7 +1,7 @@
 Class {
 	#name : 'OPDemoStandardInternalTransactionView',
 	#superclass : 'OPDemoElementView',
-	#category : 'OpenPonk-DEMO-OpenPonk-DEMO-DiagramViews',
+	#category : 'OpenPonk-DEMO-DiagramViews',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'OpenPonk-DEMO-DiagramViews'
+	#tag : 'DiagramViews'
 }
