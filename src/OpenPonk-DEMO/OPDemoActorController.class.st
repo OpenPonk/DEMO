@@ -5,3 +5,14 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramControllers'
 }
+
+{ #category : 'accessing' }
+OPDemoActorController >> diagramElementClass [
+
+	^ OPDemoActorController 
+]
+
+{ #category : 'accessing' }
+OPDemoActorController >> modelClass [
+	^ OPDemoActor
+]

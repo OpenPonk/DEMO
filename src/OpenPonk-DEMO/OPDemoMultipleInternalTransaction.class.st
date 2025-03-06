@@ -1,9 +1,9 @@
 Class {
 	#name : 'OPDemoMultipleInternalTransaction',
 	#superclass : 'OPDemoTransaction',
-	#category : 'OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramElements'
+	#tag : 'Models'
 }
 
 { #category : 'accessing' }

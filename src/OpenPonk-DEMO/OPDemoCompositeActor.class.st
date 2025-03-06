@@ -1,9 +1,9 @@
 Class {
 	#name : 'OPDemoCompositeActor',
 	#superclass : 'OPDemoActor',
-	#category : 'OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramElements'
+	#tag : 'Models'
 }
 
 { #category : 'testing' }

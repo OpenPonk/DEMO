@@ -5,9 +5,9 @@ Class {
 		'isComposite',
 		'isMultiple'
 	],
-	#category : 'OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramElements'
+	#tag : 'Models'
 }
 
 { #category : 'accessing' }
@@ -60,9 +60,19 @@ OPDemoTransaction >> isComposite [
 ]
 
 { #category : 'testing' }
+OPDemoTransaction >> isEdge [
+	^ false
+]
+
+{ #category : 'testing' }
 OPDemoTransaction >> isMultiple [ 
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
 
 	^ isMultiple 
+]
+
+{ #category : 'testing' }
+OPDemoTransaction >> isNode [
+	^ true
 ]

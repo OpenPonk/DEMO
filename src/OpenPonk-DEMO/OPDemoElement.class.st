@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'element_id'
 	],
-	#category : 'OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramElements'
+	#tag : 'Models'
 }

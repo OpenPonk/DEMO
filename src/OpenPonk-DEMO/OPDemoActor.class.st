@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'isComposite'
 	],
-	#category : 'OpenPonk-DEMO-DiagramElements',
+	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramElements'
+	#tag : 'Models'
 }
 
 { #category : 'accessing' }
@@ -37,10 +37,20 @@ OPDemoActor >> isComposite [
 ]
 
 { #category : 'testing' }
+OPDemoActor >> isEdge [
+	^ false
+]
+
+{ #category : 'testing' }
 OPDemoActor >> isInternal [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
 
 	||
 	^ isComposite not
+]
+
+{ #category : 'testing' }
+OPDemoActor >> isNode [
+	^ true
 ]
