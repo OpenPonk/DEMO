@@ -8,3 +8,14 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramControllers'
 }
+
+{ #category : 'construction' }
+OPDemoElementController >> diagramElementClass [
+
+	^ self subclassResponsibility
+]
+
+{ #category : 'accessing' }
+OPDemoElementController >> modelClass [
+	^ self subclassResponsibility
+]

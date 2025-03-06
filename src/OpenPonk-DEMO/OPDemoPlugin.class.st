@@ -12,10 +12,17 @@ OPDemoPlugin >> diagramControllerClass [
 ]
 
 { #category : 'accessing' }
+OPDemoPlugin >> extent [ 
+	^true
+]
+
+{ #category : 'accessing' }
 OPDemoPlugin >> icon [
+	^ OPCoreIcons opFsmDiagramIcon
 	"TODO"
 	"^ OPCoreIcons opDemoDiagramIcon"
 	"^ Smalltalk ui icons addName: #bookmark"
+	"^ Icon"
 ]
 
 { #category : 'accessing' }
@@ -27,6 +34,11 @@ OPDemoPlugin >> layouterClass [
 { #category : 'accessing' }
 OPDemoPlugin >> modelClass [ 
 	^ OPDemo
+]
+
+{ #category : 'accessing' }
+OPDemoPlugin >> modelSerializerClass [
+	^ self subclassResponsibility
 ]
 
 { #category : 'accessing' }

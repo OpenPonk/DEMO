@@ -11,3 +11,9 @@ OPDemoElementShape >> renderBasicShape [
 
 	^ self subclassResponsibility
 ]
+
+{ #category : 'rendering' }
+OPDemoElementShape >> shouldBePositionableByUser [
+
+	^ true
+]
