@@ -49,18 +49,18 @@ OPDemoController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Actor'
 			factory: [ OPDemoActorController new ]
-			icon: OPCoreIcons opFsmInitialStateIcon;
+			icon: OPDemoEditorIcons actor16Icon;
 		newSeparator;
 		newCreationTool: 'Transaction' 
 			factory: [ OPDemoTransactionController new ] 
-			icon: OPCoreIcons opFsmRegularStateIcon;
+			icon: OPDemoEditorIcons transaction16Icon;
 		newCreationTool: 'Scope of interest'
 			factory: [ OPDemoScopeOfInterestController new ]
-			icon: OPCoreIcons opFsmFinalStateIcon;
+			icon: OPDemoEditorIcons scopeOfInterest16Icon;
 		newSeparator;
 		newConnectionCreationTool: 'Link'
 			factory: [ OPDemoLinkController new ]
-			icon: OPCoreIcons opFsmTransitionIcon
+			icon: OPDemoEditorIcons initiatorLink16Icon 
 ]
 
 { #category : 'ui interaction' }

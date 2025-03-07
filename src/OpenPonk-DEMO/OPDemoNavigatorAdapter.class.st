@@ -49,13 +49,21 @@ OPDemoNavigatorAdapter >> hasMappingFor: anObject in: aModel [
 { #category : 'widget API' }
 OPDemoNavigatorAdapter >> iconMapping [
 
-	^ {  (OPDemo -> OPCoreIcons opFsmDiagramIcon).
-		  (OPDemoScopeOfInterest -> OPCoreIcons opFsmInitialStateIcon).
-		  (OPDemoLink -> OPCoreIcons opFsmTransitionIcon).
+	^ {  (OPDemo -> OPDemoEditorIcons demo16Icon ).
+		  (OPDemoScopeOfInterest -> OPDemoEditorIcons scopeOfInterest16Icon ).
+		  "(OPDemoLink -> OPCoreIcons opFsmTransitionIcon)."
+		  (OPDemoLink -> [ :o |
+		   o isInitiator
+			   ifTrue: [ OPDemoEditorIcons initiatorLink16Icon ]
+			   ifFalse: [
+					o isWaiting 
+						ifTrue: [ OPDemoEditorIcons waitingLink16Icon ]
+						ifFalse: [ OPDemoEditorIcons accessLink16Icon ] ]
+						] ).
 		  (OPDemoActor -> [ :o |
 		   o isComposite
-			   ifTrue: [ OPCoreIcons opFsmRegularStateIcon ]
-			   ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ])} 
+			   ifTrue: [ OPDemoEditorIcons compositeActor16Icon ]
+			   ifFalse: [ OPDemoEditorIcons actor16Icon ] ])}
 ]
 
 { #category : 'widget API' }

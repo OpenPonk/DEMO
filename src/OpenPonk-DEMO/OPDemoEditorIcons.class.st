@@ -1,0 +1,145 @@
+Class {
+	#name : 'OPDemoEditorIcons',
+	#superclass : 'OPIcons',
+	#category : 'OpenPonk-DEMO-Icons',
+	#package : 'OpenPonk-DEMO',
+	#tag : 'Icons'
+}
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> accessLink16Icon [
+
+	^ Form fromBinaryStream: self accessLink16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> accessLink16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB7SURBVDhPxdM9DgFRGIXhh6AZ8ddhRGUZSrvQWI3CGiQqtqkZzak+o/A0k7ynmpt7+ZMdLhmrBrhinkPFNMM3WjwxzKFqj1nGii1OGasmuGOZQ8W4+46il6zx+OXAjlhlrNjgkLGqwQuLHCo+/9pEL2lx6+54L+e+DwPeI1MGW3diyysAAAAASUVORK5CYII='
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> actor16Icon [
+
+	^ Form fromBinaryStream: self actor16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> actor16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAERSURBVDhP1ZIxioNQEIY/F9FgJ9hskSZdELyDVinscgILIYV3yBVygHQWKXIOQbDbRmwMiIYgCJam8W21om+rZKv9ym/e/DMPRrEs68u2bYsXEEIAUFUVeJ53F28SRZH4kNNf5e8BP/95l18bJElCURSyBqCuax6Px8ItAsZx5Hq9cj6f5xqA2+1GEAQ0TbPwi4A8z7FtG8Mw6Pt+XmIYBoIgWDjkgMvlQlmWNE1DHMekacrxeCTLMrbbLaqqzp8DMJnn80nXdZxOJ4QQhGHI4XDAcRw0TVt2zZg2qKqK/X6PruusVit836dtWwzDmCav12tM05z3g+u6//0SZfEqymazue92u0+5IKMoiqxI05RvMa3NRoFm1BYAAAAASUVORK5CYII='
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> actorIcon [
+
+	^ Form fromBinaryStream: self actorIconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> actorIconContents [
+	
+	^ "'iVBORw0KGgoAAAANSUhEUgAAAFMAAABSCAYAAAAo7uilAAAAAXNSR0IArs4c6QAAAA
+	RnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOgSURBVHhe7d2/S+NwGMf
+	xT3SSIiguTlIQFTEgdqmYoEstbk666FwcOgniINQsQv8DQRAnJ8HBDrVpFeMPbKa6mCxF
+	JCDGQRSklIAhN5yU8yvnnXcPaY97XvC4PE9afCM4RtI0bR2MxlvMgOfvRtO0dUnTtHXtO
+	7Ez+02apkF7+7H+VjZgX6dpWuMvs02szP4cxyTEMQlxTEIckxDHJMQxCXFMQhyTEMckxD
+	EJcUxCHJMQxyTEMQlxTEIckxDHJMQxCXFMQhyTEMckxDEJcUxCHJMQxyTEMQlxTEIckxD
+	HJNS0mL7vI5PJQJIkZDIZ+L4vnnzZ09MT5ufnsbu7K65C0bSYDw8PODs7w9jYGHRdh+M4
+	4smXvL6+YmtrC3t7e+IqNE2LWS6XcXd3h6WlJTiOg0qlIp78Ns/zsLm5iY2NDXEVqqbE9
+	DwPhmFAlmVMT09DURTkcjnUajXx9Jdub2+RSqWwtraG2dlZcR2qpsSsVqsoFouIxWKIRq
+	OYmJhAoVDA9fW1ePqper2ObDYLwzCwvb2NVColnoSqKTHL5TKen5+RTCYhSRImJycBALq
+	uIwgC8fxTsizj5OQEc3NzaGtryq/TEPq3v7y8wDAMjI+PY2BgAAAwODiIRCIBwzDguq74
+	yE91dHQgnU4jGo2Kq6YIPaZt2yiVSlBVFV1dXQCAzs5OKIqCUqmEy8tL8ZF/RqgxgyDA+
+	fk5AEBVVUiS1Nipqorh4WHouo56vf7DU/+OUGO6rot8Po/7+3vE43FIktQYWZZh2zZOT0
+	9xc3MDAHh8fMTMzMy7O0mScHFxIX50Swg1pmVZME0Ti4uLyGazHyadTsO2bRQKhS//I2o
+	FocX0fR9HR0fo7e3FysoKVldXP8zy8jLi8Tjy+Txc10VPTw8ODw8RBMG7URRF/PiWEFpM
+	x3FwfHwMRVHQ398vrgEAfX19SCaTME0TlmWJ65YXWsxKpQLTNKGqKiKRiLgGALS3t2Nqa
+	goAcHBwAM/zxJOWFkrMWq2GXC6H0dFRqKoqrt+JxWJIJBIoFouoVqviuqWFEjMSiWBnZw
+	dXV1cYGhoS1+90d3djf38flmVhZGREXH9KURQEQYCFhQVxFYpQYv4vOCYhjkmIYxLimIQ
+	4JiGOSYhjEuKYhDgmIY5JiGMS4piEOCYhjkmIYxLimIQ4JiGOSYhjEuKYhDgmIY5JiGMS
+	4piEOCYhjkmIYxLimIT4RSEEPrwohOfvpvEKG7E0+zPfAJhADuQ42rvJAAAAAElFTkSuQ
+	mCC'"
+	'iVBORw0KGgoAAAANSUhEUgAAAFMAAABSCAYAAAAo7uilAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOgSURBVHhe7d2/S+NwGMfxT3SSIiguTlIQFTEgdqmYoEstbk666FwcOgniINQsQv8DQRAnJ8HBDrVpFeMPbKa6mCxFJCDGQRSklIAhN5yU8yvnnXcPaY97XvC4PE9afCM4RtI0bR2MxlvMgOfvRtO0dUnTtHXtO7Ez+02apkF7+7H+VjZgX6dpWuMvs02szP4cxyTEMQlxTEIckxDHJMQxCXFMQhyTEMckxDEJcUxCHJMQxyTEMQlxTEIckxDHJMQxCXFMQhyTEMckxDEJcUxCHJMQxyTEMQlxTEIckxDHJNS0mL7vI5PJQJIkZDIZ+L4vnnzZ09MT5ufnsbu7K65C0bSYDw8PODs7w9jYGHRdh+M44smXvL6+YmtrC3t7e+IqNE2LWS6XcXd3h6WlJTiOg0qlIp78Ns/zsLm5iY2NDXEVqqbE9DwPhmFAlmVMT09DURTkcjnUajXx9Jdub2+RSqWwtraG2dlZcR2qpsSsVqsoFouIxWKIRqOYmJhAoVDA9fW1ePqper2ObDYLwzCwvb2NVColnoSqKTHL5TKen5+RTCYhSRImJycBALquIwgC8fxTsizj5OQEc3NzaGtryq/TEPq3v7y8wDAMjI+PY2BgAAAwODiIRCIBwzDguq74yE91dHQgnU4jGo2Kq6YIPaZt2yiVSlBVFV1dXQCAzs5OKIqCUqmEy8tL8ZF/RqgxgyDA+fk5AEBVVUiS1Nipqorh4WHouo56vf7DU/+OUGO6rot8Po/7+3vE43FIktQYWZZh2zZOT09xc3MDAHh8fMTMzMy7O0mScHFxIX50Swg1pmVZME0Ti4uLyGazHyadTsO2bRQKhS//I2oFocX0fR9HR0fo7e3FysoKVldXP8zy8jLi8Tjy+Txc10VPTw8ODw8RBMG7URRF/PiWEFpMx3FwfHwMRVHQ398vrgEAfX19SCaTME0TlmWJ65YXWsxKpQLTNKGqKiKRiLgGALS3t2NqagoAcHBwAM/zxJOWFkrMWq2GXC6H0dFRqKoqrt+JxWJIJBIoFouoVqviuqWFEjMSiWBnZwdXV1cYGhoS1+90d3djf38flmVhZGREXH9KURQEQYCFhQVxFYpQYv4vOCYhjkmIYxLimIQ4JiGOSYhjEuKYhDgmIY5JiGMS4piEOCYhjkmIYxLimIQ4JiGOSYhjEuKYhDgmIY5JiGMS4piEOCYhjkmIYxLimIT4RSEEPrwohOfvpvEKG7E0+zPfAJhADuQ42rvJAAAAAElFTkSuQmCC'
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> compositeActor16Icon [
+
+	^ Form fromBinaryStream: self compositeActor16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> compositeActor16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE7SURBVDhPzZK/isJAHIS/jVFWCAjh4HKksrQSxNI38HH1EaysJKAWBgSJF8IGDEbwzxJzjcmRVIpX3NfN7PwGFkZIKT3btj94kTzPORwOsXBd93s8Hn/VA88wmUxCo26+yj8puN/v+L7PcrnkeDxSeKvVqp4HQClFlmVQFCwWCxzHodfrsd1uAYiiiCRJSNO0crzf75nP578FeZ5zuVywLAvDMOj3+wCEYchgMGCz2VQKHMeh2+2W2gAQQpRGEARcr1fiOGa9XqOU4nQ6MZvN2O12NBqNMgtgCiFwXRfP82i326Rpyvl8ZjgcYts2QRCglGI0GlUOC8ohaa3JsgwpJbfbjVarBY/Faa1LDaC1xjRNptPp75CazSZSSoBKWAhR0Tyyxbf/Zgfv8HaBsCzL73Q6n/WHZ0iSJPoBLqyIS5nc958AAAAASUVORK5CYII='
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> demo16Icon [
+
+	^ Form fromBinaryStream: self demo16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> demo16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAAAsAAAAQCAYAAADAvYV+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHqSURBVChTbZDNaxNRFMXPe2++TGZCJolaNahIFfzAjdBadKEEWhDcFFPopkio4MI/wF2XXShuXKjgQpdV3ImKUEoXLgqCixLwg1RHSqwGI51MZt5M3rznqjVNvbt7fofDPRf4zyyMXysMagBABwUAGKqv3VdKkUF9l7k+M3t6X96eXjlbuTjIdpmd/eXZ3MgpknPt2iBj/Uv1WZWdT08yptTiOuEfvk26DW/Zk1tc6zd7X39cveQ/fhEIpMJRLNM0awCebvEdZxwvhtfPDSl6uAQ9XyI03iNn+vl24/nXE0eb3fUvSay0hAOf2xrqv4nUReFE6+5SA/3Jptm+cDAnxCE3gWtLHMsLHHFIJGk0uiNZKUXGHr6/s9fkq8PZVz2mNrS1VlG8+z5qBT4bu1IRN59PTaUEAMaffBpRjK6IXgqIHkhPwNuM4W2GkN0IdupP+A+m31IAcPPGjaxlopQ1cMC2YFsmyo6FYsaA0hhimqkBAJlb+mk3uGyyVDpGKpFwgYDH8MMEG0GMjy0fKoz4sJ2U6S+CSd3QnZxlgDIKygCNEmiUwKAUuqFDUmY1Q1RpRu+8KbD0EVEy+teZAIRAAWAk7Zg0vZfPRAvbf7790nO7ilY452c6XeEEnP9ph/6qbsjF5VuXAwD4C3drv722zSiBAAAAAElFTkSuQmCC'
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> initiatorLink16Icon [
+
+	^ Form fromBinaryStream: self initiatorLink16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> initiatorLink16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVDhP5c0xDoJQEATQF2lUaLQzoeIynsfbcBNOwUU8ghbQ/MJMKH7slJdssTPZLLvT4p5hrRYPHLOo0ZXjUxY1zr/1+Yoew7efRyxlblluOWTw4Z3Blib2C56YMeEV/T9aAbS1CttsblVCAAAAAElFTkSuQmCC'
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> scopeOfInterest16Icon [
+
+	^ Form fromBinaryStream: self scopeOfInterest16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> scopeOfInterest16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhP3ZHBSsNAFEXPS9LRNEiKVbGCCCKCIOovuOwyv9nlkA9x4UJXIhUCSrEaImSkGTcvtmRRiksvzGbunPNmGGGZA6ABhsALsA/0gBroA4/AGfABxMAzQLAiOAJugBK4BgxwDlxpPwLmwFilAMiSZ6TCPWCqN5lpdwg8ABfAK/DWQuGSp6/Qp04OgG2FvfYDXQ746gqOgV19+ztwCmypdKDAiU5/aiHJ8/xWRCLnXADQNI0AVFXVC4LAJ0nyXZaliaKocc6FaZrWxpjmV2CtLURk7r137eaGEeBSrLXFYrEYZ1l21z2xLpPJJI3jeLb6jX/KPxCItbbw3md1Xd93y3UJw3DHGDMVa20BDEXEdw9tEPMDl1NQsZWXyIcAAAAASUVORK5CYII='
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> transaction16Icon [
+
+	^ Form fromBinaryStream: self transaction16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> transaction16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH0SURBVDhPjZAxaBoBFIb/U4QmLneIgeN0DOUscQo0VziQBiHdNEuhKIVOcrj2ujuELgfJUcjirJDSTA5JU101ELEgcumQBjxwCEJu0fQE73Uwp+eFpP3Wx/fx3mOwTJBl2be5XO5DQhRfvajXV6zVVVxvbt622+16pVI5nE6nDZ8zZ11RlAvTNIkch2h/n6jfJ2o2iY6OiIio0+lQNpv9BoDzywlN026IaFl28URs26ZCofDTG1lRVfXyUdnFF7nfBBBF8aNlWU/LLr5zgsHga5RKpd//Jbt4Ivl8/ivz/fSU0oYB7O4C8TgAoNFowLIsSJIEnucxGAwQjUYRCoVmR7dagGni89XVbUA8O1uSASCVSiEcDoPneRARyuUybNuez7G1BcTjSPR6XOCZ4wCRyGLoodlsotvtQpIk/wgQBLDjMQK/dnaAgwNgPJ7PGIZBLBaDJElIJpMQBGGxPgCYJnB8jN729h00TRvSaES0t0c0Gvlf9pB+f/Zwx6FisfgDsixrk8lkJv8r4pFN0ySWZd8BwJqu60MiejrikYmIFEW5ABAEAHAc96ZWq02IHon4ZE3TbgCsL55yH9F1ffjgHI9sWRapqnoJIOF6zFIFWJNl+VMmk3n/cmMj8vzkBH8CARjpNFrn59fVavXQMIwvAO5c4S90dTn3en5qewAAAABJRU5ErkJggg=='
+	
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> waitingLink16Icon [
+
+	^ Form fromBinaryStream: self waitingLink16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> waitingLink16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVDhPxdCxDcIwEAXQl0AAQRQGoA4Su1CxABPQItFSsh77IJq4OQQ2oeBV1n1b5zv+pHo5FKiwwwE9jlDHWx/U2OKEewxLdFhhj00MS1zRYvLl6NZYxGKS28EU51gs1WGea/IurHEZZn3EMCctapQGNyxjUKIdvt7EoMRs6DzqcTJ67p88AdZMBviA8qqpAAAAAElFTkSuQmCC'
+	
+]
