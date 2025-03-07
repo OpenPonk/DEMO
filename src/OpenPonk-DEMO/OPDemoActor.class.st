@@ -37,6 +37,12 @@ OPDemoActor >> isComposite [
 ]
 
 { #category : 'testing' }
+OPDemoActor >> isComposite: aBoolean [
+	isComposite := aBoolean.
+	self changed
+]
+
+{ #category : 'testing' }
 OPDemoActor >> isEdge [
 	^ false
 ]

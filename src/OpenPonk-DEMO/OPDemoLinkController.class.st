@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoLinkController',
-	#superclass : 'OPDemoElementController',
+	#superclass : 'OPDirectionalRelationshipController',
 	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'

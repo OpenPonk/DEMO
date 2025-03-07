@@ -43,9 +43,9 @@ OPDemoController >> controllerFactory [
 
 	^ super controllerFactory
 		  register: OPDemoScopeOfInterestController forModel: OPDemoScopeOfInterest;
-		  register: OPFsmInitialStateController forModel: OPFsmInitialState;
-		  register: OPFsmStateController forModel: OPFsmState;
-		  register: OPFsmTransitionController forModel: OPFsmTransition
+		  register: OPDemoActorController forModel: OPDemoActor;
+		  register: OPDemoTransactionController forModel: OPDemoTransaction;
+		  register: OPDemoLinkController forModel: OPDemoLink
 ]
 
 { #category : 'ui interaction' }

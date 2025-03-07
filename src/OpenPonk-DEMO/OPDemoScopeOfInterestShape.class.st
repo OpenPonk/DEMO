@@ -22,7 +22,17 @@ OPDemoScopeOfInterestShape >> renderBasicShape [
 { #category : 'rendering' }
 OPDemoScopeOfInterestShape >> selectableInteraction [
 
-	^ super selectableInteraction
-		  "highlightColor: Color blue;"
-		  yourself
+	^ OPRSSelectable highlightBorderColorBlue
+]
+
+{ #category : 'rendering' }
+OPDemoScopeOfInterestShape >> shouldBePositionableByUser [
+
+	^ true
+]
+
+{ #category : 'rendering' }
+OPDemoScopeOfInterestShape >> shouldBeResizableByUser [
+
+	^ true
 ]

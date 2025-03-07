@@ -1,6 +1,10 @@
 Class {
 	#name : 'OPDemoElementShape',
 	#superclass : 'OPBoundNode',
+	#instVars : [
+		'label',
+		'square'
+	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
@@ -14,6 +18,12 @@ OPDemoElementShape >> renderBasicShape [
 
 { #category : 'rendering' }
 OPDemoElementShape >> shouldBePositionableByUser [
+
+	^ true
+]
+
+{ #category : 'rendering' }
+OPDemoElementShape >> shouldBeResizableByUser [
 
 	^ true
 ]
