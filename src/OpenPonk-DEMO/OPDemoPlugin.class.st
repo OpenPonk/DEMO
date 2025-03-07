@@ -12,17 +12,8 @@ OPDemoPlugin >> diagramControllerClass [
 ]
 
 { #category : 'accessing' }
-OPDemoPlugin >> extent [ 
-	^true
-]
-
-{ #category : 'accessing' }
 OPDemoPlugin >> icon [
-	^ OPCoreIcons opFsmDiagramIcon
-	"TODO"
-	"^ OPCoreIcons opDemoDiagramIcon"
-	"^ Smalltalk ui icons addName: #bookmark"
-	"^ Icon"
+	^ OPDemoEditorIcons demo16Icon
 ]
 
 { #category : 'accessing' }

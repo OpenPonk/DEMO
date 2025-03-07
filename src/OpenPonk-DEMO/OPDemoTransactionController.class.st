@@ -1,15 +1,15 @@
 Class {
 	#name : 'OPDemoTransactionController',
 	#superclass : 'OPDemoElementController',
-	#category : 'OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramControllers'
+	#tag : 'Controllers'
 }
 
 { #category : 'accessing' }
 OPDemoTransactionController >> diagramElementClass [
 
-	^ OPDemoTransactionController 
+	^ OPDemoStandardInternalTransactionShape 
 ]
 
 { #category : 'accessing' }

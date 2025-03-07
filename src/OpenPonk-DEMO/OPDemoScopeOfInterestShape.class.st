@@ -9,12 +9,20 @@ Class {
 { #category : 'rendering' }
 OPDemoScopeOfInterestShape >> renderBasicShape [
 
-	^ RSCircle new
-		  size: 50;
-		  color: Color white;
-		  border: (RSBorder new
-				   color: Color black;
-				   width: 1.5;
-				   yourself);
+	^ RSBox new
+		  width: 800;
+		  height: 600;
+		  borderWidth: 6;
+		  borderColor: Color gray;
+		  color: Color transparent;
+		  yourself
+
+]
+
+{ #category : 'rendering' }
+OPDemoScopeOfInterestShape >> selectableInteraction [
+
+	^ super selectableInteraction
+		  "highlightColor: Color blue;"
 		  yourself
 ]

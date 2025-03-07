@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'element_id'
 	],
-	#category : 'OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramControllers'
+	#tag : 'Controllers'
 }
 
 { #category : 'construction' }

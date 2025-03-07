@@ -51,7 +51,6 @@ OPDemoNavigatorAdapter >> iconMapping [
 
 	^ {  (OPDemo -> OPDemoEditorIcons demo16Icon ).
 		  (OPDemoScopeOfInterest -> OPDemoEditorIcons scopeOfInterest16Icon ).
-		  "(OPDemoLink -> OPCoreIcons opFsmTransitionIcon)."
 		  (OPDemoLink -> [ :o |
 		   o isInitiator
 			   ifTrue: [ OPDemoEditorIcons initiatorLink16Icon ]

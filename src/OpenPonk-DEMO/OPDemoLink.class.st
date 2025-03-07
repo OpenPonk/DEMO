@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoLink',
-	#superclass : 'OPDemoElement',
+	#superclass : 'OPModelObject',
 	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'

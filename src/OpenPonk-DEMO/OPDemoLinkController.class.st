@@ -1,15 +1,15 @@
 Class {
 	#name : 'OPDemoLinkController',
 	#superclass : 'OPDemoElementController',
-	#category : 'OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramControllers'
+	#tag : 'Controllers'
 }
 
 { #category : 'construction' }
 OPDemoLinkController >> diagramElementClass [
 
-	^ OPDemoLinkController 
+	^ OPDemoTargetInitiatorLinkShape 
 ]
 
 { #category : 'accessing' }

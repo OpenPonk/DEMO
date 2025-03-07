@@ -1,15 +1,15 @@
 Class {
 	#name : 'OPDemoActorController',
 	#superclass : 'OPDemoElementController',
-	#category : 'OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramControllers'
+	#tag : 'Controllers'
 }
 
 { #category : 'accessing' }
 OPDemoActorController >> diagramElementClass [
 
-	^ OPDemoActorController 
+	^ OPDemoInternalActorShape 
 ]
 
 { #category : 'accessing' }

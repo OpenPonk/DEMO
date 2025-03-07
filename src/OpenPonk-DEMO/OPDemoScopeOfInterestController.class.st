@@ -1,15 +1,15 @@
 Class {
 	#name : 'OPDemoScopeOfInterestController',
 	#superclass : 'OPDemoElementController',
-	#category : 'OpenPonk-DEMO-DiagramControllers',
+	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
-	#tag : 'DiagramControllers'
+	#tag : 'Controllers'
 }
 
 { #category : 'accessing' }
 OPDemoScopeOfInterestController >> diagramElementClass [
 
-	^ OPDemoScopeOfInterestController 
+	^ OPDemoScopeOfInterestShape 
 ]
 
 { #category : 'accessing' }
