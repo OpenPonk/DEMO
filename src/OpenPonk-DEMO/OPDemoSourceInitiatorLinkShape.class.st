@@ -7,12 +7,18 @@ Class {
 }
 
 { #category : 'rendering' }
+OPDemoSourceInitiatorLinkShape >> headMarker [
+
+	^ OPRSMarkerBuilder diamond asEmptyMarker
+]
+
+{ #category : 'rendering' }
 OPDemoSourceInitiatorLinkShape >> renderBasicShape [
 
 	^ (self source = self target
 		   ifTrue: [ OPRSBezier ]
 		   ifFalse: [ OPRSPolyline ]) new
-		  markerEnd: OPRSMarkerBuilder arrow;
+		  markerEnd: self headMarker;
 		  attachPoint: (RSBorderAttachPoint new offset: -10);
 		  controlPointsController: OPRSDraggableCPController new;
 		  addInteraction: OPRSDraggableControlPoints;

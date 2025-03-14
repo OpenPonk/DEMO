@@ -9,10 +9,10 @@ Class {
 { #category : 'construction' }
 OPDemoLinkController >> diagramElementClass [
 
-	^ OPDemoTargetInitiatorLinkShape 
+	^ self subclassResponsibility
 ]
 
 { #category : 'accessing' }
 OPDemoLinkController >> modelClass [
-	^ OPDemoLink
+	^ self subclassResponsibility
 ]

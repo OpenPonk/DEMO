@@ -35,13 +35,17 @@ OPDemoNavigatorAdapter >> displayMapping [
 		  (OPDemoStandardInternalTransaction -> 'Standard Internal Transaction').
 		  (OPDemoMultipleCompositeTransaction -> 'Multiple Composite Transaction').
 		  (OPDemoStandardCompositeTransaction -> 'Standard Composite Transaction').
-		  (OPDemoLink -> [ :o |
+		  (OPDemoAccessLink -> 'Access Link').
+		  (OPDemoSourceInitiatorLink -> 'Initiator Link').
+		  (OPDemoTargetInitiatorLink -> 'Initiator Link').
+		  (OPDemoWaitingLink -> 'Waiting Link').
+		  "(OPDemoLink -> [ :o |
 		   o isWaiting 
 			   ifTrue: [ 'Waiting Link' ]
 			   ifFalse: [ 
 				o isAccess 
 					ifTrue: ['Access Link' ]
-					ifFalse: 'Initiator Link' ] ])}
+					ifFalse: 'Initiator Link' ] ])"}
 ]
 
 { #category : 'widget API' }
@@ -57,14 +61,18 @@ OPDemoNavigatorAdapter >> iconMapping [
 
 	^ {  (OPDemo -> OPDemoEditorIcons demo16Icon ).
 		  (OPDemoScopeOfInterest -> OPDemoEditorIcons scopeOfInterest16Icon ).
-		  (OPDemoLink -> [ :o |
+		  (OPDemoAccessLink -> OPDemoEditorIcons accessLink16Icon ).
+		  (OPDemoTargetInitiatorLink -> OPDemoEditorIcons initiatorLink16Icon ).
+		  (OPDemoSourceInitiatorLink -> OPDemoEditorIcons initiatorLink16Icon ).
+		  (OPDemoWaitingLink -> OPDemoEditorIcons waitingLink16Icon ).
+		  "(OPDemoLink -> [ :o |
 		   o isInitiator
 			   ifTrue: [ OPDemoEditorIcons initiatorLink16Icon ]
 			   ifFalse: [
 					o isWaiting 
 						ifTrue: [ OPDemoEditorIcons waitingLink16Icon ]
 						ifFalse: [ OPDemoEditorIcons accessLink16Icon ] ]
-						] ).
+						] )."
 		  "(OPDemoActor -> [ :o |
 		   o isComposite
 			   ifTrue: [ OPDemoEditorIcons compositeActor16Icon ]

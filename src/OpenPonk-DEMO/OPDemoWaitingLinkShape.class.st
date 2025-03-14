@@ -12,6 +12,7 @@ OPDemoWaitingLinkShape >> renderBasicShape [
 	^ (self source = self target
 		   ifTrue: [ OPRSBezier ]
 		   ifFalse: [ OPRSPolyline ]) new
+		  dashed;
 		  markerEnd: OPRSMarkerBuilder arrow;
 		  attachPoint: (RSBorderAttachPoint new offset: -10);
 		  controlPointsController: OPRSDraggableCPController new;

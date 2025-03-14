@@ -1,6 +1,10 @@
 Class {
 	#name : 'OPDemoLink',
 	#superclass : 'OPModelObject',
+	#instVars : [
+		'source',
+		'target'
+	],
 	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'
@@ -31,4 +35,24 @@ OPDemoLink >> isEdge [
 { #category : 'testing' }
 OPDemoLink >> isNode [
 	^ false
+]
+
+{ #category : 'testing' }
+OPDemoLink >> source [
+	^ source
+]
+
+{ #category : 'testing' }
+OPDemoLink >> source: aSource [
+	source := aSource
+]
+
+{ #category : 'testing' }
+OPDemoLink >> target [
+	^ target
+]
+
+{ #category : 'testing' }
+OPDemoLink >> target: aTarget [
+	target := aTarget
 ]

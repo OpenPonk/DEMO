@@ -6,24 +6,6 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'accessing' }
-OPDemoAccessLink >> beSourceInitiator [
-	
-	^ OPDemoSourceInitiatorLink new
-]
-
-{ #category : 'accessing' }
-OPDemoAccessLink >> beTargetInitiator [
-	
-	^ OPDemoTargetInitiatorLink new
-]
-
-{ #category : 'accessing' }
-OPDemoAccessLink >> beWaiting [
-	
-	^ OPDemoWaitingLink new
-]
-
 { #category : 'testing' }
 OPDemoAccessLink >> isAccess [ 
 	

@@ -83,9 +83,15 @@ OPDemoController >> initializePalette: aPalette [
 			factory: [ OPDemoMultipleCompositeTransactionController new ] 
 			icon: OPDemoEditorIcons multipleCompositeTransaction16Icon;
 		newSeparator;
-		newConnectionCreationTool: 'Link'
-			factory: [ OPDemoLinkController new ]
+		newConnectionCreationTool: 'Access Link'
+			factory: [ OPDemoAccessLinkController new ]
+			icon: OPDemoEditorIcons accessLink16Icon;
+		newConnectionCreationTool: 'Initiator Link'
+			factory: [ OPDemoTargetInitiatorLinkController new ]
 			icon: OPDemoEditorIcons initiatorLink16Icon;
+		newConnectionCreationTool: 'Waiting Link'
+			factory: [ OPDemoWaitingLinkController new ]
+			icon: OPDemoEditorIcons waitingLink16Icon;
 		newSeparator;
 		newCreationTool: 'Scope of interest'
 			factory: [ OPDemoScopeOfInterestController new ]
