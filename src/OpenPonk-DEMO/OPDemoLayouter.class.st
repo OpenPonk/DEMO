@@ -16,9 +16,13 @@ OPDemoLayouter >> allEdges [
 { #category : 'accessing' }
 OPDemoLayouter >> allNodes [
 	^ diagramController controllers
-		select: [ :ctrl | (ctrl isKindOf: OPDemoActorController)
-			or: [(ctrl isKindOf: OPDemoTransactionController)  
-			or: [ctrl isKindOf: OPDemoScopeOfInterestController ]]]
+		select: [ :ctrl | (ctrl isKindOf: OPDemoCompositeActorController)
+			or: [(ctrl isKindOf: OPDemoInternalActorController)  
+			or: [(ctrl isKindOf: OPDemoScopeOfInterestController)
+			or: [(ctrl isKindOf: OPDemoStandardCompositeTransactionController )
+			or: [(ctrl isKindOf: OPDemoStandardInternalTransactionController )
+			or: [(ctrl isKindOf: OPDemoMultipleCompositeTransactionController )
+			or: [(ctrl isKindOf: OPDemoMultipleInternalTransactionController )]]]]]]]
 		thenCollect: #roassalShape
 ]
 

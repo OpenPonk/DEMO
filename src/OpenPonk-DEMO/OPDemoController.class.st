@@ -57,9 +57,12 @@ OPDemoController >> elementsToShowInside [
 { #category : 'ui interaction' }
 OPDemoController >> initializePalette: aPalette [
 	aPalette
-		newCreationTool: 'Actor'
-			factory: [ OPDemoActorController new ]
-			icon: OPDemoEditorIcons actor16Icon;
+		newCreationTool: 'Composite Actor'
+			factory: [ OPDemoCompositeActorController new ]
+			icon: OPDemoEditorIcons compositeActor16Icon;
+		newCreationTool: 'Internal Actor'
+			factory: [ OPDemoInternalActorController new ]
+			icon: OPDemoEditorIcons actor16Icon ;
 		newSeparator;
 		newCreationTool: 'Transaction' 
 			factory: [ OPDemoTransactionController new ] 

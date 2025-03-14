@@ -28,18 +28,20 @@ OPDemoInternalActor >> initialize [
 
 { #category : 'testing' }
 OPDemoInternalActor >> isComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	^ false
+]
 
-	|bool_var|
-	bool_var := super isComposite .
-	^ bool_var 
+{ #category : 'testing' }
+OPDemoInternalActor >> isEdge [
+	^ false
 ]
 
 { #category : 'testing' }
 OPDemoInternalActor >> isInternal [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
+	^ true
+]
 
-	^ super isInternal 
+{ #category : 'testing' }
+OPDemoInternalActor >> isNode [
+	^ true
 ]

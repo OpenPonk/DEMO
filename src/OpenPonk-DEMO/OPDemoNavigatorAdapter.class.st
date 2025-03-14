@@ -25,10 +25,16 @@ OPDemoNavigatorAdapter >> displayMapping [
 
 	^ {  (OPDemo -> 'Diagram').
 		  (OPDemoScopeOfInterest -> 'Scope of interest').
-		  (OPDemoActor -> [ :o |
+		  "(OPDemoActor -> [ :o |
 		   o isComposite
 			   ifTrue: [ 'Composite Actor' ]
-			   ifFalse: [ 'Internal Actor' ] ]).
+			   ifFalse: [ 'Internal Actor' ] ])."
+		  (OPDemoCompositeActor -> 'Composite Actor').
+		  (OPDemoInternalActor -> 'Internal Actor').
+		  (OPDemoMultipleInternalTransaction -> 'Multiple Internal Transaction').
+		  (OPDemoStandardInternalTransaction -> 'Standard Internal Transaction').
+		  (OPDemoMultipleCompositeTransaction -> 'Multiple Composite Transaction').
+		  (OPDemoStandardCompositeTransaction -> 'Standard Composite Transaction').
 		  (OPDemoLink -> [ :o |
 		   o isWaiting 
 			   ifTrue: [ 'Waiting Link' ]
@@ -59,10 +65,16 @@ OPDemoNavigatorAdapter >> iconMapping [
 						ifTrue: [ OPDemoEditorIcons waitingLink16Icon ]
 						ifFalse: [ OPDemoEditorIcons accessLink16Icon ] ]
 						] ).
-		  (OPDemoActor -> [ :o |
+		  "(OPDemoActor -> [ :o |
 		   o isComposite
 			   ifTrue: [ OPDemoEditorIcons compositeActor16Icon ]
-			   ifFalse: [ OPDemoEditorIcons actor16Icon ] ])}
+			   ifFalse: [ OPDemoEditorIcons actor16Icon ] ])."
+		  (OPDemoCompositeActor -> OPDemoEditorIcons compositeActor16Icon ).
+		  (OPDemoInternalActor -> OPDemoEditorIcons compositeActor16Icon ).
+		  (OPDemoStandardInternalTransaction -> OPDemoEditorIcons transaction16Icon ).
+		  (OPDemoStandardCompositeTransaction -> OPDemoEditorIcons transaction16Icon ).
+		  (OPDemoMultipleInternalTransaction -> OPDemoEditorIcons transaction16Icon ).
+		  (OPDemoMultipleCompositeTransaction -> OPDemoEditorIcons transaction16Icon )}
 ]
 
 { #category : 'widget API' }
@@ -70,5 +82,5 @@ OPDemoNavigatorAdapter >> typesByDependency [
 
 	^ {  OPDemo.
 		  OPDemoElement.
-		  "OPDemoLink" }
+		  OPDemoLink }
 ]

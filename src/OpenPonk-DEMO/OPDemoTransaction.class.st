@@ -53,10 +53,7 @@ OPDemoTransaction >> beStandard [
 
 { #category : 'testing' }
 OPDemoTransaction >> isComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	^ isComposite 
+	^ self subclassResponsibility
 ]
 
 { #category : 'testing' }
@@ -66,10 +63,7 @@ OPDemoTransaction >> isEdge [
 
 { #category : 'testing' }
 OPDemoTransaction >> isMultiple [ 
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	^ isMultiple 
+	^ self subclassResponsibility
 ]
 
 { #category : 'testing' }

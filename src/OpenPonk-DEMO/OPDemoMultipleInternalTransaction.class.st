@@ -36,14 +36,12 @@ OPDemoMultipleInternalTransaction >> initialize [
 
 { #category : 'testing' }
 OPDemoMultipleInternalTransaction >> isComposite [
-	
-	^ super isComposite 
+	^ false
 ]
 
 { #category : 'testing' }
 OPDemoMultipleInternalTransaction >> isMultiple [
-	
-	^ super isMultiple 
+	^ true 
 ]
 
 { #category : 'instance creation' }

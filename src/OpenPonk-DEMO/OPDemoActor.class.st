@@ -29,11 +29,7 @@ OPDemoActor >> beInternal [
 
 { #category : 'testing' }
 OPDemoActor >> isComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	||
-	^ isComposite 
+	^ self subclassResponsibility
 ]
 
 { #category : 'testing' }
@@ -49,11 +45,7 @@ OPDemoActor >> isEdge [
 
 { #category : 'testing' }
 OPDemoActor >> isInternal [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	||
-	^ isComposite not
+	^ self subclassResponsibility
 ]
 
 { #category : 'testing' }
