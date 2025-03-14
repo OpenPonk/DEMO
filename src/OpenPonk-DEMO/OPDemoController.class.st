@@ -43,8 +43,14 @@ OPDemoController >> controllerFactory [
 
 	^ super controllerFactory
 		  register: OPDemoScopeOfInterestController forModel: OPDemoScopeOfInterest;
-		  register: OPDemoActorController forModel: OPDemoActor;
-		  register: OPDemoTransactionController forModel: OPDemoTransaction;
+		  "register: OPDemoActorController forModel: OPDemoActor;"
+   		  register: OPDemoCompositeActorController forModel: OPDemoCompositeActor;
+		  register: OPDemoInternalActorController forModel: OPDemoInternalActor;
+		  "register: OPDemoTransactionController forModel: OPDemoTransaction;"
+		  register: OPDemoStandardInternalTransactionController forModel: OPDemoStandardInternalTransaction;
+		  register: OPDemoStandardCompositeTransactionController forModel: OPDemoStandardCompositeTransaction;
+		  register: OPDemoMultipleInternalTransactionController forModel: OPDemoMultipleInternalTransaction;
+		  register: OPDemoMultipleCompositeTransactionController forModel: OPDemoMultipleCompositeTransaction;
 		  register: OPDemoLinkController forModel: OPDemoLink
 ]
 
@@ -65,15 +71,25 @@ OPDemoController >> initializePalette: aPalette [
 			icon: OPDemoEditorIcons actor16Icon ;
 		newSeparator;
 		newCreationTool: 'Transaction' 
-			factory: [ OPDemoTransactionController new ] 
+			factory: [ OPDemoStandardInternalTransactionController new ] 
 			icon: OPDemoEditorIcons transaction16Icon;
-		newCreationTool: 'Scope of interest'
-			factory: [ OPDemoScopeOfInterestController new ]
-			icon: OPDemoEditorIcons scopeOfInterest16Icon;
+		newCreationTool: 'Composite Transaction' 
+			factory: [ OPDemoStandardCompositeTransactionController new ] 
+			icon: OPDemoEditorIcons compositeTransaction16Icon;
+		newCreationTool: 'Multiple Transaction' 
+			factory: [ OPDemoMultipleInternalTransactionController new ] 
+			icon: OPDemoEditorIcons multipleTransaction16Icon;
+		newCreationTool: 'Multiple Composite Transaction' 
+			factory: [ OPDemoMultipleCompositeTransactionController new ] 
+			icon: OPDemoEditorIcons multipleCompositeTransaction16Icon;
 		newSeparator;
 		newConnectionCreationTool: 'Link'
 			factory: [ OPDemoLinkController new ]
-			icon: OPDemoEditorIcons initiatorLink16Icon 
+			icon: OPDemoEditorIcons initiatorLink16Icon;
+		newSeparator;
+		newCreationTool: 'Scope of interest'
+			factory: [ OPDemoScopeOfInterestController new ]
+			icon: OPDemoEditorIcons scopeOfInterest16Icon
 ]
 
 { #category : 'ui interaction' }

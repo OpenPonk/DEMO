@@ -42,6 +42,7 @@ OPDemoStandardCompositeTransactionShape >> renderShapeDetails [
 		               size: 50;
 		               color: Color transparent;
 		               model: self;
+							borderColor: Color black;
 							borderWidth: 1.5;
 							rotateByDegrees: 45;
 		               yourself.

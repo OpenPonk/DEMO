@@ -70,11 +70,11 @@ OPDemoNavigatorAdapter >> iconMapping [
 			   ifTrue: [ OPDemoEditorIcons compositeActor16Icon ]
 			   ifFalse: [ OPDemoEditorIcons actor16Icon ] ])."
 		  (OPDemoCompositeActor -> OPDemoEditorIcons compositeActor16Icon ).
-		  (OPDemoInternalActor -> OPDemoEditorIcons compositeActor16Icon ).
+		  (OPDemoInternalActor -> OPDemoEditorIcons actor16Icon ).
 		  (OPDemoStandardInternalTransaction -> OPDemoEditorIcons transaction16Icon ).
-		  (OPDemoStandardCompositeTransaction -> OPDemoEditorIcons transaction16Icon ).
-		  (OPDemoMultipleInternalTransaction -> OPDemoEditorIcons transaction16Icon ).
-		  (OPDemoMultipleCompositeTransaction -> OPDemoEditorIcons transaction16Icon )}
+		  (OPDemoStandardCompositeTransaction -> OPDemoEditorIcons compositeTransaction16Icon ).
+		  (OPDemoMultipleInternalTransaction -> OPDemoEditorIcons multipleTransaction16Icon ).
+		  (OPDemoMultipleCompositeTransaction -> OPDemoEditorIcons multipleCompositeTransaction16Icon )}
 ]
 
 { #category : 'widget API' }
