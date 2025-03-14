@@ -59,6 +59,12 @@ OPDemoStandardInternalTransactionShape >> selectableInteraction [
 ]
 
 { #category : 'rendering' }
+OPDemoStandardInternalTransactionShape >> shouldBeResizableByUser [
+
+	^ true
+]
+
+{ #category : 'rendering' }
 OPDemoStandardInternalTransactionShape >> updateRenderFromModel [
 
 	label text: self modelElement name.

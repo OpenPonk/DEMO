@@ -9,7 +9,10 @@ Class {
 { #category : 'accessing' }
 OPDemoLayouter >> allEdges [
 	^ diagramController controllers
-		select: [ :ctrl | ctrl isKindOf: OPDemoLinkController ]
+		select: [ :ctrl | (ctrl isKindOf: OPDemoAccessLinkController )
+			or: [(ctrl isKindOf: OPDemoSourceInitiatorLinkController)  
+			or: [(ctrl isKindOf: OPDemoTargetInitiatorLinkController)
+			or: [(ctrl isKindOf: OPDemoWaitingLinkController )]]]]
 		thenCollect: #roassalShape
 ]
 

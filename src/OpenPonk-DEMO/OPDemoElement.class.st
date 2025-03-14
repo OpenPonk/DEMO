@@ -8,3 +8,15 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'
 }
+
+{ #category : 'accessing' }
+OPDemoElement >> incoming [
+	owner ifNil: [ ^ #() ].
+	^ owner edges select: [ :each | each target = self ]
+]
+
+{ #category : 'accessing' }
+OPDemoElement >> outgoing [
+	owner ifNil: [ ^ #() ].
+	^ owner edges select: [ :each | each source = self ]
+]

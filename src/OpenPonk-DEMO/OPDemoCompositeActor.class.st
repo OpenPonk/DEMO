@@ -30,9 +30,7 @@ OPDemoCompositeActor >> beInternal [
 OPDemoCompositeActor >> initialize [
 	"comment stating purpose of instance-side method"
 	"scope: class-variables  &  instance-variables"
-
-	||
-	super beComposite.
+	"super beComposite."
 ]
 
 { #category : 'testing' }
