@@ -33,15 +33,14 @@ OPDemoController >> controllerFactory [
 
 	^ super controllerFactory
 		  register: OPDemoScopeOfInterestController forModel: OPDemoScopeOfInterest;
-		  "register: OPDemoActorController forModel: OPDemoActor;"
    		  register: OPDemoCompositeActorController forModel: OPDemoCompositeActor;
 		  register: OPDemoInternalActorController forModel: OPDemoInternalActor;
-		  "register: OPDemoTransactionController forModel: OPDemoTransaction;"
 		  register: OPDemoStandardInternalTransactionController forModel: OPDemoStandardInternalTransaction;
 		  register: OPDemoStandardCompositeTransactionController forModel: OPDemoStandardCompositeTransaction;
 		  register: OPDemoMultipleInternalTransactionController forModel: OPDemoMultipleInternalTransaction;
 		  register: OPDemoMultipleCompositeTransactionController forModel: OPDemoMultipleCompositeTransaction;
-		  register: OPDemoLinkController forModel: OPDemoLink
+		  register: OPDemoLinkController forModel: OPDemoLink;
+		  register: OPDemoFactsController forModel: OPDemoFacts
 ]
 
 { #category : 'ui interaction' }
@@ -72,6 +71,10 @@ OPDemoController >> initializePalette: aPalette [
 		newCreationTool: 'Multiple Composite Transaction' 
 			factory: [ OPDemoMultipleCompositeTransactionController new ] 
 			icon: OPDemoEditorIcons multipleCompositeTransaction16Icon;
+		newSeparator;
+		newCreationTool: 'Facts'
+			factory: [ OPDemoFactsController new ]
+			icon: OPDemoEditorIcons facts16Icon ;
 		newSeparator;
 		newConnectionCreationTool: 'Access Link'
 			factory: [ OPDemoAccessLinkController new ]

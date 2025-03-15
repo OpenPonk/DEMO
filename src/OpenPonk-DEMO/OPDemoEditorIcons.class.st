@@ -106,6 +106,19 @@ OPDemoEditorIcons class >> demo16IconContents [
 ]
 
 { #category : 'accessing - icons' }
+OPDemoEditorIcons class >> facts16Icon [
+
+	^ Form fromBinaryStream: self facts16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> facts16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALVSURBVDhPxZNNbyp1FMZ/zJ8Z3utMSaGQ21ISmlYaXFCGJho2/QSYmHhduXHhpzDGxV27cWli7ua6N25cYdVVeVm0NFHSBAhDoeWlmfJaGMaFQu71C/iszuL8cp7zJI+Dd6UEg8FPk8nkJy6XK9Xtdt2qqtqNRsMKBAJ/Pj4+/mQYxg+AuQYc60GW5Q9yudyPZ2dn7wNUKhV2dnZwOp3EYjFub28ZjUYsFovOxcXF56Zp/gIg/oVT+Xz+N13XX6xWKyqVCtlslmAwyHA4xDRN4vE4fr+fwWDgPz09fVmv18uz2awmAUoul3tzcnLy3mKxoFwuk81mkSQJgHg8jmVZNJtN/H4/e3t7rFYr+fz8/DWwI1RVfZnP579crVaUy2V0XUcIsf4MAE3T6Pf7PD09EY1GaTQapFIpT6vVsoSu698cHBwcr2GH459Ylssltm1vnGiaRq/XYzwe4/V6EUJg23ZEHB8fv+p0Otr6crVaRZIkarUaiqLg8/m4ubnB4/Gwu7tLr9fj+fmZ8XiMoijbkmEYnkgkghACy7IYj8e0222CwSBer5dms0k4HN68s7+/j2EYLJdLZFlGpNPpz9xud3QymWwWnE4nHo+Hra0tVFXFtm1kWQagVCqRTCZxOByYpjmVWq3Wr4lEgul0urZFOBxme3t7k4fP50MIweXlJZlMhvv7e6LRKP1+/3epWq1+32w2rcPDQyaTCYZhbOyutVwuKRaL6LqOJEnMZjNGoxGlUuk7ATyMRiPf0dHRR6FQiE6nw3w+JxAIvANnMhmcTidXV1ckEgkKhcLPjUbjawEwGAwKw+HwMBaLpSKRCHd3d8znc7xe7wYWQnB9fY2maRSLxT+KxeLHwHzTBcARCoW+yGazXyUSiRfdbpeHhwfS6TTtdpt2u40Q4rFWq31br9dfAQveLtNbEsCHqqqmFEVx93o92+VyWdPp9C+gAMz+C/y/+hsxizk4ijttAwAAAABJRU5ErkJggg=='
+	
+]
+
+{ #category : 'accessing - icons' }
 OPDemoEditorIcons class >> initiatorLink16Icon [
 
 	^ Form fromBinaryStream: self initiatorLink16IconContents base64Decoded asByteArray readStream

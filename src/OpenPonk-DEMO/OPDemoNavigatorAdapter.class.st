@@ -34,7 +34,8 @@ OPDemoNavigatorAdapter >> displayMapping [
 		  (OPDemoAccessLink -> 'Access Link').
 		  (OPDemoSourceInitiatorLink -> 'Initiator Link').
 		  (OPDemoTargetInitiatorLink -> 'Initiator Link').
-		  (OPDemoWaitingLink -> 'Waiting Link').}
+		  (OPDemoWaitingLink -> 'Waiting Link').
+		  (OPDemoFacts -> 'Facts').}
 ]
 
 { #category : 'widget API' }
@@ -60,7 +61,8 @@ OPDemoNavigatorAdapter >> iconMapping [
 		  (OPDemoStandardInternalTransaction -> OPDemoEditorIcons transaction16Icon ).
 		  (OPDemoStandardCompositeTransaction -> OPDemoEditorIcons compositeTransaction16Icon ).
 		  (OPDemoMultipleInternalTransaction -> OPDemoEditorIcons multipleTransaction16Icon ).
-		  (OPDemoMultipleCompositeTransaction -> OPDemoEditorIcons multipleCompositeTransaction16Icon )}
+		  (OPDemoMultipleCompositeTransaction -> OPDemoEditorIcons multipleCompositeTransaction16Icon ).
+		  (OPDemoFacts -> OPDemoEditorIcons facts16Icon )}
 ]
 
 { #category : 'widget API' }

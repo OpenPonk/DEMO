@@ -1,8 +1,9 @@
 Class {
-	#name : 'OPDemoMultipleCompositeTransactionShape',
+	#name : 'OPDemoFactsShape',
 	#superclass : 'OPDemoElementShape',
 	#instVars : [
-		'multipleSquare'
+		'multipleSquare',
+		'label_second'
 	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
@@ -10,18 +11,19 @@ Class {
 }
 
 { #category : 'accessing' }
-OPDemoMultipleCompositeTransactionShape >> attachedShapes [
+OPDemoFactsShape >> attachedShapes [
 
 	^ super attachedShapes , {
 		  label.
-		  square}
+		  square.
+		  "label_second"}
 ]
 
 { #category : 'accessing' }
-OPDemoMultipleCompositeTransactionShape >> renderBasicShape [
+OPDemoFactsShape >> renderBasicShape [
 
 	^ RSCircle new
-		  size: 70;
+		  size: 40;
 		  color: Color gray;
 		  border: (RSBorder new
 				   color: Color black;
@@ -31,19 +33,30 @@ OPDemoMultipleCompositeTransactionShape >> renderBasicShape [
 ]
 
 { #category : 'rendering' }
-OPDemoMultipleCompositeTransactionShape >> renderShapeDetails [
-	|llocation slocation mslocation|
+OPDemoFactsShape >> renderShapeDetails [
+	|llocation slocation mslocation "lslocation" labeled|
 	super renderShapeDetails.
+	
+	labeled := OPRSLabeled new.
+	labeled color: Color black.
+	labeled text: 'Facts'.
+	labeled location
+		outer;
+		center;
+		top;
+		offset: -6 @ 0.
+	roassalShape @ labeled.
+	
 	label := RSLabel new
 		         color: Color black;
 		         height: 11;
 		         model: self;
 		         yourself.
 	llocation := RSLocation new.
-	llocation offset: -10@0.
+	llocation offset: -8@0.
 	llocation stick: label on: self roassalShape.
 	square := RSBox new
-		               size: 50;
+		               size: 28;
 		               color: Color transparent;
 		               model: self;
 							borderColor: Color black;
@@ -51,10 +64,10 @@ OPDemoMultipleCompositeTransactionShape >> renderShapeDetails [
 							rotateByDegrees: 45;
 		               yourself.
 	slocation := RSLocation new.
-	slocation offset: -10@0.
+	slocation offset: -8@0.
 	slocation stick: square on: self roassalShape.
 	multipleSquare := RSCircle new
-		               size: 70;
+		               size: 40;
 		               color: Color gray ;
 		               model: self;
 							borderColor: Color black;
@@ -62,22 +75,32 @@ OPDemoMultipleCompositeTransactionShape >> renderShapeDetails [
 							rotateByDegrees: 45;
 		               yourself.
 	mslocation := RSLocation new.
-	mslocation offset: -10@0.
+	mslocation offset: -8@0.
 	mslocation stick: multipleSquare on: self roassalShape.
+	"label_second := RSLabel new
+		         color: Color black;
+		         height: 11;
+		         model: self;
+					text: 'Facts';
+		         yourself.
+	lslocation := RSLocation new.
+	lslocation offset: -6@(-30).
+	lslocation stick: label_second on: self roassalShape."
 	self canvas
 		add: multipleSquare;
 		add: square;
 		add: label
+		"add: label_second"
 ]
 
 { #category : 'accessing' }
-OPDemoMultipleCompositeTransactionShape >> selectableInteraction [
+OPDemoFactsShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightBorderColorBlue
 ]
 
 { #category : 'rendering' }
-OPDemoMultipleCompositeTransactionShape >> updateRenderFromModel [
+OPDemoFactsShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
 	"square borderColor: (self modelElement isFinal

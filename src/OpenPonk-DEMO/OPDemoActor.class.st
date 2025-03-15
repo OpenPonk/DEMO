@@ -9,33 +9,9 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'accessing' }
-OPDemoActor >> beComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	||
-	isComposite := true
-]
-
-{ #category : 'accessing' }
-OPDemoActor >> beInternal [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	||
-	isComposite := false
-]
-
 { #category : 'testing' }
 OPDemoActor >> isComposite [
 	^ self subclassResponsibility
-]
-
-{ #category : 'testing' }
-OPDemoActor >> isComposite: aBoolean [
-	isComposite := aBoolean.
-	self changed
 ]
 
 { #category : 'testing' }

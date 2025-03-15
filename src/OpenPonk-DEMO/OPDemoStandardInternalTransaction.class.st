@@ -6,34 +6,6 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'accessing' }
-OPDemoStandardInternalTransaction >> beComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	|newStandardCompositeTransaction|
-	"super beInternal."
-	newStandardCompositeTransaction := OPDemoStandardCompositeTransaction new.
-	^ newStandardCompositeTransaction 
-]
-
-{ #category : 'accessing' }
-OPDemoStandardInternalTransaction >> beMultiple [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	|newMultipleInternalTransaction|
-	"super beInternal."
-	newMultipleInternalTransaction := OPDemoMultipleInternalTransaction new.
-	^ newMultipleInternalTransaction 
-]
-
-{ #category : 'initialization' }
-OPDemoStandardInternalTransaction >> initialize [
-
-	super beMultiple: false beComposite: false
-]
-
 { #category : 'testing' }
 OPDemoStandardInternalTransaction >> isComposite [
 	^ false
@@ -42,10 +14,4 @@ OPDemoStandardInternalTransaction >> isComposite [
 { #category : 'testing' }
 OPDemoStandardInternalTransaction >> isMultiple [
 	^ false
-]
-
-{ #category : 'instance creation' }
-OPDemoStandardInternalTransaction >> new [
-
-	super beMultiple: false beComposite: false
 ]

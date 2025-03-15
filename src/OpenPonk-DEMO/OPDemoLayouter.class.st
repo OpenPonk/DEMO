@@ -25,7 +25,8 @@ OPDemoLayouter >> allNodes [
 			or: [(ctrl isKindOf: OPDemoStandardCompositeTransactionController )
 			or: [(ctrl isKindOf: OPDemoStandardInternalTransactionController )
 			or: [(ctrl isKindOf: OPDemoMultipleCompositeTransactionController )
-			or: [(ctrl isKindOf: OPDemoMultipleInternalTransactionController )]]]]]]]
+			or: [(ctrl isKindOf: OPDemoMultipleInternalTransactionController )
+			or: [(ctrl isKindOf: OPDemoFactsController )]]]]]]]]
 		thenCollect: #roassalShape
 ]
 
