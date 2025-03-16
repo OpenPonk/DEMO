@@ -16,7 +16,7 @@ OPDemoFactsShape >> attachedShapes [
 	^ super attachedShapes , {
 		  label.
 		  square.
-		  "label_second"}
+		  label_second}
 ]
 
 { #category : 'accessing' }
@@ -37,7 +37,18 @@ OPDemoFactsShape >> renderShapeDetails [
 	|llocation slocation mslocation "lslocation" labeled|
 	super renderShapeDetails.
 	
-	labeled := OPRSLabeled new.
+	
+	label_second := RSLabel new
+		         color: Color black;
+		         height: 11;
+		         model: self;
+		         yourself.
+	llocation := RSLocation new.
+	llocation offset: -6@(-30).
+	llocation stick: label_second on: self roassalShape.
+	
+	
+	"labeled := OPRSLabeled new.
 	labeled color: Color black.
 	labeled text: 'Facts'.
 	labeled location
@@ -45,8 +56,7 @@ OPDemoFactsShape >> renderShapeDetails [
 		center;
 		top;
 		offset: -6 @ 0.
-	roassalShape @ labeled.
-	
+	roassalShape @ labeled."
 	label := RSLabel new
 		         color: Color black;
 		         height: 11;
@@ -89,7 +99,8 @@ OPDemoFactsShape >> renderShapeDetails [
 	self canvas
 		add: multipleSquare;
 		add: square;
-		add: label
+		add: label;
+		add: label_second
 		"add: label_second"
 ]
 
@@ -103,6 +114,7 @@ OPDemoFactsShape >> selectableInteraction [
 OPDemoFactsShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
+	label_second text: self modelElement labelFacts.
 	"square borderColor: (self modelElement isFinal
 			 ifTrue: [ Color black ]
 			 ifFalse: [ Color transparent ])."
