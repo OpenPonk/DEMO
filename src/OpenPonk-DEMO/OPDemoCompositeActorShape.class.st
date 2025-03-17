@@ -47,6 +47,12 @@ OPDemoCompositeActorShape >> selectableInteraction [
 ]
 
 { #category : 'rendering' }
+OPDemoCompositeActorShape >> shouldBeResizableByUser [
+
+	^ true
+]
+
+{ #category : 'rendering' }
 OPDemoCompositeActorShape >> updateRenderFromModel [
 
 	label text: self modelElement name.

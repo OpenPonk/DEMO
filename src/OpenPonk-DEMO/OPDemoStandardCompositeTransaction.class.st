@@ -6,6 +6,12 @@ Class {
 	#tag : 'Models'
 }
 
+{ #category : 'initialization' }
+OPDemoStandardCompositeTransaction >> initialize [ 
+	super initialize.
+	type := 'Ontological'
+]
+
 { #category : 'testing' }
 OPDemoStandardCompositeTransaction >> isComposite [
 	^ true 

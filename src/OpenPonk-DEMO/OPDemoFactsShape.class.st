@@ -35,10 +35,8 @@ OPDemoFactsShape >> renderBasicShape [
 
 { #category : 'rendering' }
 OPDemoFactsShape >> renderShapeDetails [
-	|llocation slocation mslocation "lslocation" labeled|
+	|llocation slocation mslocation |
 	super renderShapeDetails.
-	
-	
 	label_second := RSLabel new
 		         color: Color black;
 		         height: 11;
@@ -47,17 +45,6 @@ OPDemoFactsShape >> renderShapeDetails [
 	llocation := RSLocation new.
 	llocation offset: -6@(-30).
 	llocation stick: label_second on: self roassalShape.
-	
-	
-	"labeled := OPRSLabeled new.
-	labeled color: Color black.
-	labeled text: 'Facts'.
-	labeled location
-		outer;
-		center;
-		top;
-		offset: -6 @ 0.
-	roassalShape @ labeled."
 	label := RSLabel new
 		         color: Color black;
 		         height: 11;
@@ -88,21 +75,11 @@ OPDemoFactsShape >> renderShapeDetails [
 	mslocation := RSLocation new.
 	mslocation offset: -8@0.
 	mslocation stick: multipleSquare on: self roassalShape.
-	"label_second := RSLabel new
-		         color: Color black;
-		         height: 11;
-		         model: self;
-					text: 'Facts';
-		         yourself.
-	lslocation := RSLocation new.
-	lslocation offset: -6@(-30).
-	lslocation stick: label_second on: self roassalShape."
 	self canvas
 		add: multipleSquare;
 		add: square;
 		add: label;
 		add: label_second
-		"add: label_second"
 ]
 
 { #category : 'accessing' }

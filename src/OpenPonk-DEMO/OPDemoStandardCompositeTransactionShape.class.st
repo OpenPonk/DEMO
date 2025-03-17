@@ -62,6 +62,7 @@ OPDemoStandardCompositeTransactionShape >> selectableInteraction [
 OPDemoStandardCompositeTransactionShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
+	square borderColor: self modelElement typeColor .
 	"square borderColor: (self modelElement isFinal
 			 ifTrue: [ Color black ]
 			 ifFalse: [ Color transparent ])."

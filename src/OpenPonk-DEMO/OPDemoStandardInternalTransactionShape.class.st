@@ -1,6 +1,9 @@
 Class {
 	#name : 'OPDemoStandardInternalTransactionShape',
 	#superclass : 'OPDemoElementShape',
+	#instVars : [
+		'type'
+	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
@@ -59,15 +62,10 @@ OPDemoStandardInternalTransactionShape >> selectableInteraction [
 ]
 
 { #category : 'rendering' }
-OPDemoStandardInternalTransactionShape >> shouldBeResizableByUser [
-
-	^ true
-]
-
-{ #category : 'rendering' }
 OPDemoStandardInternalTransactionShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
+	square borderColor: self modelElement typeColor .
 	"square borderColor: (self modelElement isFinal
 			 ifTrue: [ Color black ]
 			 ifFalse: [ Color transparent ])."

@@ -47,6 +47,12 @@ OPDemoInternalActorShape >> selectableInteraction [
 ]
 
 { #category : 'rendering' }
+OPDemoInternalActorShape >> shouldBeResizableByUser [
+
+	^ true
+]
+
+{ #category : 'rendering' }
 OPDemoInternalActorShape >> updateRenderFromModel [
 
 	label text: self modelElement name.

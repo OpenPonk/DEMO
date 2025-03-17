@@ -7,6 +7,20 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoMultipleCompositeTransactionController >> buildEditorForm: aForm [
+	
+	super buildEditorForm: aForm.
+
+	(aForm addDroplist: 'Type')
+		items: #('Ontological'  'Informational' 'Documental');
+		display: [ :type | type asString ];
+		selectItem: self model type;
+		whenSelectedItemChangedDo: [ :newValue |
+			self model type: newValue.
+			self modelChanged ]
+]
+
+{ #category : 'accessing' }
 OPDemoMultipleCompositeTransactionController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and:
 	[aController modelClass = OPDemoAccessLink or:

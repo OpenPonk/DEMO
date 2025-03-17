@@ -59,12 +59,6 @@ OPDemoScopeOfInterestShape >> selectableInteraction [
 ]
 
 { #category : 'rendering' }
-OPDemoScopeOfInterestShape >> shouldBePositionableByUser [
-
-	^ true
-]
-
-{ #category : 'rendering' }
 OPDemoScopeOfInterestShape >> shouldBeResizableByUser [
 
 	^ true

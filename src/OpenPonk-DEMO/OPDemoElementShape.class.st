@@ -25,5 +25,5 @@ OPDemoElementShape >> shouldBePositionableByUser [
 { #category : 'rendering' }
 OPDemoElementShape >> shouldBeResizableByUser [
 
-	^ true
+	^ false
 ]
