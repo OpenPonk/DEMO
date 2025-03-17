@@ -16,3 +16,10 @@ OPDemoLinkController >> diagramElementClass [
 OPDemoLinkController >> modelClass [
 	^ self subclassResponsibility
 ]
+
+{ #category : 'accessing' }
+OPDemoLinkController >> removeModel [
+
+	self diagramController model remove: self model.
+	super removeModel
+]

@@ -23,6 +23,12 @@ OPDemoElementController >> canBeTargetFor: aController [
 	^ self canBeSourceFor: aController
 ]
 
+{ #category : 'accessing' }
+OPDemoElementController >> dependentElements [
+
+	^ (self model incoming , self model outgoing) asSet
+]
+
 { #category : 'construction' }
 OPDemoElementController >> diagramElementClass [
 
@@ -32,4 +38,11 @@ OPDemoElementController >> diagramElementClass [
 { #category : 'accessing' }
 OPDemoElementController >> modelClass [
 	^ self subclassResponsibility
+]
+
+{ #category : 'accessing' }
+OPDemoElementController >> removeModel [
+
+	self diagramController model remove: self model.
+	super removeModel
 ]

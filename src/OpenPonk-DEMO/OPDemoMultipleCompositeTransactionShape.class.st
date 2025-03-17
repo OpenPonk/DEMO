@@ -14,7 +14,8 @@ OPDemoMultipleCompositeTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {
 		  label.
-		  square}
+		  square.
+		  multipleSquare }
 ]
 
 { #category : 'accessing' }

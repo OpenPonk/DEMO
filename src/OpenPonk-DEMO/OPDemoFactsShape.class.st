@@ -16,7 +16,8 @@ OPDemoFactsShape >> attachedShapes [
 	^ super attachedShapes , {
 		  label.
 		  square.
-		  label_second}
+		  label_second.
+		  multipleSquare }
 ]
 
 { #category : 'accessing' }
