@@ -2,7 +2,8 @@ Class {
 	#name : 'OPDemoActor',
 	#superclass : 'OPDemoElement',
 	#instVars : [
-		'isComposite'
+		'isComposite',
+		'transactionCount'
 	],
 	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
@@ -27,4 +28,9 @@ OPDemoActor >> isInternal [
 { #category : 'testing' }
 OPDemoActor >> isNode [
 	^ true
+]
+
+{ #category : 'testing' }
+OPDemoActor >> transactionCount [
+	^transactionCount 
 ]
