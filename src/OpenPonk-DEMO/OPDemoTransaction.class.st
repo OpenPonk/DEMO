@@ -2,8 +2,6 @@ Class {
 	#name : 'OPDemoTransaction',
 	#superclass : 'OPDemoElement',
 	#instVars : [
-		'isComposite',
-		'isMultiple',
 		'type'
 	],
 	#category : 'OpenPonk-DEMO-Models',
@@ -11,24 +9,20 @@ Class {
 	#tag : 'Models'
 }
 
+{ #category : 'initialization' }
+OPDemoTransaction >> initialize [ 
+	super initialize.
+	type := 'Ontological'
+]
+
 { #category : 'testing' }
 OPDemoTransaction >> isComposite [
 	^ self subclassResponsibility
 ]
 
 { #category : 'testing' }
-OPDemoTransaction >> isEdge [
-	^ false
-]
-
-{ #category : 'testing' }
 OPDemoTransaction >> isMultiple [ 
 	^ self subclassResponsibility
-]
-
-{ #category : 'testing' }
-OPDemoTransaction >> isNode [
-	^ true
 ]
 
 { #category : 'testing' }

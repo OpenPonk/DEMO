@@ -21,16 +21,6 @@ OPDemoCompositeActor >> isComposite [
 ]
 
 { #category : 'testing' }
-OPDemoCompositeActor >> isEdge [
-	^ false
-]
-
-{ #category : 'testing' }
 OPDemoCompositeActor >> isInternal [
 	^ false
-]
-
-{ #category : 'testing' }
-OPDemoCompositeActor >> isNode [
-	^ true
 ]

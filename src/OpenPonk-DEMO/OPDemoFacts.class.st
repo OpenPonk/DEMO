@@ -16,16 +16,6 @@ OPDemoFacts >> initialize [
 ]
 
 { #category : 'accessing' }
-OPDemoFacts >> isEdge [
-	^ false
-]
-
-{ #category : 'accessing' }
-OPDemoFacts >> isNode [
-	^ true
-]
-
-{ #category : 'accessing' }
 OPDemoFacts >> labelFacts [
 	^ labelFacts
 ]

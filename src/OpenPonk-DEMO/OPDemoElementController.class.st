@@ -13,9 +13,7 @@ Class {
 OPDemoElementController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and:
 	[aController modelClass = OPDemoAccessLink or:
-	[(aController modelClass = OPDemoWaitingLink) or:
-	[(aController modelClass = OPDemoTargetInitiatorLink) or: 
-	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
+	[(aController modelClass = OPDemoWaitingLink)]]
 ]
 
 { #category : 'accessing' }

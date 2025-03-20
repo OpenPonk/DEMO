@@ -79,9 +79,12 @@ OPDemoController >> initializePalette: aPalette [
 		newConnectionCreationTool: 'Access Link'
 			factory: [ OPDemoAccessLinkController new ]
 			icon: OPDemoEditorIcons accessLink16Icon;
-		newConnectionCreationTool: 'Initiator Link'
+		newConnectionCreationTool: 'Source Initiator Link'
 			factory: [ OPDemoSourceInitiatorLinkController new ]
 			icon: OPDemoEditorIcons initiatorLink16Icon;
+		newConnectionCreationTool: 'Target Initiator Link'
+			factory: [ OPDemoTargetInitiatorLinkController new ]
+			icon: OPDemoEditorIcons initiatorLinkTarget16Icon;
 		newConnectionCreationTool: 'Waiting Link'
 			factory: [ OPDemoWaitingLinkController new ]
 			icon: OPDemoEditorIcons waitingLink16Icon;

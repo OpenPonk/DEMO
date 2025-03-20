@@ -6,12 +6,6 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'initialization' }
-OPDemoMultipleInternalTransaction >> initialize [ 
-	super initialize.
-	type := 'Ontological'
-]
-
 { #category : 'testing' }
 OPDemoMultipleInternalTransaction >> isComposite [
 	^ false

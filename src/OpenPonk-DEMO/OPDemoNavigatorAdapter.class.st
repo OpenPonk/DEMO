@@ -14,10 +14,11 @@ OPDemoNavigatorAdapter class >> priority [
 
 { #category : 'widget API' }
 OPDemoNavigatorAdapter >> childrenMapping [
-
-	^ {  (OPDemo -> #nodes).
+	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
-		  "(OPFsmTransition -> #(  )) "}
+		  (OPDemoActor -> #transactions).
+		  (OPDemoActor -> [ :o | o incoming , o outgoing ]).
+		  (OPDemoScopeOfInterest -> #nodes).}
 ]
 
 { #category : 'widget API' }
@@ -32,8 +33,8 @@ OPDemoNavigatorAdapter >> displayMapping [
 		  (OPDemoMultipleCompositeTransaction -> 'Multiple Composite Transaction').
 		  (OPDemoStandardCompositeTransaction -> 'Standard Composite Transaction').
 		  (OPDemoAccessLink -> 'Access Link').
-		  (OPDemoSourceInitiatorLink -> 'Initiator Link').
-		  (OPDemoTargetInitiatorLink -> 'Initiator Link').
+		  (OPDemoSourceInitiatorLink -> 'Source Initiator Link').
+		  (OPDemoTargetInitiatorLink -> 'Target Initiator Link').
 		  (OPDemoWaitingLink -> 'Waiting Link').
 		  (OPDemoFacts -> 'Facts').}
 ]
@@ -53,7 +54,7 @@ OPDemoNavigatorAdapter >> iconMapping [
 	^ {  (OPDemo -> OPDemoEditorIcons demo16Icon ).
 		  (OPDemoScopeOfInterest -> OPDemoEditorIcons scopeOfInterest16Icon ).
 		  (OPDemoAccessLink -> OPDemoEditorIcons accessLink16Icon ).
-		  (OPDemoTargetInitiatorLink -> OPDemoEditorIcons initiatorLink16Icon ).
+		  (OPDemoTargetInitiatorLink -> OPDemoEditorIcons initiatorLinkTarget16Icon ).
 		  (OPDemoSourceInitiatorLink -> OPDemoEditorIcons initiatorLink16Icon ).
 		  (OPDemoWaitingLink -> OPDemoEditorIcons waitingLink16Icon ).
 		  (OPDemoCompositeActor -> OPDemoEditorIcons compositeActor16Icon ).

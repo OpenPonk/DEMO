@@ -19,15 +19,7 @@ OPDemoFactsController >> buildEditorForm: aForm [
 { #category : 'accessing' }
 OPDemoFactsController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and:
-	[aController modelClass = OPDemoAccessLink or:
-	[(aController modelClass = OPDemoWaitingLink) or:
-	[(aController modelClass = OPDemoTargetInitiatorLink) or: 
-	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
-]
-
-{ #category : 'accessing' }
-OPDemoFactsController >> canBeTargetFor: aController [
-	^ self canBeSourceFor: aController
+	[aController modelClass = OPDemoAccessLink]
 ]
 
 { #category : 'construction' }

@@ -132,6 +132,19 @@ OPDemoEditorIcons class >> initiatorLink16IconContents [
 ]
 
 { #category : 'accessing - icons' }
+OPDemoEditorIcons class >> initiatorLinkTarget16Icon [
+
+	^ Form fromBinaryStream: self initiatorLinkTarget16IconContents base64Decoded asByteArray readStream
+]
+
+{ #category : 'accessing - icons' }
+OPDemoEditorIcons class >> initiatorLinkTarget16IconContents [
+	
+	^'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVDhPrZLJDYAwDASHJjgUJQ6t0Am1AX3yCR+/LC/zzGqViZ2JPAYc/jBKBy5g9kGEAtzZsgEPsPkgwqe9+CBCVbTb0F59EGFXtJuyqjq0Uzf3MbDUm03RLn9op36YpA1wKuUXqCQMvBEMpNYAAAAASUVORK5CYII='
+	
+]
+
+{ #category : 'accessing - icons' }
 OPDemoEditorIcons class >> multipleCompositeTransaction16Icon [
 
 	^ Form fromBinaryStream: self multipleCompositeTransaction16IconContents base64Decoded asByteArray readStream

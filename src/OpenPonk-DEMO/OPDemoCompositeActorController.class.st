@@ -15,11 +15,6 @@ OPDemoCompositeActorController >> canBeSourceFor: aController [
 	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
 ]
 
-{ #category : 'accessing' }
-OPDemoCompositeActorController >> canBeTargetFor: aController [
-	^ self canBeSourceFor: aController
-]
-
 { #category : 'construction' }
 OPDemoCompositeActorController >> diagramElementClass [
 

@@ -6,12 +6,7 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'testing' }
-OPDemoScopeOfInterest >> isEdge [
-	^ false
-]
-
-{ #category : 'testing' }
-OPDemoScopeOfInterest >> isNode [
-	^ true
+{ #category : 'accessing' }
+OPDemoScopeOfInterest >> nodes [
+	^ elements select: [ :each | each isNode ]
 ]

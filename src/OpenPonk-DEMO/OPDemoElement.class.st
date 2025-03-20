@@ -10,9 +10,24 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoElement >> edges [
+	^ (self incoming + self outgoing)
+]
+
+{ #category : 'accessing' }
 OPDemoElement >> incoming [
 	owner ifNil: [ ^ #() ].
 	^ owner edges select: [ :each | each target = self ]
+]
+
+{ #category : 'accessing' }
+OPDemoElement >> isEdge [
+	^ false
+]
+
+{ #category : 'accessing' }
+OPDemoElement >> isNode [
+	^ true
 ]
 
 { #category : 'accessing' }

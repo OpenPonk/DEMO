@@ -7,6 +7,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoScopeOfInterestController >> canBeSourceFor: aController [
+	^ aController isKindOf: OPDemoAccessLinkController 
+]
+
+{ #category : 'accessing' }
 OPDemoScopeOfInterestController >> canBeTargetFor: aController [
 	^ aController isKindOf: OPDemoElementController
 ]
