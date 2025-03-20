@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoInternalActorController',
-	#superclass : 'OPDemoElementController',
+	#superclass : 'OPDemoActorController',
 	#instVars : [
 		'transactionCount'
 	],

@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoMultipleCompositeTransactionController',
-	#superclass : 'OPDemoElementController',
+	#superclass : 'OPDemoTransactionController',
 	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'
@@ -27,11 +27,6 @@ OPDemoMultipleCompositeTransactionController >> canBeSourceFor: aController [
 	[(aController modelClass = OPDemoWaitingLink) or:
 	[(aController modelClass = OPDemoTargetInitiatorLink) or: 
 	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
-]
-
-{ #category : 'accessing' }
-OPDemoMultipleCompositeTransactionController >> canBeTargetFor: aController [
-	^ self canBeSourceFor: aController
 ]
 
 { #category : 'construction' }

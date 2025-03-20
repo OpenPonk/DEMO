@@ -7,12 +7,6 @@ Class {
 }
 
 { #category : 'rendering' }
-OPDemoTargetInitiatorLinkShape >> headMarker [
-
-	^ OPRSMarkerBuilder diamondShape asEmptyMarker
-]
-
-{ #category : 'rendering' }
 OPDemoTargetInitiatorLinkShape >> renderBasicShape [
 
 	^ (self source = self target

@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoCompositeActorController',
-	#superclass : 'OPDemoElementController',
+	#superclass : 'OPDemoActorController',
 	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'
