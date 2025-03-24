@@ -12,8 +12,7 @@ Class {
 { #category : 'accessing' }
 OPDemoElementController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and:
-	[aController modelClass = OPDemoAccessLink or:
-	[(aController modelClass = OPDemoWaitingLink)]]
+	[aController modelClass = OPDemoAccessLink]
 ]
 
 { #category : 'accessing' }
@@ -41,6 +40,8 @@ OPDemoElementController >> modelClass [
 { #category : 'accessing' }
 OPDemoElementController >> removeModel [
 
+	self model owner remove: self model.
+	
 	self diagramController model remove: self model.
 	super removeModel
 ]

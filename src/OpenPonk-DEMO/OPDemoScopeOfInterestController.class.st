@@ -13,7 +13,7 @@ OPDemoScopeOfInterestController >> canBeSourceFor: aController [
 
 { #category : 'accessing' }
 OPDemoScopeOfInterestController >> canBeTargetFor: aController [
-	^ aController isKindOf: OPDemoElementController
+	^ (aController isKindOf: OPDemoElementController) or: (aController isKindOf: OPDemoAccessLinkController )
 ]
 
 { #category : 'accessing' }

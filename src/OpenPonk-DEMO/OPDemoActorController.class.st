@@ -27,6 +27,12 @@ OPDemoActorController >> canBeTargetFor: aController [
 ]
 
 { #category : 'construction' }
+OPDemoActorController >> dependentElements [
+
+	^ (self model incoming , self model outgoing) asSet
+]
+
+{ #category : 'construction' }
 OPDemoActorController >> diagramElementClass [
 
 	^ self subclassResponsibility

@@ -14,10 +14,10 @@ OPDemoNavigatorAdapter class >> priority [
 
 { #category : 'widget API' }
 OPDemoNavigatorAdapter >> childrenMapping [
+	|actorElements|
+	actorElements := (OPDemoActor -> #transactions).
 	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
-		  (OPDemoActor -> #transactions).
-		  (OPDemoActor -> [ :o | o incoming , o outgoing ]).
 		  (OPDemoScopeOfInterest -> #nodes).}
 ]
 

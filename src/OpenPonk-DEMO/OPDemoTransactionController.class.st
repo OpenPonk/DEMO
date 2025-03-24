@@ -8,6 +8,7 @@ Class {
 
 { #category : 'accessing' }
 OPDemoTransactionController >> canBeSourceFor: aController [
+	(self model owner isKindOf: OPDemoActor) ifTrue: [ ^ false ].
 	^ (aController respondsTo: #modelClass) and:
 	[aController modelClass = OPDemoAccessLink or:
 	[(aController modelClass = OPDemoWaitingLink) or:
@@ -19,6 +20,7 @@ OPDemoTransactionController >> canBeSourceFor: aController [
 OPDemoTransactionController >> canBeTargetFor: aController [ 
 	
 	(super canBeTargetFor: aController) ifFalse: [^ false].
+	(self model owner isKindOf: OPDemoActor) ifTrue: [^ false].
 	((aController isKindOf: OPDemoTargetInitiatorLinkController) or: (aController isKindOf: OPDemoSourceInitiatorLinkController)) ifFalse: [ ^ true ].
 	^ aController source isKindOf: OPDemoActorController
 ]

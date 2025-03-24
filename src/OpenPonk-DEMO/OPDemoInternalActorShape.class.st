@@ -27,7 +27,6 @@ OPDemoInternalActorShape >> renderBasicShape [
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> renderShapeDetails [
-
 	super renderShapeDetails.
 
 	label := RSLabel new
@@ -36,8 +35,7 @@ OPDemoInternalActorShape >> renderShapeDetails [
 		         model: self;
 		         yourself.
 	RSLocation new stick: label on: self roassalShape.
-	self canvas
-		add: label
+	self canvas add: label
 ]
 
 { #category : 'rendering' }

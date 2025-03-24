@@ -9,8 +9,7 @@ Class {
 { #category : 'rendering' }
 OPDemoCompositeActorShape >> attachedShapes [
 
-	^ super attachedShapes , {
-		  label}
+	^ super attachedShapes , { label }
 ]
 
 { #category : 'rendering' }
