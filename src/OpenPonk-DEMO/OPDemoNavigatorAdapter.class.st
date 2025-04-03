@@ -18,7 +18,8 @@ OPDemoNavigatorAdapter >> childrenMapping [
 	actorElements := (OPDemoActor -> #transactions).
 	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
-		  (OPDemoScopeOfInterest -> #nodes).}
+		  (OPDemoScopeOfInterest -> #nodes).
+		}
 ]
 
 { #category : 'widget API' }
@@ -33,8 +34,8 @@ OPDemoNavigatorAdapter >> displayMapping [
 		  (OPDemoMultipleCompositeTransaction -> 'Multiple Composite Transaction').
 		  (OPDemoStandardCompositeTransaction -> 'Standard Composite Transaction').
 		  (OPDemoAccessLink -> 'Access Link').
-		  (OPDemoSourceInitiatorLink -> 'Source Initiator Link').
-		  (OPDemoTargetInitiatorLink -> 'Target Initiator Link').
+		  (OPDemoSourceInitiatorLink -> 'Executor Link').
+		  (OPDemoTargetInitiatorLink -> 'Initiator Link').
 		  (OPDemoWaitingLink -> 'Waiting Link').
 		  (OPDemoFacts -> 'Facts').}
 ]

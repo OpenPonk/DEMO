@@ -7,6 +7,20 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoTransactionController >> buildEditorForm: aForm [
+	
+	super buildEditorForm: aForm.
+
+	(aForm addDroplist: 'Type')
+		items: #('Ontological'  'Informational' 'Documental' 'Material');
+		display: [ :type | type asString ];
+		selectItem: self model type;
+		whenSelectedItemChangedDo: [ :newValue |
+			self model type: newValue.
+			self modelChanged ]
+]
+
+{ #category : 'accessing' }
 OPDemoTransactionController >> canBeSourceFor: aController [
 	(self model owner isKindOf: OPDemoActor) ifTrue: [ ^ false ].
 	^ (aController respondsTo: #modelClass) and:

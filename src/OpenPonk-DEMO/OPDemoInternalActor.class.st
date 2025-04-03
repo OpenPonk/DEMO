@@ -7,6 +7,11 @@ Class {
 }
 
 { #category : 'testing' }
+OPDemoInternalActor >> hasTransaction [
+	^ (elements not isEmpty)
+]
+
+{ #category : 'testing' }
 OPDemoInternalActor >> isComposite [
 	^ false
 ]

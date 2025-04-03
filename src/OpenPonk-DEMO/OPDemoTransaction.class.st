@@ -40,5 +40,5 @@ OPDemoTransaction >> typeColor [
 	^type = 'Ontological' ifTrue: [Color red]
 		ifFalse: [type = 'Informational' ifTrue: [Color green]
 		ifFalse: [type = 'Documental' ifTrue: [Color blue]
-		ifFalse: [Color black]]].
+		ifFalse: [type = 'Material' ifTrue: [Color black]]]].
 ]
