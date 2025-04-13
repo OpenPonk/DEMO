@@ -1,16 +1,33 @@
 Class {
 	#name : 'OPDemoInternalActorShape',
 	#superclass : 'OPDemoElementShape',
+	#instVars : [
+		'innerRoassalShapesBlock'
+	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
 
 { #category : 'rendering' }
+OPDemoInternalActorShape >> addSelectionDraggableInteraction [
+
+	roassalShape
+	@ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock:
+			 innerRoassalShapesBlock)
+]
+
+{ #category : 'rendering' }
 OPDemoInternalActorShape >> attachedShapes [
 
 	^ super attachedShapes , {
 		  label}
+]
+
+{ #category : 'rendering' }
+OPDemoInternalActorShape >> innerRoassalShapesBlock: aBlock [
+
+	innerRoassalShapesBlock := aBlock
 ]
 
 { #category : 'rendering' }
@@ -32,6 +49,7 @@ OPDemoInternalActorShape >> labelTopPosition [
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> renderBasicShape [
+UIManager default inform: 'renderBasicShape'.
 
 	^ RSBox new
 		  width: 100;
@@ -44,6 +62,7 @@ OPDemoInternalActorShape >> renderBasicShape [
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> renderShapeDetails [
+UIManager default inform: 'renderShapeDetails'.
 	super renderShapeDetails.
 	
 	label := RSLabel new
@@ -71,11 +90,12 @@ OPDemoInternalActorShape >> shouldBeResizableByUser [
 { #category : 'rendering' }
 OPDemoInternalActorShape >> updateRenderFromModel [
 	|location|
+	UIManager default inform: 'updateRenderFromModel'.
 	location := RSLocation new.
 	label text: self modelElement name.
 	self modelElement transactionCount=1 ifTrue: [ location := self labelTopPosition ].
 	self modelElement transactionCount=0 ifTrue: [ location := self labelCenterPosition ].
-	"location stick: label on: self roassalShape ."
+	location stick: label on: self roassalShape .
 	super updateRenderFromModel.
 	roassalShape signalUpdate
 ]

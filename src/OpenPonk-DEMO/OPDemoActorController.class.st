@@ -39,6 +39,26 @@ OPDemoActorController >> diagramElementClass [
 ]
 
 { #category : 'accessing' }
+OPDemoActorController >> hookDiagramElement [
+
+	super hookDiagramElement.
+
+	self diagramElement innerRoassalShapesBlock: [
+		self nodeRoassalShapes ]
+]
+
+{ #category : 'accessing' }
 OPDemoActorController >> modelClass [
 	^ self subclassResponsibility
+]
+
+{ #category : 'accessing' }
+OPDemoActorController >> nodeRoassalShapes [
+
+	^ self model transactions
+		  collect: [ :eachModel | 
+			  self diagramController
+				  controllerForModel: eachModel
+				  ifFound: #roassalShape ]
+		  thenSelect: #isNotNil
 ]

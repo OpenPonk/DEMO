@@ -21,6 +21,12 @@ OPDemoCompositeActorController >> diagramElementClass [
 	^ OPDemoCompositeActorShape
 ]
 
+{ #category : 'initialization' }
+OPDemoCompositeActorController >> initialize [
+	super initialize.
+	transactionCount := 0
+]
+
 { #category : 'accessing' }
 OPDemoCompositeActorController >> modelClass [
 	^ OPDemoCompositeActor

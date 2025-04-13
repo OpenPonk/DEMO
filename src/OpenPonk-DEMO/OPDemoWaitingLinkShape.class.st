@@ -7,18 +7,36 @@ Class {
 }
 
 { #category : 'rendering' }
-OPDemoWaitingLinkShape >> renderBasicShape [
+OPDemoWaitingLinkShape >> headMarker [
 
-	^ (self source = self target
+	^ OPRSMarkerBuilder arrow 
+]
+
+{ #category : 'rendering' }
+OPDemoWaitingLinkShape >> isSourceActor [
+	^ self source modelElement isKindOf: OPDemoActor
+]
+
+{ #category : 'rendering' }
+OPDemoWaitingLinkShape >> renderBasicShape [
+	| resultShape |
+	
+	resultShape := 
+	 		(self source = self target
 		   ifTrue: [ OPRSBezier ]
 		   ifFalse: [ OPRSPolyline ]) new
 		  dashed;
-		  markerEnd: OPRSMarkerBuilder arrow;
 		  attachPoint: (RSBorderAttachPoint new offset: -10);
 		  controlPointsController: OPRSDraggableCPController new;
 		  addInteraction: OPRSDraggableControlPoints;
 		  color: Color black;
 		  from: self source roassalShape;
 		  to: self target roassalShape;
-		  yourself
+		  yourself.
+		
+	self isSourceActor
+		ifTrue: [ resultShape markerStart: self headMarker ] 
+		ifFalse: [resultShape markerEnd: self headMarker].
+	
+	^ resultShape
 ]

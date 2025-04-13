@@ -1,15 +1,32 @@
 Class {
 	#name : 'OPDemoCompositeActorShape',
 	#superclass : 'OPDemoElementShape',
+	#instVars : [
+		'innerRoassalShapesBlock'
+	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
 
 { #category : 'rendering' }
+OPDemoCompositeActorShape >> addSelectionDraggableInteraction [
+
+	roassalShape
+	@ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock:
+			 innerRoassalShapesBlock)
+]
+
+{ #category : 'rendering' }
 OPDemoCompositeActorShape >> attachedShapes [
 
 	^ super attachedShapes , { label }
+]
+
+{ #category : 'rendering' }
+OPDemoCompositeActorShape >> innerRoassalShapesBlock: aBlock [
+
+	innerRoassalShapesBlock := aBlock
 ]
 
 { #category : 'rendering' }
