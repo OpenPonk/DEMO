@@ -49,7 +49,6 @@ OPDemoInternalActorShape >> labelTopPosition [
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> renderBasicShape [
-UIManager default inform: 'renderBasicShape'.
 
 	^ RSBox new
 		  width: 100;
@@ -62,7 +61,6 @@ UIManager default inform: 'renderBasicShape'.
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> renderShapeDetails [
-UIManager default inform: 'renderShapeDetails'.
 	super renderShapeDetails.
 	
 	label := RSLabel new
@@ -90,7 +88,6 @@ OPDemoInternalActorShape >> shouldBeResizableByUser [
 { #category : 'rendering' }
 OPDemoInternalActorShape >> updateRenderFromModel [
 	|location|
-	UIManager default inform: 'updateRenderFromModel'.
 	location := RSLocation new.
 	label text: self modelElement name.
 	self modelElement transactionCount=1 ifTrue: [ location := self labelTopPosition ].

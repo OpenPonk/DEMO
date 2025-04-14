@@ -17,6 +17,11 @@ OPDemoActor >> isInternal [
 ]
 
 { #category : 'testing' }
+OPDemoActor >> nodes [
+	^ elements select: [ :each | each isNode ]
+]
+
+{ #category : 'testing' }
 OPDemoActor >> transactionCount [
 	|count|
 	count := self elements size.

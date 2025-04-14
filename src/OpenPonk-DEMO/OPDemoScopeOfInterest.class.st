@@ -7,6 +7,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoScopeOfInterest >> edges [
+	^ elements select: [ :each | each isEdge ]
+]
+
+{ #category : 'accessing' }
 OPDemoScopeOfInterest >> nodes [
 	^ elements select: [ :each | each isNode ]
 ]

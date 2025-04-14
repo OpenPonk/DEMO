@@ -22,6 +22,7 @@ OPDemoActorController >> canBeSourceFor: aController [
 OPDemoActorController >> canBeTargetFor: aController [
 	((aController isKindOf: OPDemoStandardInternalTransactionController) and: (self model transactionCount = 0)) ifTrue: [ ^ true ]. 
 	(super canBeTargetFor: aController) ifFalse: [^ false].
+	(aController isKindOf: OPDemoWaitingLinkController) ifTrue: [ (aController source isKindOf: OPDemoTransactionController ) ifTrue: [ ^ true ] ifFalse: [ ^ false ]].
 	((aController isKindOf: OPDemoTargetInitiatorLinkController) or: (aController isKindOf: OPDemoSourceInitiatorLinkController)) ifFalse: [ ^ true ].
 	^ aController source isKindOf: OPDemoTransactionController
 ]
