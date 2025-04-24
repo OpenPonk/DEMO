@@ -23,6 +23,12 @@ OPDemoScopeOfInterestController >> diagramElementClass [
 ]
 
 { #category : 'accessing' }
+OPDemoScopeOfInterestController >> elementsToShowInside [
+
+	^ self model elements
+]
+
+{ #category : 'accessing' }
 OPDemoScopeOfInterestController >> modelClass [
 	^ OPDemoScopeOfInterest 
 ]

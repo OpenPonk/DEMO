@@ -10,17 +10,41 @@ Class {
 OPDemoLinkShape >> createOwnedElementsWithoutController [
 
 	self ownedElements ifNotEmpty: [ ^ self ].
-	OPFsmTransitionLabel in: self
+	OPDemoLinkLabel in: self
 ]
 
 { #category : 'rendering' }
 OPDemoLinkShape >> headMarker [
 
-	^ self subclassResponsibility
+	^ nil
+]
+
+{ #category : 'rendering' }
+OPDemoLinkShape >> isSourceActor [
+	^ self source modelElement isKindOf: OPDemoActor
 ]
 
 { #category : 'rendering' }
 OPDemoLinkShape >> renderBasicShape [
-
-	^ self subclassResponsibility
+	| resultShape |
+	
+	resultShape := 
+	 		(self source = self target
+		   ifTrue: [ OPRSBezier ]
+		   ifFalse: [ OPRSPolyline ]) new
+		  attachPoint: (RSBorderAttachPoint new offset: -10);
+		  controlPointsController: OPRSDraggableCPController new;
+		  addInteraction: OPRSDraggableControlPoints;
+		  
+		  from: self source roassalShape;
+		  to: self target roassalShape;
+		  yourself.
+		
+	self isSourceActor
+		ifTrue: [ resultShape markerStart: self headMarker ] 
+		ifFalse: [resultShape markerEnd: self headMarker].
+		
+	resultShape color: Color black.
+	
+	^ resultShape
 ]

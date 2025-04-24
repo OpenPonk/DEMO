@@ -7,6 +7,12 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemo >> allEdges [
+	^ self edges asSet , self nodes flatCollect: [ :each | each outgoing ]
+	
+]
+
+{ #category : 'accessing' }
 OPDemo >> edges [
 	^ elements select: [ :each | each isEdge ]
 	

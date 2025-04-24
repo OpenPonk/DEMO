@@ -11,7 +11,7 @@ Class {
 
 { #category : 'accessing' }
 OPDemoElement >> edges [
-	^ (self incoming + self outgoing)
+	^ (self incoming , self outgoing)
 ]
 
 { #category : 'accessing' }

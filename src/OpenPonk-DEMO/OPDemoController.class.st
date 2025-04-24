@@ -7,6 +7,12 @@ Class {
 }
 
 { #category : 'ui interaction' }
+OPDemoController >> allModelElementsWithPossibleController [
+	"all elements that could be directly hidden on diagram"
+	^ (Set with: self model) , self model allElements
+]
+
+{ #category : 'ui interaction' }
 OPDemoController >> applyLayout: anAlgorithm [
 	| roassalShapes edges |
 	roassalShapes := self controllers
@@ -39,6 +45,10 @@ OPDemoController >> controllerFactory [
 		  register: OPDemoStandardCompositeTransactionController forModel: OPDemoStandardCompositeTransaction;
 		  register: OPDemoMultipleInternalTransactionController forModel: OPDemoMultipleInternalTransaction;
 		  register: OPDemoMultipleCompositeTransactionController forModel: OPDemoMultipleCompositeTransaction;
+		  register: OPDemoAccessLinkController forModel: OPDemoAccessLink;
+		  register: OPDemoSourceInitiatorLinkController forModel: OPDemoSourceInitiatorLink;
+		  register: OPDemoTargetInitiatorLinkController forModel: OPDemoTargetInitiatorLink;
+		  register: OPDemoWaitingLinkController forModel: OPDemoWaitingLink;
 		  register: OPDemoLinkController forModel: OPDemoLink;
 		  register: OPDemoFactsController forModel: OPDemoFacts
 ]
@@ -100,7 +110,7 @@ OPDemoController >> newControllerFor: aModel [
 	
 	^ super
 		newControllerFor:
-			(aModel isTransition
-				ifTrue: [ aModel asTransition ]
+			(aModel isEdge
+				ifTrue: [ aModel asEdge ]
 				ifFalse: [ aModel ])
 ]

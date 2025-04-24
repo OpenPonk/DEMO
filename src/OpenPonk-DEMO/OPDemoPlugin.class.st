@@ -29,7 +29,7 @@ OPDemoPlugin >> modelClass [
 
 { #category : 'accessing' }
 OPDemoPlugin >> modelSerializerClass [
-	^ self subclassResponsibility
+	^ OPStonModelSerializer
 ]
 
 { #category : 'accessing' }

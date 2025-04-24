@@ -19,7 +19,8 @@ OPDemoNavigatorAdapter >> childrenMapping [
 	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
 		  (OPDemoScopeOfInterest -> #nodes).
-		  (OPDemoActor -> [ :actor | actor nodes , actor incoming , actor outgoing ]).
+		  "(OPDemoActor -> [ :actor | actor nodes , actor incoming , actor outgoing ])."
+		  (OPDemoActor -> [ :actor | actor transactions , actor incoming , actor outgoing ]).
 		}
 ]
 

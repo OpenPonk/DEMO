@@ -28,6 +28,11 @@ OPDemoLink class >> from: aSource to: aTarget named: aString [
 ]
 
 { #category : 'testing' }
+OPDemoLink >> asEdge [
+	^ self
+]
+
+{ #category : 'testing' }
 OPDemoLink >> isEdge [
 	^ true
 ]

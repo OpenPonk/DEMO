@@ -7,24 +7,8 @@ Class {
 }
 
 { #category : 'rendering' }
-OPDemoAccessLinkShape >> createOwnedElementsWithoutController [
-
-	self ownedElements ifNotEmpty: [ ^ self ].
-	OPFsmTransitionLabel in: self
-]
-
-{ #category : 'rendering' }
 OPDemoAccessLinkShape >> renderBasicShape [
 
-	^ (self source = self target
-		   ifTrue: [ OPRSBezier ]
-		   ifFalse: [ OPRSPolyline ]) new
-		  dashed;
-		  attachPoint: (RSBorderAttachPoint new offset: -10);
-		  controlPointsController: OPRSDraggableCPController new;
-		  addInteraction: OPRSDraggableControlPoints;
-		  color: Color black;
-		  from: self source roassalShape;
-		  to: self target roassalShape;
-		  yourself
+	^ super renderBasicShape dashed;
+	yourself
 ]

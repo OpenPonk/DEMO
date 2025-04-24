@@ -40,6 +40,12 @@ OPDemoActorController >> diagramElementClass [
 ]
 
 { #category : 'accessing' }
+OPDemoActorController >> elementsToShowInside [
+
+	^ self model elements
+]
+
+{ #category : 'accessing' }
 OPDemoActorController >> hookDiagramElement [
 
 	super hookDiagramElement.
