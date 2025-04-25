@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoMultipleCompositeTransactionShape',
-	#superclass : 'OPDemoElementShape',
+	#superclass : 'OPDemoTransactionShape',
 	#instVars : [
 		'multipleSquare'
 	],
@@ -21,14 +21,8 @@ OPDemoMultipleCompositeTransactionShape >> attachedShapes [
 { #category : 'accessing' }
 OPDemoMultipleCompositeTransactionShape >> renderBasicShape [
 
-	^ RSCircle new
-		  size: 70;
-		  color: Color gray;
-		  border: (RSBorder new
-				   color: Color black;
-				   width: 1.5;
-				   yourself);
-		  yourself
+	^ super renderBasicShape color: Color gray;
+	yourself
 ]
 
 { #category : 'rendering' }
@@ -37,6 +31,8 @@ OPDemoMultipleCompositeTransactionShape >> renderShapeDetails [
 	super renderShapeDetails.
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
@@ -69,22 +65,4 @@ OPDemoMultipleCompositeTransactionShape >> renderShapeDetails [
 		add: multipleSquare;
 		add: square;
 		add: label
-]
-
-{ #category : 'accessing' }
-OPDemoMultipleCompositeTransactionShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
-{ #category : 'rendering' }
-OPDemoMultipleCompositeTransactionShape >> updateRenderFromModel [
-
-	label text: self modelElement name.
-	square borderColor: self modelElement typeColor .
-	"square borderColor: (self modelElement isFinal
-			 ifTrue: [ Color black ]
-			 ifFalse: [ Color transparent ])."
-	super updateRenderFromModel.
-	roassalShape signalUpdate
 ]

@@ -10,7 +10,25 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoActorController >> buildEditorForm: aForm [
+	|text|
+	text := self model labelActor.
+	super buildEditorForm: aForm.
+
+	(aForm addText: 'Name')
+		text: text;
+		whenTextChangedDo: [ :newValue |
+			self model labelActor: newValue.
+			self modelChanged ]
+]
+
+{ #category : 'accessing' }
 OPDemoActorController >> canBeSourceFor: aController [
+	((self model transactionCount = 1) and: (aController isKindOf: OPDemoSourceInitiatorLinkController )) ifTrue: [ ^ false ].
+	(aController isKindOf: OPDemoSourceInitiatorLinkController ) ifTrue: [ 
+		(self model edges collect: [ :each | each isKindOf: OPDemoSourceInitiatorLinkController ]) isEmpty ifFalse: [ ^ false ].
+		 ].
+
 	^ (aController respondsTo: #modelClass) and:
 	[aController modelClass = OPDemoAccessLink or:
 	[(aController modelClass = OPDemoWaitingLink) or:
@@ -30,7 +48,7 @@ OPDemoActorController >> canBeTargetFor: aController [
 { #category : 'construction' }
 OPDemoActorController >> dependentElements [
 
-	^ (self model incoming , self model outgoing) asSet
+	^ (self model incoming , self model outgoing , self model elements) asSet
 ]
 
 { #category : 'construction' }
@@ -54,6 +72,12 @@ OPDemoActorController >> hookDiagramElement [
 		self nodeRoassalShapes ]
 ]
 
+{ #category : 'initialization' }
+OPDemoActorController >> initialize [
+	super initialize.
+	transactionCount := 0
+]
+
 { #category : 'accessing' }
 OPDemoActorController >> modelClass [
 	^ self subclassResponsibility
@@ -68,4 +92,12 @@ OPDemoActorController >> nodeRoassalShapes [
 				  controllerForModel: eachModel
 				  ifFound: #roassalShape ]
 		  thenSelect: #isNotNil
+]
+
+{ #category : 'accessing' }
+OPDemoActorController >> removeModel [
+
+	(self model elements) do: [ :each | each removeModel ].
+
+	super removeModel
 ]

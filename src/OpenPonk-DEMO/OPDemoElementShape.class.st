@@ -17,6 +17,12 @@ OPDemoElementShape >> renderBasicShape [
 ]
 
 { #category : 'rendering' }
+OPDemoElementShape >> selectableInteraction [
+
+	^ OPRSSelectable highlightBorderColorBlue
+]
+
+{ #category : 'rendering' }
 OPDemoElementShape >> shouldBePositionableByUser [
 
 	^ true

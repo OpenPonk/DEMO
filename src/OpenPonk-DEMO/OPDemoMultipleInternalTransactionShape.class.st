@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoMultipleInternalTransactionShape',
-	#superclass : 'OPDemoElementShape',
+	#superclass : 'OPDemoTransactionShape',
 	#instVars : [
 		'multipleSquare'
 	],
@@ -19,24 +19,13 @@ OPDemoMultipleInternalTransactionShape >> attachedShapes [
 ]
 
 { #category : 'rendering' }
-OPDemoMultipleInternalTransactionShape >> renderBasicShape [
-
-	^ RSCircle new
-		  size: 70;
-		  color: Color white;
-		  border: (RSBorder new
-				   color: Color black;
-				   width: 1.5;
-				   yourself);
-		  yourself
-]
-
-{ #category : 'rendering' }
 OPDemoMultipleInternalTransactionShape >> renderShapeDetails [
 	|llocation slocation mslocation|
 	super renderShapeDetails.
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
@@ -69,22 +58,4 @@ OPDemoMultipleInternalTransactionShape >> renderShapeDetails [
 		add: multipleSquare;
 		add: square;
 		add: label
-]
-
-{ #category : 'rendering' }
-OPDemoMultipleInternalTransactionShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
-{ #category : 'rendering' }
-OPDemoMultipleInternalTransactionShape >> updateRenderFromModel [
-
-	label text: self modelElement name.
-	square borderColor: self modelElement typeColor .
-	"square borderColor: (self modelElement isFinal
-			 ifTrue: [ Color black ]
-			 ifFalse: [ Color transparent ])."
-	super updateRenderFromModel.
-	roassalShape signalUpdate
 ]

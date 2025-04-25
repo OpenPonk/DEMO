@@ -39,6 +39,8 @@ OPDemoScopeOfInterestShape >> renderShapeDetails [
 	super renderShapeDetails.
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
@@ -50,12 +52,6 @@ OPDemoScopeOfInterestShape >> renderShapeDetails [
 	location stick: label on: self roassalShape.
 	self canvas
 		add: label
-]
-
-{ #category : 'rendering' }
-OPDemoScopeOfInterestShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
 ]
 
 { #category : 'rendering' }

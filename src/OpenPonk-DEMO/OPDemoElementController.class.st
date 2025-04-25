@@ -10,6 +10,16 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoElementController >> buildEditorForm: aForm [
+	
+	(aForm addText: 'ID')
+		text: self model name;
+		whenTextChangedDo: [ :newValue |
+			self model name: newValue asString.
+			self modelChanged ].
+]
+
+{ #category : 'accessing' }
 OPDemoElementController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and:
 	[aController modelClass = OPDemoAccessLink]

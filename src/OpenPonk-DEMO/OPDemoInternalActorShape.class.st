@@ -1,34 +1,10 @@
 Class {
 	#name : 'OPDemoInternalActorShape',
-	#superclass : 'OPDemoElementShape',
-	#instVars : [
-		'innerRoassalShapesBlock'
-	],
+	#superclass : 'OPDemoActorShape',
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
-
-{ #category : 'rendering' }
-OPDemoInternalActorShape >> addSelectionDraggableInteraction [
-
-	roassalShape
-	@ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock:
-			 innerRoassalShapesBlock)
-]
-
-{ #category : 'rendering' }
-OPDemoInternalActorShape >> attachedShapes [
-
-	^ super attachedShapes , {
-		  label}
-]
-
-{ #category : 'rendering' }
-OPDemoInternalActorShape >> innerRoassalShapesBlock: aBlock [
-
-	innerRoassalShapesBlock := aBlock
-]
 
 { #category : 'rendering' }
 OPDemoInternalActorShape >> labelCenterPosition [
@@ -48,41 +24,35 @@ OPDemoInternalActorShape >> labelTopPosition [
 ]
 
 { #category : 'rendering' }
-OPDemoInternalActorShape >> renderBasicShape [
-
-	^ RSBox new
-		  width: 100;
-		  height: 100;
-		  borderWidth: 2;
-		  borderColor: Color black;
-		  color: Color white;
-		  yourself
-]
-
-{ #category : 'rendering' }
 OPDemoInternalActorShape >> renderShapeDetails [
+	|location|
 	super renderShapeDetails.
 	
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
 	label text: self modelElement name.
 	RSLocation new stick: label on: self roassalShape.
-	self canvas add: label
-]
-
-{ #category : 'rendering' }
-OPDemoInternalActorShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
-{ #category : 'rendering' }
-OPDemoInternalActorShape >> shouldBeResizableByUser [
-
-	^ true
+	
+	
+	label_second := RSLabel new
+					color: Color black;
+					height: 11;
+					model: self;
+					yourself.
+	"label text: self modelElement name."
+	location := RSLocation new
+					bottom;
+					yourself.
+	location stick: label_second on: self roassalShape.
+	
+	
+	self canvas add: label;
+					add: label_second .
 ]
 
 { #category : 'rendering' }
@@ -93,6 +63,7 @@ OPDemoInternalActorShape >> updateRenderFromModel [
 	self modelElement transactionCount=1 ifTrue: [ location := self labelTopPosition ].
 	self modelElement transactionCount=0 ifTrue: [ location := self labelCenterPosition ].
 	location stick: label on: self roassalShape .
+	label_second text: self modelElement labelActor.
 	super updateRenderFromModel.
 	roassalShape signalUpdate
 ]

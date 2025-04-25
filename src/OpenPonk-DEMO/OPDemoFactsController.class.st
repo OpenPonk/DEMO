@@ -8,9 +8,12 @@ Class {
 
 { #category : 'accessing' }
 OPDemoFactsController >> buildEditorForm: aForm [
+	|text|
+	text := self model labelFacts.
 	super buildEditorForm: aForm.
 
-	(aForm addText: 'Label')
+	(aForm addText: 'Name')
+		text: text;
 		whenTextChangedDo: [ :newValue |
 			self model labelFacts: newValue.
 			self modelChanged ]

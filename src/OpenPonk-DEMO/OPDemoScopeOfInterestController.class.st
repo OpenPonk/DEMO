@@ -7,6 +7,16 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoScopeOfInterestController >> buildEditorForm: aForm [
+
+	(aForm addText: 'Name')
+		text: self model name;
+		whenTextChangedDo: [ :newValue |
+			self model name: newValue.
+			self modelChanged ]
+]
+
+{ #category : 'accessing' }
 OPDemoScopeOfInterestController >> canBeSourceFor: aController [
 	^ aController isKindOf: OPDemoAccessLinkController 
 ]
@@ -14,6 +24,14 @@ OPDemoScopeOfInterestController >> canBeSourceFor: aController [
 { #category : 'accessing' }
 OPDemoScopeOfInterestController >> canBeTargetFor: aController [
 	^ (aController isKindOf: OPDemoElementController) or: (aController isKindOf: OPDemoAccessLinkController )
+]
+
+{ #category : 'accessing' }
+OPDemoScopeOfInterestController >> dependentElements [
+	"|onlyNodes|
+	onlyNodes := (self model elements select: [ :each | each isNode ]).
+	onlyNodes do: [ :each | UIManager default inform: each asString ]."
+	^ (self model incoming , self model outgoing , self model elements ) asSet
 ]
 
 { #category : 'accessing' }

@@ -1,77 +1,53 @@
 Class {
 	#name : 'OPDemoCompositeActorShape',
-	#superclass : 'OPDemoElementShape',
-	#instVars : [
-		'innerRoassalShapesBlock'
-	],
+	#superclass : 'OPDemoActorShape',
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
 
 { #category : 'rendering' }
-OPDemoCompositeActorShape >> addSelectionDraggableInteraction [
-
-	roassalShape
-	@ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock:
-			 innerRoassalShapesBlock)
-]
-
-{ #category : 'rendering' }
-OPDemoCompositeActorShape >> attachedShapes [
-
-	^ super attachedShapes , { label }
-]
-
-{ #category : 'rendering' }
-OPDemoCompositeActorShape >> innerRoassalShapesBlock: aBlock [
-
-	innerRoassalShapesBlock := aBlock
-]
-
-{ #category : 'rendering' }
 OPDemoCompositeActorShape >> renderBasicShape [
 
-	^ RSBox new
-		  width: 100;
-		  height: 100;
-		  borderWidth: 2;
-		  borderColor: Color black;
-		  color: Color gray;
-		  yourself
+	^ super renderBasicShape color: Color gray;
+	yourself
 ]
 
 { #category : 'rendering' }
 OPDemoCompositeActorShape >> renderShapeDetails [
-
+	|location|
 	super renderShapeDetails.
 
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
+		
 	RSLocation new stick: label on: self roassalShape.
-	self canvas
-		add: label
-]
-
-{ #category : 'rendering' }
-OPDemoCompositeActorShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
-{ #category : 'rendering' }
-OPDemoCompositeActorShape >> shouldBeResizableByUser [
-
-	^ true
+	
+	label_second := RSLabel new
+					color: Color black;
+					height: 11;
+					model: self;
+					yourself.
+	"label text: self modelElement name."
+	location := RSLocation new
+					bottom;
+					yourself.
+	location stick: label_second on: self roassalShape.
+	
+	self canvas add: label;
+					add: label_second.
 ]
 
 { #category : 'rendering' }
 OPDemoCompositeActorShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
+	label_second text: self modelElement labelActor.
 	super updateRenderFromModel.
 	roassalShape signalUpdate
 ]

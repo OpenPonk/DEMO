@@ -47,6 +47,7 @@ OPDemoFactsShape >> renderShapeDetails [
 	llocation stick: label_second on: self roassalShape.
 	label := RSLabel new
 		         color: Color black;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
@@ -82,20 +83,11 @@ OPDemoFactsShape >> renderShapeDetails [
 		add: label_second
 ]
 
-{ #category : 'accessing' }
-OPDemoFactsShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
 { #category : 'rendering' }
 OPDemoFactsShape >> updateRenderFromModel [
 
 	label text: self modelElement name.
 	label_second text: self modelElement labelFacts.
-	"square borderColor: (self modelElement isFinal
-			 ifTrue: [ Color black ]
-			 ifFalse: [ Color transparent ])."
 	super updateRenderFromModel.
 	roassalShape signalUpdate
 ]

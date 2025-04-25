@@ -6,25 +6,10 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'accessing' }
-OPDemoCompositeActorController >> canBeSourceFor: aController [
-	^ (aController respondsTo: #modelClass) and:
-	[aController modelClass = OPDemoAccessLink or:
-	[(aController modelClass = OPDemoWaitingLink) or:
-	[(aController modelClass = OPDemoTargetInitiatorLink) or: 
-	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
-]
-
 { #category : 'construction' }
 OPDemoCompositeActorController >> diagramElementClass [
 
 	^ OPDemoCompositeActorShape
-]
-
-{ #category : 'initialization' }
-OPDemoCompositeActorController >> initialize [
-	super initialize.
-	transactionCount := 0
 ]
 
 { #category : 'accessing' }

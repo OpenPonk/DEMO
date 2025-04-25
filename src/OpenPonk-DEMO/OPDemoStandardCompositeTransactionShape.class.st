@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPDemoStandardCompositeTransactionShape',
-	#superclass : 'OPDemoElementShape',
+	#superclass : 'OPDemoTransactionShape',
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
@@ -17,14 +17,8 @@ OPDemoStandardCompositeTransactionShape >> attachedShapes [
 { #category : 'rendering' }
 OPDemoStandardCompositeTransactionShape >> renderBasicShape [
 
-	^ RSCircle new
-		  size: 70;
-		  color: Color gray;
-		  border: (RSBorder new
-				   color: Color black;
-				   width: 1.5;
-				   yourself);
-		  yourself
+	^ super renderBasicShape color: Color gray;
+	yourself
 ]
 
 { #category : 'rendering' }
@@ -34,6 +28,8 @@ OPDemoStandardCompositeTransactionShape >> renderShapeDetails [
 
 	label := RSLabel new
 		         color: Color black;
+					fontSize: 17;
+					bold;
 		         height: 11;
 		         model: self;
 		         yourself.
@@ -50,22 +46,4 @@ OPDemoStandardCompositeTransactionShape >> renderShapeDetails [
 	self canvas
 		add: label;
 		add: square
-]
-
-{ #category : 'rendering' }
-OPDemoStandardCompositeTransactionShape >> selectableInteraction [
-
-	^ OPRSSelectable highlightBorderColorBlue
-]
-
-{ #category : 'rendering' }
-OPDemoStandardCompositeTransactionShape >> updateRenderFromModel [
-
-	label text: self modelElement name.
-	square borderColor: self modelElement typeColor .
-	"square borderColor: (self modelElement isFinal
-			 ifTrue: [ Color black ]
-			 ifFalse: [ Color transparent ])."
-	super updateRenderFromModel.
-	roassalShape signalUpdate
 ]

@@ -14,12 +14,9 @@ OPDemoNavigatorAdapter class >> priority [
 
 { #category : 'widget API' }
 OPDemoNavigatorAdapter >> childrenMapping [
-	"|actorElements|
-	actorElements := (OPDemoActor -> #transactions)."
 	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
 		  (OPDemoScopeOfInterest -> #nodes).
-		  "(OPDemoActor -> [ :actor | actor nodes , actor incoming , actor outgoing ])."
 		  (OPDemoActor -> [ :actor | actor transactions , actor incoming , actor outgoing ]).
 		}
 ]
@@ -46,7 +43,6 @@ OPDemoNavigatorAdapter >> displayMapping [
 OPDemoNavigatorAdapter >> hasMappingFor: anObject in: aModel [
 
 	^ {  OPDemo.
-		  "OPDemoElement."
 		  OPDemoLink.
 		  OPDemoElement } anySatisfy: [ :any | anObject isKindOf: any ]
 ]
