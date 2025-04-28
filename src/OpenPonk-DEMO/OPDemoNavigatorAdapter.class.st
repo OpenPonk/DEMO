@@ -16,7 +16,7 @@ OPDemoNavigatorAdapter class >> priority [
 OPDemoNavigatorAdapter >> childrenMapping [
 	^ {	  (OPDemo -> #nodes).
 		  (OPDemoElement -> [ :o | o incoming , o outgoing ]).
-		  (OPDemoScopeOfInterest -> #nodes).
+		  (OPDemoScopeOfInterest -> [ :o | o nodes , o edges ]).
 		  (OPDemoActor -> [ :actor | actor transactions , actor incoming , actor outgoing ]).
 		}
 ]

@@ -8,7 +8,8 @@ Class {
 
 { #category : 'accessing' }
 OPDemo >> allEdges [
-	^ self edges asSet , self nodes flatCollect: [ :each | each outgoing ]
+	"^ self edges asSet , self nodes flatCollect: [ :each | each outgoing ]"
+	^ (self edges asSet , (self nodes flatCollect: [ :each | each allEdges ])) asArray
 	
 ]
 
@@ -31,4 +32,9 @@ OPDemo >> isNode [
 OPDemo >> nodes [
 	^ elements select: [ :each | each isNode ]
 
+]
+
+{ #category : 'accessing' }
+OPDemo >> rootOwner [
+	^ self
 ]
