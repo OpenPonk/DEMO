@@ -41,6 +41,13 @@ OPDemoLink >> asEdge [
 ]
 
 { #category : 'testing' }
+OPDemoLink >> detach [
+	super detach.
+	source := nil.
+	target := nil
+]
+
+{ #category : 'testing' }
 OPDemoLink >> isEdge [
 	^ true
 ]

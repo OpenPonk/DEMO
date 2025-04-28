@@ -11,7 +11,7 @@ Class {
 
 { #category : 'testing' }
 OPDemoInternalActor >> hasTransaction [
-	^ (elements not isEmpty)
+	^ (elements isEmpty not)
 ]
 
 { #category : 'testing' }

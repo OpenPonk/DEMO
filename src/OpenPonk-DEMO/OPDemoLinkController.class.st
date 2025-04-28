@@ -22,6 +22,8 @@ OPDemoLinkController >> modelClass [
 
 { #category : 'accessing' }
 OPDemoLinkController >> removeModel [
+	
+	self model owner remove: self model.
 
 	self diagramController model remove: self model.
 	super removeModel
