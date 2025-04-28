@@ -1,3 +1,8 @@
+"
+I am a class representing the diagram controller for the whole model
+
+I define a behaviour of the model
+"
 Class {
 	#name : 'OPDemoController',
 	#superclass : 'OPDiagramController',

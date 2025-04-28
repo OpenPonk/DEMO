@@ -1,3 +1,8 @@
+"
+I am a class representing an abstract parent of all the nodes
+
+My responsibility is to define the base rules for displaying the elements
+"
 Class {
 	#name : 'OPDemoElementShape',
 	#superclass : 'OPBoundNode',

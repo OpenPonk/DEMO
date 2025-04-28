@@ -1,3 +1,8 @@
+"
+I include information about all the elements present
+
+I represent a layout
+"
 Class {
 	#name : 'OPDemoLayouter',
 	#superclass : 'OPLayouter',

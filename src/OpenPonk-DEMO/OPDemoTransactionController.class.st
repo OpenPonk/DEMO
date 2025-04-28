@@ -1,3 +1,6 @@
+"
+I am a parent class for all the controllers of Transactions
+"
 Class {
 	#name : 'OPDemoTransactionController',
 	#superclass : 'OPDemoElementController',

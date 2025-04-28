@@ -1,3 +1,6 @@
+"
+I am an abstract class refering to a controller class for Actor Role element
+"
 Class {
 	#name : 'OPDemoActorController',
 	#superclass : 'OPDemoElementController',

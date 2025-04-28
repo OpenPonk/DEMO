@@ -1,3 +1,8 @@
+"
+I implement specific mappings for DEMO.
+
+This class primarily serves to map elements for the navigator
+"
 Class {
 	#name : 'OPDemoNavigatorAdapter',
 	#superclass : 'OPNavigatorAdapter',

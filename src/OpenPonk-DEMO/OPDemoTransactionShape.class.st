@@ -1,3 +1,6 @@
+"
+I am an abstract parent class for classes responsible for Transactions design
+"
 Class {
 	#name : 'OPDemoTransactionShape',
 	#superclass : 'OPDemoElementShape',

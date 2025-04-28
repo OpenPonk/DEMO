@@ -1,3 +1,6 @@
+"
+I represent a controller for Access Link
+"
 Class {
 	#name : 'OPDemoAccessLinkController',
 	#superclass : 'OPDemoLinkController',

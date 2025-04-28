@@ -1,3 +1,6 @@
+"
+My responsibility is to display an Executor Link
+"
 Class {
 	#name : 'OPDemoSourceInitiatorLinkShape',
 	#superclass : 'OPDemoLinkShape',

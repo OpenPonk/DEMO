@@ -1,3 +1,6 @@
+"
+I represent a controller for Initiator Link
+"
 Class {
 	#name : 'OPDemoTargetInitiatorLinkController',
 	#superclass : 'OPDemoLinkController',

@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a multiple composite Transaction
+"
 Class {
 	#name : 'OPDemoMultipleCompositeTransactionShape',
 	#superclass : 'OPDemoTransactionShape',

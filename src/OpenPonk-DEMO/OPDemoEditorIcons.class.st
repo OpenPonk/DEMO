@@ -1,3 +1,10 @@
+"
+I contain all the used icons
+
+I store bytes arrays for every icon and its getter
+
+I am responsible for displaying the desired icons mainly in the navigator
+"
 Class {
 	#name : 'OPDemoEditorIcons',
 	#superclass : 'OPIcons',

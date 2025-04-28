@@ -1,3 +1,6 @@
+"
+I am a controller for a standard composite Transaction
+"
 Class {
 	#name : 'OPDemoStandardCompositeTransactionController',
 	#superclass : 'OPDemoTransactionController',

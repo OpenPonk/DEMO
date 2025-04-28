@@ -1,3 +1,6 @@
+"
+I represent an abstract parent class for Links designes
+"
 Class {
 	#name : 'OPDemoLinkShape',
 	#superclass : 'OPEdge',

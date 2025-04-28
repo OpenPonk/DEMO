@@ -1,3 +1,6 @@
+"
+I am implementing rules for displaying a Fact Bank
+"
 Class {
 	#name : 'OPDemoFactsShape',
 	#superclass : 'OPDemoElementShape',

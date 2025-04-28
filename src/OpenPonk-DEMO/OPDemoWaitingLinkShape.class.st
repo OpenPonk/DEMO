@@ -1,3 +1,6 @@
+"
+My responsibility is to display a Waiting Link
+"
 Class {
 	#name : 'OPDemoWaitingLinkShape',
 	#superclass : 'OPDemoLinkShape',

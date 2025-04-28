@@ -1,3 +1,8 @@
+"
+I represent a class storing the main rules about the plugin itself
+
+I am basically mapping the top-level controllers, models and so on
+"
 Class {
 	#name : 'OPDemoPlugin',
 	#superclass : 'OPPlugin',

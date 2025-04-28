@@ -1,3 +1,6 @@
+"
+I am a class representing an internal Actor Role model
+"
 Class {
 	#name : 'OPDemoInternalActor',
 	#superclass : 'OPDemoActor',

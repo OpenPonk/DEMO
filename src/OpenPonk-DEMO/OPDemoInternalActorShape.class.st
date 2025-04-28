@@ -1,3 +1,6 @@
+"
+I am responsible for displaying an intrernal Actor Role
+"
 Class {
 	#name : 'OPDemoInternalActorShape',
 	#superclass : 'OPDemoActorShape',

@@ -1,3 +1,6 @@
+"
+I am a controller for a composite Actor Role
+"
 Class {
 	#name : 'OPDemoCompositeActorController',
 	#superclass : 'OPDemoActorController',

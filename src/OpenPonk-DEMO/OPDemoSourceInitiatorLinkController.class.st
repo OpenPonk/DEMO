@@ -1,3 +1,6 @@
+"
+I represent a controller for Executor Link
+"
 Class {
 	#name : 'OPDemoSourceInitiatorLinkController',
 	#superclass : 'OPDemoLinkController',

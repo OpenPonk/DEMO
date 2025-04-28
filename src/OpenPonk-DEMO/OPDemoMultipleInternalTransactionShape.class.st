@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a multiple internal Transaction
+"
 Class {
 	#name : 'OPDemoMultipleInternalTransactionShape',
 	#superclass : 'OPDemoTransactionShape',

@@ -1,3 +1,6 @@
+"
+I am an abstract parent class for all the nodes elements in a diagram
+"
 Class {
 	#name : 'OPDemoElement',
 	#superclass : 'OPModelObject',

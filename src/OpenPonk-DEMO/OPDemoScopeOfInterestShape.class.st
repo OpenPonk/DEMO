@@ -1,3 +1,6 @@
+"
+I represent a class responsible for displaying a Scope of Interest
+"
 Class {
 	#name : 'OPDemoScopeOfInterestShape',
 	#superclass : 'OPDemoElementShape',

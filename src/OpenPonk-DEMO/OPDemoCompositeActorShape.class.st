@@ -1,3 +1,6 @@
+"
+I am responsible for displaying a composite Actor Role
+"
 Class {
 	#name : 'OPDemoCompositeActorShape',
 	#superclass : 'OPDemoActorShape',

@@ -1,3 +1,6 @@
+"
+I am a class implementing an abstract parent class for all the Links
+"
 Class {
 	#name : 'OPDemoLinkController',
 	#superclass : 'OPDirectionalRelationshipController',
