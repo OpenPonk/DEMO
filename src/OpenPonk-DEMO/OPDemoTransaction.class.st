@@ -1,3 +1,6 @@
+"
+I am an abstract parent class representing a model of a Transaction
+"
 Class {
 	#name : 'OPDemoTransaction',
 	#superclass : 'OPDemoElement',

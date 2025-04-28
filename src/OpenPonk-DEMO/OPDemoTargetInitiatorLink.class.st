@@ -1,3 +1,6 @@
+"
+I represent a model for an Initiator Link
+"
 Class {
 	#name : 'OPDemoTargetInitiatorLink',
 	#superclass : 'OPDemoLink',

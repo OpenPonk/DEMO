@@ -1,3 +1,6 @@
+"
+I represent a model for an Access Link
+"
 Class {
 	#name : 'OPDemoAccessLink',
 	#superclass : 'OPDemoLink',
