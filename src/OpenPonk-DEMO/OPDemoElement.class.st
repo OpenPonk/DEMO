@@ -10,14 +10,21 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoElement >> allEdges [
+	^ (elements select: [ :each | each isEdge ]) asSet , (self nodes flatCollect: [ :each | each allEdges ]) asArray
+	"^ elements flatCollect: [ :each | each allEdges ]"
+]
+
+{ #category : 'accessing' }
 OPDemoElement >> edges [
 	^ (self incoming , self outgoing)
 ]
 
 { #category : 'accessing' }
 OPDemoElement >> incoming [
-	owner ifNil: [ ^ #() ].
-	^ owner edges select: [ :each | each target = self ]
+	|root|
+	root := self rootOwner.
+	^ root allEdges select: [ :each | each target = self ]
 ]
 
 { #category : 'accessing' }
@@ -31,7 +38,20 @@ OPDemoElement >> isNode [
 ]
 
 { #category : 'accessing' }
+OPDemoElement >> nodes [
+	^ elements select: [ :each | each isNode ]
+]
+
+{ #category : 'accessing' }
 OPDemoElement >> outgoing [
-	owner ifNil: [ ^ #() ].
-	^ owner edges select: [ :each | each source = self ]
+	|root|
+	root := self rootOwner.
+	^ root allEdges select: [ :each | each source = self ]
+]
+
+{ #category : 'accessing' }
+OPDemoElement >> rootOwner [
+    ^ self owner
+          ifNil: [ ^ self ]
+          ifNotNil: [ :existingOwner | existingOwner rootOwner ]
 ]

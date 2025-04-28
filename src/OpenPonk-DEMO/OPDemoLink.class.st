@@ -28,6 +28,11 @@ OPDemoLink class >> from: aSource to: aTarget named: aString [
 ]
 
 { #category : 'testing' }
+OPDemoLink >> allEdges [
+	^ self
+]
+
+{ #category : 'testing' }
 OPDemoLink >> asEdge [
 	^ self
 ]

@@ -26,7 +26,7 @@ OPDemoActorController >> buildEditorForm: aForm [
 OPDemoActorController >> canBeSourceFor: aController [
 	((self model transactionCount = 1) and: (aController isKindOf: OPDemoSourceInitiatorLinkController )) ifTrue: [ ^ false ].
 	(aController isKindOf: OPDemoSourceInitiatorLinkController ) ifTrue: [ 
-		(self model edges collect: [ :each | each isKindOf: OPDemoSourceInitiatorLinkController ]) isEmpty ifFalse: [ ^ false ].
+		(self model edges select: [ :each | each isKindOf: OPDemoSourceInitiatorLink ]) isEmpty ifFalse: [ ^ false ].
 		 ].
 
 	^ (aController respondsTo: #modelClass) and:
