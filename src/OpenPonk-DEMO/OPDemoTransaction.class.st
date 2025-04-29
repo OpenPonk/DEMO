@@ -5,7 +5,8 @@ Class {
 	#name : 'OPDemoTransaction',
 	#superclass : 'OPDemoElement',
 	#instVars : [
-		'type'
+		'type',
+		'product_kind'
 	],
 	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
@@ -15,7 +16,8 @@ Class {
 { #category : 'initialization' }
 OPDemoTransaction >> initialize [ 
 	super initialize.
-	type := 'Ontological'
+	type := 'Ontological'.
+	product_kind := 'Product Kind'
 ]
 
 { #category : 'testing' }
@@ -26,6 +28,16 @@ OPDemoTransaction >> isComposite [
 { #category : 'testing' }
 OPDemoTransaction >> isMultiple [ 
 	^ self subclassResponsibility
+]
+
+{ #category : 'testing' }
+OPDemoTransaction >> productKind [
+	^ product_kind 
+]
+
+{ #category : 'testing' }
+OPDemoTransaction >> productKind: aString [
+ 	product_kind := aString
 ]
 
 { #category : 'testing' }
