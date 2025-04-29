@@ -10,6 +10,11 @@ Class {
 }
 
 { #category : 'rendering' }
+OPDemoTransactionShape >> attachedSquare [
+	^ square 
+]
+
+{ #category : 'rendering' }
 OPDemoTransactionShape >> renderBasicShape [
 
 	^ RSCircle new

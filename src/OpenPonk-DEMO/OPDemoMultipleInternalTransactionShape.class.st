@@ -13,6 +13,11 @@ Class {
 }
 
 { #category : 'rendering' }
+OPDemoMultipleInternalTransactionShape >> attachedCircle [
+	^ multipleSquare 
+]
+
+{ #category : 'rendering' }
 OPDemoMultipleInternalTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {

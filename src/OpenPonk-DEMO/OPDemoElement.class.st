@@ -53,6 +53,11 @@ OPDemoElement >> outgoing [
 ]
 
 { #category : 'accessing' }
+OPDemoElement >> relatedElements [
+	^ self incoming , self outgoing
+]
+
+{ #category : 'accessing' }
 OPDemoElement >> rootOwner [
     ^ self owner
           ifNil: [ ^ self ]

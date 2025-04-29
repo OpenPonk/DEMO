@@ -13,6 +13,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoMultipleCompositeTransactionShape >> attachedCircle [
+	^ multipleSquare 
+]
+
+{ #category : 'accessing' }
 OPDemoMultipleCompositeTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {

@@ -68,7 +68,6 @@ OPDemoTest >> testRemoveDependencies [
 	self assertCollection: diagram ownedElements hasSameElements: (Array with: scopeOfInterest with: compositeActor with: factBank with: multipleCompositeTransaction with: accessLink ).
 	self assertCollection: scopeOfInterest ownedElements hasSameElements: (Array with: standardInternalTransactionA with: internalActor ).
 	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB ).
-	
 	scopeOfInterest remove.
 	self assert: scopeOfInterest owner isNil.
 	self assert: standardInternalTransactionB owner isNil.
@@ -77,6 +76,10 @@ OPDemoTest >> testRemoveDependencies [
 	self assert: accessLink source isNil.
 	self assert: accessLink target isNil.
 	self assertCollection: diagram ownedElements hasSameElements: (Array with: compositeActor with: factBank with: multipleCompositeTransaction ).
+	compositeActor remove.
+	factBank remove.
+	multipleCompositeTransaction remove.
+	self assert: diagram elements size equals: 0.
 ]
 
 { #category : 'running' }
