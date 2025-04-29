@@ -1,3 +1,6 @@
+"
+I am a class implementing an abstract parent class for all the Links
+"
 Class {
 	#name : 'OPDemoLinkController',
 	#superclass : 'OPDirectionalRelationshipController',
@@ -19,6 +22,8 @@ OPDemoLinkController >> modelClass [
 
 { #category : 'accessing' }
 OPDemoLinkController >> removeModel [
+	
+	self model owner remove: self model.
 
 	self diagramController model remove: self model.
 	super removeModel

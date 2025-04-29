@@ -1,3 +1,8 @@
+"
+I implement specific mappings for DEMO.
+
+This class primarily serves to map elements for the navigator
+"
 Class {
 	#name : 'OPDemoNavigatorAdapter',
 	#superclass : 'OPNavigatorAdapter',
@@ -25,9 +30,9 @@ OPDemoNavigatorAdapter >> childrenMapping [
 OPDemoNavigatorAdapter >> displayMapping [
 
 	^ {  (OPDemo -> 'Diagram').
-		  (OPDemoScopeOfInterest -> 'Scope of interest').
-		  (OPDemoCompositeActor -> 'Composite Actor').
-		  (OPDemoInternalActor -> 'Internal Actor').
+		  (OPDemoScopeOfInterest -> 'Scope of Interest').
+		  (OPDemoCompositeActor -> 'Composite Actor Role').
+		  (OPDemoInternalActor -> 'Internal Actor Role').
 		  (OPDemoMultipleInternalTransaction -> 'Multiple Internal Transaction').
 		  (OPDemoStandardInternalTransaction -> 'Standard Internal Transaction').
 		  (OPDemoMultipleCompositeTransaction -> 'Multiple Composite Transaction').
@@ -36,7 +41,7 @@ OPDemoNavigatorAdapter >> displayMapping [
 		  (OPDemoSourceInitiatorLink -> 'Executor Link').
 		  (OPDemoTargetInitiatorLink -> 'Initiator Link').
 		  (OPDemoWaitingLink -> 'Waiting Link').
-		  (OPDemoFacts -> 'Facts').}
+		  (OPDemoFacts -> 'Fact Bank').}
 ]
 
 { #category : 'widget API' }

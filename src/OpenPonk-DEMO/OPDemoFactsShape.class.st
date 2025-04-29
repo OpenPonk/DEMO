@@ -1,3 +1,6 @@
+"
+I am implementing rules for displaying a Fact Bank
+"
 Class {
 	#name : 'OPDemoFactsShape',
 	#superclass : 'OPDemoElementShape',
@@ -11,6 +14,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoFactsShape >> attachedCircle [
+	^ multipleSquare 
+]
+
+{ #category : 'accessing' }
 OPDemoFactsShape >> attachedShapes [
 
 	^ super attachedShapes , {
@@ -18,6 +26,11 @@ OPDemoFactsShape >> attachedShapes [
 		  square.
 		  label_second.
 		  multipleSquare }
+]
+
+{ #category : 'accessing' }
+OPDemoFactsShape >> attachedSquare [
+	^ square 
 ]
 
 { #category : 'accessing' }

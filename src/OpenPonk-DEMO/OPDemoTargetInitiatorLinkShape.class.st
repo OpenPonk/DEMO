@@ -1,3 +1,6 @@
+"
+My responsibility is to display an Initiator Link
+"
 Class {
 	#name : 'OPDemoTargetInitiatorLinkShape',
 	#superclass : 'OPDemoLinkShape',

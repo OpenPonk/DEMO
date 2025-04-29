@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a multiple composite Transaction
+"
 Class {
 	#name : 'OPDemoMultipleCompositeTransactionShape',
 	#superclass : 'OPDemoTransactionShape',
@@ -8,6 +11,11 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
+
+{ #category : 'accessing' }
+OPDemoMultipleCompositeTransactionShape >> attachedCircle [
+	^ multipleSquare 
+]
 
 { #category : 'accessing' }
 OPDemoMultipleCompositeTransactionShape >> attachedShapes [

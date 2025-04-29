@@ -1,3 +1,8 @@
+"
+I basically represent a class containing all the elements present in a diagram
+
+I provide an environment for accessing all the elements
+"
 Class {
 	#name : 'OPDemo',
 	#superclass : 'OPModelObject',

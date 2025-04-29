@@ -1,3 +1,6 @@
+"
+I represent a model for a standard internal Transaction
+"
 Class {
 	#name : 'OPDemoStandardInternalTransaction',
 	#superclass : 'OPDemoTransaction',

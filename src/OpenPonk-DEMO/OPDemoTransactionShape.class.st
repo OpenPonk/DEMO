@@ -1,3 +1,6 @@
+"
+I am an abstract parent class for classes responsible for Transactions design
+"
 Class {
 	#name : 'OPDemoTransactionShape',
 	#superclass : 'OPDemoElementShape',
@@ -5,6 +8,11 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
+
+{ #category : 'rendering' }
+OPDemoTransactionShape >> attachedSquare [
+	^ square 
+]
 
 { #category : 'rendering' }
 OPDemoTransactionShape >> renderBasicShape [

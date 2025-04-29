@@ -1,3 +1,6 @@
+"
+I implement a controller for a Fact Bank element
+"
 Class {
 	#name : 'OPDemoFactsController',
 	#superclass : 'OPDemoElementController',

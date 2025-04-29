@@ -1,3 +1,6 @@
+"
+I am a parent class for an Actor Role element
+"
 Class {
 	#name : 'OPDemoActor',
 	#superclass : 'OPDemoElement',

@@ -1,3 +1,6 @@
+"
+I am a class representing a controller for a Scope of Interest
+"
 Class {
 	#name : 'OPDemoScopeOfInterestController',
 	#superclass : 'OPDemoElementController',

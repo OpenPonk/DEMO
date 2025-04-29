@@ -1,3 +1,6 @@
+"
+I am a class representing an abstract controller for every node in the diagram
+"
 Class {
 	#name : 'OPDemoElementController',
 	#superclass : 'OPElementController',

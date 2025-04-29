@@ -1,3 +1,6 @@
+"
+I am a controller for a standard internal Transaction
+"
 Class {
 	#name : 'OPDemoStandardInternalTransactionController',
 	#superclass : 'OPDemoTransactionController',

@@ -1,3 +1,6 @@
+"
+I am a controller for an internal Actor Role
+"
 Class {
 	#name : 'OPDemoInternalActorController',
 	#superclass : 'OPDemoActorController',

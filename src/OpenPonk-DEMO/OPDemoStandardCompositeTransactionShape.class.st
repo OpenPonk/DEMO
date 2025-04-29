@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a standard composite Transaction
+"
 Class {
 	#name : 'OPDemoStandardCompositeTransactionShape',
 	#superclass : 'OPDemoTransactionShape',

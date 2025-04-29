@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a multiple internal Transaction
+"
 Class {
 	#name : 'OPDemoMultipleInternalTransactionShape',
 	#superclass : 'OPDemoTransactionShape',
@@ -8,6 +11,11 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
+
+{ #category : 'rendering' }
+OPDemoMultipleInternalTransactionShape >> attachedCircle [
+	^ multipleSquare 
+]
 
 { #category : 'rendering' }
 OPDemoMultipleInternalTransactionShape >> attachedShapes [

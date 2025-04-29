@@ -1,3 +1,6 @@
+"
+I represent a model class for Scope of Interest
+"
 Class {
 	#name : 'OPDemoScopeOfInterest',
 	#superclass : 'OPDemoElement',

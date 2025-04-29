@@ -1,3 +1,6 @@
+"
+I implement a class representing a model for Fact Bank
+"
 Class {
 	#name : 'OPDemoFacts',
 	#superclass : 'OPDemoElement',

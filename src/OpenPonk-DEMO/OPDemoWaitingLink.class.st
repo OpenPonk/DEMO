@@ -1,3 +1,6 @@
+"
+I represent a model for a Waiting Link
+"
 Class {
 	#name : 'OPDemoWaitingLink',
 	#superclass : 'OPDemoLink',

@@ -1,3 +1,6 @@
+"
+I represent a controller for Waiting Link
+"
 Class {
 	#name : 'OPDemoWaitingLinkController',
 	#superclass : 'OPDemoLinkController',

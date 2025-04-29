@@ -1,3 +1,6 @@
+"
+I am responsible for representing a model for any kind of a Link
+"
 Class {
 	#name : 'OPDemoLink',
 	#superclass : 'OPModelObject',
@@ -35,6 +38,13 @@ OPDemoLink >> allEdges [
 { #category : 'testing' }
 OPDemoLink >> asEdge [
 	^ self
+]
+
+{ #category : 'testing' }
+OPDemoLink >> detach [
+	super detach.
+	source := nil.
+	target := nil
 ]
 
 { #category : 'testing' }

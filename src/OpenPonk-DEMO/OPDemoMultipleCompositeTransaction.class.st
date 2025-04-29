@@ -1,3 +1,6 @@
+"
+I represent a model for a multiple composite Transaction
+"
 Class {
 	#name : 'OPDemoMultipleCompositeTransaction',
 	#superclass : 'OPDemoTransaction',

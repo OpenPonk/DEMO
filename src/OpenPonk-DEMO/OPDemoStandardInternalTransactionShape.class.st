@@ -1,3 +1,6 @@
+"
+I am in charge of displaying a standard internal Transaction
+"
 Class {
 	#name : 'OPDemoStandardInternalTransactionShape',
 	#superclass : 'OPDemoTransactionShape',

@@ -1,3 +1,6 @@
+"
+I am a class corresponding to a Link. I am responsible for a label attached to a Link
+"
 Class {
 	#name : 'OPDemoLinkLabel',
 	#superclass : 'OPEdgeLabel',

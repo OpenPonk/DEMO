@@ -1,3 +1,6 @@
+"
+I am a parent class for all the controllers of Transactions
+"
 Class {
 	#name : 'OPDemoTransactionController',
 	#superclass : 'OPDemoElementController',
@@ -8,7 +11,6 @@ Class {
 
 { #category : 'accessing' }
 OPDemoTransactionController >> buildEditorForm: aForm [
-	
 	super buildEditorForm: aForm.
 
 	(aForm addDroplist: 'Type')
@@ -17,6 +19,12 @@ OPDemoTransactionController >> buildEditorForm: aForm [
 		selectItem: self model type;
 		whenSelectedItemChangedDo: [ :newValue |
 			self model type: newValue.
+			self modelChanged ].
+		
+	(aForm addText: 'Product Kind')
+		text: self model productKind;
+		whenTextChangedDo: [ :newValue |
+			self model productKind: newValue.
 			self modelChanged ]
 ]
 

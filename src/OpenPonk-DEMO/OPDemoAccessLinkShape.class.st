@@ -1,3 +1,6 @@
+"
+My responsibility is to display an Access Link
+"
 Class {
 	#name : 'OPDemoAccessLinkShape',
 	#superclass : 'OPDemoLinkShape',

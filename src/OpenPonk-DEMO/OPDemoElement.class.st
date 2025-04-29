@@ -1,3 +1,6 @@
+"
+I am an abstract parent class for all the nodes elements in a diagram
+"
 Class {
 	#name : 'OPDemoElement',
 	#superclass : 'OPModelObject',
@@ -47,6 +50,11 @@ OPDemoElement >> outgoing [
 	|root|
 	root := self rootOwner.
 	^ root allEdges select: [ :each | each source = self ]
+]
+
+{ #category : 'accessing' }
+OPDemoElement >> relatedElements [
+	^ self incoming , self outgoing
 ]
 
 { #category : 'accessing' }
