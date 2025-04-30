@@ -57,7 +57,7 @@ OPDemoExamples class >> menuCommandOn: aBuilder [
 		with: [  
 			(aBuilder item: #'DEMO Example')
 				parent: #OPDEMO;
-				label: 'DEMO Example';
+				label: 'DEMO Example Car Rental';
 				icon: OPDemoEditorIcons demo16Icon;
 				action: [ self openExample ]].
 ]
