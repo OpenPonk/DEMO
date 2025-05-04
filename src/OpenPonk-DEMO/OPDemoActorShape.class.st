@@ -36,6 +36,11 @@ OPDemoActorShape >> innerRoassalShapesBlock: aBlock [
 ]
 
 { #category : 'rendering' }
+OPDemoActorShape >> labelSecond [
+	^ label_second 
+]
+
+{ #category : 'rendering' }
 OPDemoActorShape >> renderBasicShape [
 
 	^ RSBox new

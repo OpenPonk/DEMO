@@ -33,6 +33,11 @@ OPDemoFactsShape >> attachedSquare [
 	^ square 
 ]
 
+{ #category : 'rendering' }
+OPDemoFactsShape >> labelSecond [
+	^ label_second 
+]
+
 { #category : 'accessing' }
 OPDemoFactsShape >> renderBasicShape [
 
