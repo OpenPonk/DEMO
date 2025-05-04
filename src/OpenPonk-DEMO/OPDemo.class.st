@@ -24,6 +24,18 @@ OPDemo >> edges [
 ]
 
 { #category : 'accessing' }
+OPDemo >> getCompositeActors [
+	^ elements select: [ :each | each isKindOf: OPDemoCompositeActor ]
+
+]
+
+{ #category : 'accessing' }
+OPDemo >> getFacts [
+	^ elements select: [ :each | each isKindOf: OPDemoFacts ]
+
+]
+
+{ #category : 'accessing' }
 OPDemo >> getScopeOfInterest [
 	^ elements select: [ :each | each isKindOf: OPDemoScopeOfInterest ]
 
