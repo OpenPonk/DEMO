@@ -19,25 +19,59 @@ OPDemoExamples class >> emptyModel [
 OPDemoExamples class >> exampleCarRental [
 
 	<script: 'self exampleCarRental inspect'>
-	| demo scopeOfInterest rentalCompleter renter transactionA executorLinkA initiatorLinkA|
-	demo := OPDemo named: 'Car Rental'.
+	| 	executorLinkA initiatorLinkA
+		demo scopeOfInterest
+		renter payer driver driver2 rentalConcluder transporter transportManager carIssuer
+		transaction1 transaction2 transaction3 transaction4 transaction5 transaction6 transaction7
+		facts1 facts2 facts3
+	|
+	demo := OPDemo named: 'Car Rental Example'.
 	scopeOfInterest := OPDemoScopeOfInterest named: 'RAC branch'.
-	rentalCompleter := OPDemoInternalActor named: 'A1'.
-	rentalCompleter labelActor: 'rental completer'.
+	rentalConcluder := OPDemoInternalActor named: 'A1'.
+	rentalConcluder labelActor: 'rental concluder'.
+	transporter := OPDemoInternalActor named: 'A6'.
+	transporter labelActor: 'transporter'.
+	transportManager := OPDemoInternalActor named: 'A2'.
+	transportManager labelActor: 'transport manager'.
+	carIssuer := OPDemoInternalActor named: 'A3'.
+	carIssuer labelActor: 'car issuer'.	
 	renter := OPDemoCompositeActor named: 'CA1'.
 	renter labelActor: 'renter'.
-	transactionA := OPDemoStandardInternalTransaction named: 'T1'.
-	executorLinkA := OPDemoSourceInitiatorLink from: rentalCompleter to: transactionA.
-	initiatorLinkA := OPDemoTargetInitiatorLink from: transactionA to: renter.
-	"rentalCompleterLocation := RSLocation new
-													center.
-	rentalCompleterLocation stick: rentalCompleter on: (scopeOfInterest roassalShapes)."
+	payer := OPDemoCompositeActor named: 'CA4'.
+	payer labelActor: 'payer'.
+	driver := OPDemoCompositeActor named: 'CA2'.
+	driver labelActor: 'driver'.
+	driver2 := OPDemoCompositeActor named: 'CA3'.
+	driver2 labelActor: 'driver'.	
+	transaction1 := OPDemoStandardInternalTransaction named: 'T1'.
+	transaction2 := OPDemoStandardInternalTransaction named: 'T2'.
+	transaction3 := OPDemoStandardInternalTransaction named: 'T3'.
+	transaction4 := OPDemoStandardInternalTransaction named: 'T4'.
+	transaction5 := OPDemoStandardInternalTransaction named: 'T5'.
+	transaction6 := OPDemoStandardInternalTransaction named: 'T6'.
+	transaction7 := OPDemoStandardInternalTransaction named: 'T7'.
+	
+	executorLinkA := OPDemoSourceInitiatorLink from: rentalConcluder to: transaction1.
+	initiatorLinkA := OPDemoTargetInitiatorLink from: transaction1 to: renter.
+	
 	demo
 		add: scopeOfInterest;
 		add: renter;
-		add: transactionA.
+		add: payer;
+		add: driver;
+		add: driver2.
 	scopeOfInterest
-		add: rentalCompleter.
+		add: rentalConcluder;
+		add: transporter;
+		add: transportManager;
+		add: carIssuer;
+		add: transaction1;
+		add: transaction2;
+		add: transaction3;
+		add: transaction4;
+		add: transaction5;
+		add: transaction6;
+		add: transaction7.
 	demo 
 		add: executorLinkA;
 		add: initiatorLinkA.

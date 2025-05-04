@@ -23,6 +23,12 @@ OPDemo >> edges [
 	^ elements select: [ :each | each isEdge ]
 ]
 
+{ #category : 'accessing' }
+OPDemo >> getScopeOfInterest [
+	^ elements select: [ :each | each isKindOf: OPDemoScopeOfInterest ]
+
+]
+
 { #category : 'testing' }
 OPDemo >> isEdge [
 	^ false

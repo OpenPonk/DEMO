@@ -16,6 +16,11 @@ Class {
 }
 
 { #category : 'rendering' }
+OPDemoElementShape >> labelFirst [
+	^ label
+]
+
+{ #category : 'rendering' }
 OPDemoElementShape >> renderBasicShape [
 
 	^ self subclassResponsibility
