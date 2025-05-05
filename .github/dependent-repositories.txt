@@ -1,5 +1,0 @@
-{
-	"include" : [
-		{ "repository" : "OpenPonk/plugins", "branch" : "master", "build-dependent" : true }
-	]
-}
