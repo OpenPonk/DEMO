@@ -16,6 +16,11 @@ Class {
 	#tag : 'Tests'
 }
 
+{ #category : 'testing' }
+OPDemoRoassalTest class >> isAbstract [
+	^ self = OPDemoRoassalTest
+]
+
 { #category : 'accessing' }
 OPDemoRoassalTest >> controllerClass [
 	^ self subclassResponsibility

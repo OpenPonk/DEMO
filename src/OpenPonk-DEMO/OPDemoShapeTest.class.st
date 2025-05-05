@@ -6,6 +6,11 @@ Class {
 	#tag : 'Tests'
 }
 
+{ #category : 'testing' }
+OPDemoShapeTest class >> isAbstract [
+	^ self = OPDemoShapeTest
+]
+
 { #category : 'instance creation' }
 OPDemoShapeTest >> modelClass [
 

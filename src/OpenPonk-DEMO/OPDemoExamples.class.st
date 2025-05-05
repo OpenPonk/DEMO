@@ -1,3 +1,6 @@
+"
+I am a class providing an example of DEMO CSD model
+"
 Class {
 	#name : 'OPDemoExamples',
 	#superclass : 'Object',
