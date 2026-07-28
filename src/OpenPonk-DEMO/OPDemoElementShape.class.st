@@ -31,15 +31,3 @@ OPDemoElementShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightBorderColorBlue
 ]
-
-{ #category : 'rendering' }
-OPDemoElementShape >> shouldBePositionableByUser [
-
-	^ true
-]
-
-{ #category : 'rendering' }
-OPDemoElementShape >> shouldBeResizableByUser [
-
-	^ false
-]

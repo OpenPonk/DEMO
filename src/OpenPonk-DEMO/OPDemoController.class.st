@@ -11,13 +11,14 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'ui interaction' }
+{ #category : 'enumerating' }
 OPDemoController >> allModelElementsWithPossibleController [
 	"all elements that could be directly hidden on diagram"
-	^ (Set with: self model) , self model allElements
+
+	^ self model withAllElements
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'userinterface' }
 OPDemoController >> applyLayout: anAlgorithm [
 	| roassalShapes edges |
 	roassalShapes := self controllers
@@ -28,18 +29,18 @@ OPDemoController >> applyLayout: anAlgorithm [
 	anAlgorithm on: roassalShapes asGroup edges: edges asGroup
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'connecting' }
 OPDemoController >> canBeTargetFor: aController [
 	^ (super canBeTargetFor: aController)
 		or: [ aController isKindOf: OPDemoElementController ]
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'accessing' }
 OPDemoController >> commonModelClassPrefix [
 	^ 'OPDemo'
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'accessing' }
 OPDemoController >> controllerFactory [
 
 	^ super controllerFactory
@@ -58,7 +59,7 @@ OPDemoController >> controllerFactory [
 		  register: OPDemoFactsController forModel: OPDemoFacts
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'accessing' }
 OPDemoController >> elementsToShowInside [
 
 	^ self model elements
@@ -109,7 +110,7 @@ OPDemoController >> initializePalette: aPalette [
 			icon: OPDemoEditorIcons scopeOfInterest16Icon
 ]
 
-{ #category : 'ui interaction' }
+{ #category : 'controllers management' }
 OPDemoController >> newControllerFor: aModel [
 	"IncomingTransition identifies itself as transition, but is not"
 	
