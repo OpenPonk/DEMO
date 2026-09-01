@@ -1,5 +1,6 @@
 "
-I am in charge of displaying a multiple internal Transaction
+I am a diagram element representing a DEMO multiple internal transaction.
+I manage the rendering details of its underlying Roassal shape, including multiple square and circle indicators.
 "
 Class {
 	#name : 'OPDemoMultipleInternalTransactionShape',
@@ -17,7 +18,7 @@ OPDemoMultipleInternalTransactionShape >> attachedCircle [
 	^ multipleSquare 
 ]
 
-{ #category : 'rendering' }
+{ #category : 'accessing' }
 OPDemoMultipleInternalTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {

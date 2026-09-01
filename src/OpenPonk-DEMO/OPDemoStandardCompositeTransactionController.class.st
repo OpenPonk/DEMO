@@ -1,5 +1,6 @@
 "
-I am a controller for a standard composite Transaction
+Controller for DEMO standard composite transactions.
+Manages the diagram lifecycle, rendering interactions, and state synchronization for standard composite transactions.
 "
 Class {
 	#name : 'OPDemoStandardCompositeTransactionController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoStandardCompositeTransactionController >> diagramElementClass [
+OPDemoStandardCompositeTransactionController class >> diagramElementClass [
 
 	^ OPDemoStandardCompositeTransactionShape 
 ]
 
 { #category : 'accessing' }
-OPDemoStandardCompositeTransactionController >> modelClass [
-	^ OPDemoStandardCompositeTransaction 
+OPDemoStandardCompositeTransactionController class >> viewModelClass [
+	^ OPDemoStandardCompositeTransactionViewModel
 ]

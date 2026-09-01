@@ -1,5 +1,5 @@
 "
-I am a class providing an example of DEMO CSD model
+Provides example models and diagram setups for DEMO CSD (Design & Engineering Methodology for Organizations - Communication Structure Diagram).
 "
 Class {
 	#name : 'OPDemoExamples',

@@ -1,5 +1,5 @@
 "
-I am an abstract class refering to a controller class for Actor Role element
+Controller for DEMO Actor Roles. Manages diagram interactions, validates connections, and synchronizes the actor state with the view.
 "
 Class {
 	#name : 'OPDemoActorController',
@@ -12,20 +12,7 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'accessing' }
-OPDemoActorController >> buildEditorForm: aForm [
-	|text|
-	text := self model labelActor.
-	super buildEditorForm: aForm.
-
-	(aForm addText: 'Name')
-		text: text;
-		whenTextChangedDo: [ :newValue |
-			self model labelActor: newValue.
-			self modelChanged ]
-]
-
-{ #category : 'accessing' }
+{ #category : 'connecting' }
 OPDemoActorController >> canBeSourceFor: aController [
 	((self model transactionCount = 1) and: (aController isKindOf: OPDemoSourceInitiatorLinkController )) ifTrue: [ ^ false ].
 	(aController isKindOf: OPDemoSourceInitiatorLinkController ) ifTrue: [ 
@@ -39,34 +26,21 @@ OPDemoActorController >> canBeSourceFor: aController [
 	[(aController modelClass = OPDemoSourceInitiatorLink)]]]]
 ]
 
-{ #category : 'accessing' }
+{ #category : 'connecting' }
 OPDemoActorController >> canBeTargetFor: aController [
-	((aController isKindOf: OPDemoStandardInternalTransactionController) and: (self model transactionCount = 0)) ifTrue: [ ^ true ]. 
-	(super canBeTargetFor: aController) ifFalse: [^ false].
-	(aController isKindOf: OPDemoWaitingLinkController) ifTrue: [ (aController source isKindOf: OPDemoTransactionController ) ifTrue: [ ^ true ] ifFalse: [ ^ false ]].
-	((aController isKindOf: OPDemoTargetInitiatorLinkController) or: (aController isKindOf: OPDemoSourceInitiatorLinkController)) ifFalse: [ ^ true ].
+
+	((aController isKindOf: OPDemoStandardInternalTransactionController)
+		 and: self model transactionCount = 0) ifTrue: [ ^ true ].
+	(super canBeTargetFor: aController) ifFalse: [ ^ false ].
+	(aController isKindOf: OPDemoWaitingLinkController) ifTrue: [
+		^ aController source isKindOf: OPDemoTransactionController ].
+	((aController isKindOf: OPDemoTargetInitiatorLinkController) or:
+		 (aController isKindOf: OPDemoSourceInitiatorLinkController))
+		ifFalse: [ ^ true ].
 	^ aController source isKindOf: OPDemoTransactionController
 ]
 
 { #category : 'construction' }
-OPDemoActorController >> dependentElements [
-
-	^ (self model incoming , self model outgoing , self model elements) asSet
-]
-
-{ #category : 'construction' }
-OPDemoActorController >> diagramElementClass [
-
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
-OPDemoActorController >> elementsToShowInside [
-
-	^ self model elements
-]
-
-{ #category : 'accessing' }
 OPDemoActorController >> hookDiagramElement [
 
 	super hookDiagramElement.
@@ -82,11 +56,6 @@ OPDemoActorController >> initialize [
 ]
 
 { #category : 'accessing' }
-OPDemoActorController >> modelClass [
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
 OPDemoActorController >> nodeRoassalShapes [
 
 	^ self model transactions
@@ -97,10 +66,10 @@ OPDemoActorController >> nodeRoassalShapes [
 		  thenSelect: #isNotNil
 ]
 
-{ #category : 'accessing' }
-OPDemoActorController >> removeModel [
+{ #category : 'diagram elements' }
+OPDemoActorController >> unhookDiagramElement [
 
-	(self model elements) do: [ :each | each removeModel ].
-
-	super removeModel
+	super unhookDiagramElement.
+	(self diagramElement ifNotExists: [ ^ self ])
+		innerRoassalShapesBlock: [  ]
 ]

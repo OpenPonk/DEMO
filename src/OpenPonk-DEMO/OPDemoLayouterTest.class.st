@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoLayouter.
+Verifies the correct application of automated layouts to DEMO diagrams, transactions, and actor roles.
+"
 Class {
 	#name : 'OPDemoLayouterTest',
 	#superclass : 'TestCase',
@@ -19,34 +23,50 @@ Class {
 
 { #category : 'running' }
 OPDemoLayouterTest >> setUp [
-	super setUp.
-	transactionController := OPDemoStandardInternalTransactionController new.
-	actorController := OPDemoInternalActorController new.
-	executorLinkController := OPDemoSourceInitiatorLinkController new.
-	model := OPDemo new.
-	transactionModel := OPDemoStandardInternalTransaction new.
-	actorModel := OPDemoInternalActor new.
-	executorLinkModel := OPDemoSourceInitiatorLink from: actorModel to: transactionModel.
-	model
-		add: transactionModel;
-		add: actorModel;
-		add: executorLinkModel.
-	diagramController := OPDemoController new.
-	canvasPresenter := OPCanvasPresenter new.
-	canvasPresenter attachController: diagramController.
-	diagramController diagramElement:
-		(OPOpenPonkDiagram forModelElement: model).
-	diagramController model: model.
-	transactionController model: transactionModel.
-	actorController model: actorModel.
-	executorLinkController model: executorLinkModel.
-	diagramController showAllElements
+    | project |
+    super setUp.
+    transactionController := OPDemoStandardInternalTransactionController new.
+    actorController := OPDemoInternalActorController new.
+    executorLinkController := OPDemoSourceInitiatorLinkController new.
+    
+    model := OPDemo new.
+    transactionModel := OPDemoStandardInternalTransaction new.
+    actorModel := OPDemoInternalActor new.
+    executorLinkModel := OPDemoSourceInitiatorLink
+        from: actorModel
+        to: transactionModel.
+    model
+        add: transactionModel;
+        add: actorModel;
+        add: executorLinkModel.
+
+    "Create a dummy project to break the circular initialization dependency"
+    project := OPProject new.
+
+    diagramController := OPDemoController new.
+    canvasPresenter := OPCanvasPresenter new.
+    canvasPresenter attachController: diagramController.
+    diagramController diagramElement: (OPOpenPonkDiagram forModelElement: model).
+    
+    diagramController viewModelRegistry: (OPViewModelRegistry forProject: project).
+    diagramController model: model.
+    
+    transactionController viewModelRegistry: diagramController viewModelRegistry.
+    transactionController model: transactionModel.
+    
+    actorController viewModelRegistry: diagramController viewModelRegistry.
+    actorController model: actorModel.
+    
+    executorLinkController viewModelRegistry: diagramController viewModelRegistry.
+    executorLinkController model: executorLinkModel.
+
+    diagramController showAllElements
 ]
 
 { #category : 'running' }
-OPDemoLayouterTest >> testBasicApplyLayout [
+OPDemoLayouterTest >> testApplyLayout [
 
 	^ OPDemoLayouter new
 		  diagramController: diagramController;
-		  basicApplyLayout: [ :a :b |  ]
+		  applyLayout: [ :a :b |  ]
 ]

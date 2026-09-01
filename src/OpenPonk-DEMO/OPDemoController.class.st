@@ -1,7 +1,5 @@
 "
-I am a class representing the diagram controller for the whole model
-
-I define a behaviour of the model
+Controller for the top-level DEMO CSD model. Manages the lifecycle of the entire diagram, applies layouts, initializes the palette, and coordinates top-level elements.
 "
 Class {
 	#name : 'OPDemoController',
@@ -11,11 +9,10 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'enumerating' }
-OPDemoController >> allModelElementsWithPossibleController [
-	"all elements that could be directly hidden on diagram"
+{ #category : 'accessing' }
+OPDemoController class >> viewModelClass [
 
-	^ self model withAllElements
+	^ OPDemoViewModel
 ]
 
 { #category : 'userinterface' }
@@ -36,11 +33,6 @@ OPDemoController >> canBeTargetFor: aController [
 ]
 
 { #category : 'accessing' }
-OPDemoController >> commonModelClassPrefix [
-	^ 'OPDemo'
-]
-
-{ #category : 'accessing' }
 OPDemoController >> controllerFactory [
 
 	^ super controllerFactory
@@ -57,12 +49,6 @@ OPDemoController >> controllerFactory [
 		  register: OPDemoWaitingLinkController forModel: OPDemoWaitingLink;
 		  register: OPDemoLinkController forModel: OPDemoLink;
 		  register: OPDemoFactsController forModel: OPDemoFacts
-]
-
-{ #category : 'accessing' }
-OPDemoController >> elementsToShowInside [
-
-	^ self model elements
 ]
 
 { #category : 'ui interaction' }

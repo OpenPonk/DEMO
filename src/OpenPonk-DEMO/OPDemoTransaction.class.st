@@ -1,5 +1,6 @@
 "
-I am an abstract parent class representing a model of a Transaction
+Abstract base model for DEMO transactions.
+Stores core transaction properties such as transaction type and product kind.
 "
 Class {
 	#name : 'OPDemoTransaction',

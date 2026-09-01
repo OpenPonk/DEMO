@@ -1,5 +1,5 @@
 "
-I am responsible for representing a model for any kind of a Link
+Abstract model for directed edges in a DEMO CSD diagram. Maintains source and target references and defines core link behaviors.
 "
 Class {
 	#name : 'OPDemoLink',
@@ -40,7 +40,7 @@ OPDemoLink >> asEdge [
 	^ self
 ]
 
-{ #category : 'testing' }
+{ #category : 'removing' }
 OPDemoLink >> detach [
 	super detach.
 	source := nil.

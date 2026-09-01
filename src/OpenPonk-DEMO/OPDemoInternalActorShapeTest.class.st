@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoInternalActorShape.
+Verifies the lifecycle and structural properties of internal actor diagram elements.
+"
 Class {
 	#name : 'OPDemoInternalActorShapeTest',
 	#superclass : 'OPDemoShapeTest',
@@ -6,7 +10,7 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'hooks' }
+{ #category : 'instance creation' }
 OPDemoInternalActorShapeTest >> modelClass [
 	^ OPDemoInternalActor
 ]

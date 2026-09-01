@@ -1,5 +1,6 @@
 "
-I represent a controller for Access Link
+Controller for DEMO access links.
+Manages the diagram lifecycle and interactions for connections denoting access to a fact bank or transaction result.
 "
 Class {
 	#name : 'OPDemoAccessLinkController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoAccessLinkController >> diagramElementClass [
+OPDemoAccessLinkController class >> diagramElementClass [
 
 	^ OPDemoAccessLinkShape 
 ]
 
-{ #category : 'construction' }
-OPDemoAccessLinkController >> modelClass [
-	^ OPDemoAccessLink 
+{ #category : 'accessing' }
+OPDemoAccessLinkController class >> viewModelClass [
+	^ OPDemoAccessLinkViewModel
 ]

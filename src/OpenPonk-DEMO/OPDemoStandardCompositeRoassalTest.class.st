@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoStandardCompositeTransactionController and its integration with diagram elements.
+Verifies rendering and diagram interactions for standard composite transactions.
+"
 Class {
 	#name : 'OPDemoStandardCompositeRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,22 +10,22 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoStandardCompositeRoassalTest class >> diagramElementClass [
+	^ OPDemoStandardCompositeTransactionShape
+]
+
+{ #category : 'constants' }
 OPDemoStandardCompositeRoassalTest >> controllerClass [
 	^ OPDemoStandardCompositeTransactionController
 ]
 
-{ #category : 'accessing' }
-OPDemoStandardCompositeRoassalTest >> diagramElementClass [
-	^ OPDemoStandardCompositeTransactionShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPDemoStandardCompositeRoassalTest >> modelClass [
 	^ OPDemoStandardCompositeTransaction
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoStandardCompositeRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

@@ -1,5 +1,6 @@
 "
-I represent a model for a standard internal Transaction
+Model representing a standard internal transaction in a DEMO CSD diagram.
+Denotes a singular transaction executed by an internal actor role.
 "
 Class {
 	#name : 'OPDemoStandardInternalTransaction',

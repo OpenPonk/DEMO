@@ -1,7 +1,5 @@
 "
-I basically represent a class containing all the elements present in a diagram
-
-I provide an environment for accessing all the elements
+Represents the root model object of a DEMO CSD diagram. Acts as the container for all elements (nodes, edges, actors, transactions) within the model.
 "
 Class {
 	#name : 'OPDemo',

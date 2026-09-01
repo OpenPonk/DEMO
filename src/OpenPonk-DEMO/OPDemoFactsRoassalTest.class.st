@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoFactsController and its integration with diagram elements.
+Verifies the rendering logic and diagram lifecycle for fact banks.
+"
 Class {
 	#name : 'OPDemoFactsRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,22 +10,22 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoFactsRoassalTest class >> diagramElementClass [
+	^ OPDemoFactsShape
+]
+
+{ #category : 'constants' }
 OPDemoFactsRoassalTest >> controllerClass [
 	^ OPDemoFactsController 
 ]
 
-{ #category : 'accessing' }
-OPDemoFactsRoassalTest >> diagramElementClass [
-	^ OPDemoFactsShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPDemoFactsRoassalTest >> modelClass [
 	^ OPDemoFacts
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoFactsRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

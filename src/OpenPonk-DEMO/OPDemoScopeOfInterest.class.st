@@ -1,5 +1,6 @@
 "
-I represent a model class for Scope of Interest
+Model representing the Scope of Interest in a DEMO CSD diagram.
+Defines the systemic boundary of the organization or domain being modeled.
 "
 Class {
 	#name : 'OPDemoScopeOfInterest',
@@ -8,8 +9,3 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'
 }
-
-{ #category : 'accessing' }
-OPDemoScopeOfInterest >> nodes [
-	^ elements select: [ :each | each isNode ]
-]

@@ -1,5 +1,6 @@
 "
-I implement a class representing a model for Fact Bank
+Model representing a Fact Bank element in a DEMO CSD diagram.
+It stores facts and their associated labels, denoting a passive information store in the organization.
 "
 Class {
 	#name : 'OPDemoFacts',

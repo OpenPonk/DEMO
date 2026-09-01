@@ -1,5 +1,6 @@
 "
-I represent a controller for Initiator Link
+Controller for DEMO target initiator links.
+Manages diagram lifecycle and interactions for connections linking a transaction back to its initiating actor role.
 "
 Class {
 	#name : 'OPDemoTargetInitiatorLinkController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoTargetInitiatorLinkController >> diagramElementClass [
+OPDemoTargetInitiatorLinkController class >> diagramElementClass [
 
 	^ OPDemoTargetInitiatorLinkShape 
 ]
 
-{ #category : 'construction' }
-OPDemoTargetInitiatorLinkController >> modelClass [
-	^ OPDemoTargetInitiatorLink 
+{ #category : 'accessing' }
+OPDemoTargetInitiatorLinkController class >> viewModelClass [
+	^ OPDemoTargetInitiatorLinkViewModel
 ]

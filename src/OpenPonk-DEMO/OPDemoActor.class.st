@@ -1,5 +1,5 @@
 "
-I am a parent class for an Actor Role element
+Base model representing an Actor Role element in a DEMO CSD model. Maintains the actor label, state (internal/composite), and associated transactions.
 "
 Class {
 	#name : 'OPDemoActor',
@@ -36,11 +36,6 @@ OPDemoActor >> labelActor [
 { #category : 'testing' }
 OPDemoActor >> labelActor: aString [
 	labelActor := aString
-]
-
-{ #category : 'testing' }
-OPDemoActor >> nodes [
-	^ elements select: [ :each | each isNode ]
 ]
 
 { #category : 'testing' }

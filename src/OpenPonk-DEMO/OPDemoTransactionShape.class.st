@@ -1,5 +1,6 @@
 "
-I am an abstract parent class for classes responsible for Transactions design
+I am an abstract diagram element representing a DEMO transaction.
+I manage the basic rendering logic and attached shape components for creating the underlying Roassal shape of transaction nodes.
 "
 Class {
 	#name : 'OPDemoTransactionShape',

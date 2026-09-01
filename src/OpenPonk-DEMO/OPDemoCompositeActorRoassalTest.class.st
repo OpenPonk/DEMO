@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoCompositeActorController and its integration with diagram elements.
+Verifies diagram interactions such as creation using target additions.
+"
 Class {
 	#name : 'OPDemoCompositeActorRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,23 +10,23 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
-OPDemoCompositeActorRoassalTest >> controllerClass [
-	^ OPDemoCompositeActorController 
-]
-
-{ #category : 'construction' }
-OPDemoCompositeActorRoassalTest >> diagramElementClass [
+{ #category : 'constants' }
+OPDemoCompositeActorRoassalTest class >> diagramElementClass [
 
 	^ OPDemoCompositeActorShape 
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoCompositeActorRoassalTest >> controllerClass [
+	^ OPDemoCompositeActorController 
+]
+
+{ #category : 'constants' }
 OPDemoCompositeActorRoassalTest >> modelClass [
 	^ OPDemoCompositeActor
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoCompositeActorRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

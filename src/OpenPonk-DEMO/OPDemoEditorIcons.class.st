@@ -1,9 +1,5 @@
 "
-I contain all the used icons
-
-I store bytes arrays for every icon and its getter
-
-I am responsible for displaying the desired icons mainly in the navigator
+Stores and provides byte arrays for icons used in the DEMO CSD plugin. Utilized by ViewModels and the UI layer to visually represent DEMO elements.
 "
 Class {
 	#name : 'OPDemoEditorIcons',

@@ -1,5 +1,6 @@
 "
-My responsibility is to display an Executor Link
+I am a diagram element (edge) representing a DEMO source initiator link.
+I define the specific edge styling and head markers for creating its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoSourceInitiatorLinkShape',

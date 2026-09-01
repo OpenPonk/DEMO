@@ -1,7 +1,6 @@
 "
-I am a class representing an abstract parent of all the nodes
-
-My responsibility is to define the base rules for displaying the elements
+I am an abstract diagram element (node) representing a DEMO element.
+I define the base rules for displaying elements, creating the underlying Roassal shape, labels, and bounding boxes.
 "
 Class {
 	#name : 'OPDemoElementShape',
@@ -20,13 +19,7 @@ OPDemoElementShape >> labelFirst [
 	^ label
 ]
 
-{ #category : 'rendering' }
-OPDemoElementShape >> renderBasicShape [
-
-	^ self subclassResponsibility
-]
-
-{ #category : 'rendering' }
+{ #category : 'interactions' }
 OPDemoElementShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightBorderColorBlue

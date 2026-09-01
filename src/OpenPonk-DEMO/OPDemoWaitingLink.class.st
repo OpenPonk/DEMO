@@ -1,5 +1,6 @@
 "
-I represent a model for a Waiting Link
+Model representing a waiting link in a DEMO CSD diagram.
+Indicates a dependency where an actor role must wait for the completion of a transaction.
 "
 Class {
 	#name : 'OPDemoWaitingLink',

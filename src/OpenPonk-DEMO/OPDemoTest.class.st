@@ -1,3 +1,7 @@
+"
+Unit tests for the DEMO CSD model lifecycle.
+Verifies the addition and removal of elements, as well as dependency resolution within the DEMO environment.
+"
 Class {
 	#name : 'OPDemoTest',
 	#superclass : 'TestCase',

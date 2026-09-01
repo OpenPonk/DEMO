@@ -1,5 +1,6 @@
 "
-I am in charge of displaying a standard composite Transaction
+I am a diagram element representing a DEMO standard composite transaction.
+I manage the rendering details and basic geometry of its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoStandardCompositeTransactionShape',
@@ -9,7 +10,7 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'rendering' }
+{ #category : 'accessing' }
 OPDemoStandardCompositeTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {

@@ -1,5 +1,6 @@
 "
-I am a class representing an internal Actor Role model
+Model representing an internal Actor Role in a DEMO CSD diagram.
+Defines an elementary actor role that executes internal transactions without internal decomposition.
 "
 Class {
 	#name : 'OPDemoInternalActor',
@@ -11,7 +12,8 @@ Class {
 
 { #category : 'testing' }
 OPDemoInternalActor >> hasTransaction [
-	^ (elements isEmpty not)
+
+	^ elements isNotEmpty
 ]
 
 { #category : 'testing' }

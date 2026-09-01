@@ -1,5 +1,6 @@
 "
-I am responsible for displaying an intrernal Actor Role
+I am a diagram element representing a DEMO internal Actor Role.
+I manage the rendering details, labels, and updates of its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoInternalActorShape',

@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoMultipleCompositeTransactionController and its integration with diagram elements.
+Verifies rendering and diagram interactions for multiple composite transactions.
+"
 Class {
 	#name : 'OPDemoMultipleCompositeRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,22 +10,22 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoMultipleCompositeRoassalTest class >> diagramElementClass [
+	^ OPDemoMultipleCompositeTransactionShape
+]
+
+{ #category : 'constants' }
 OPDemoMultipleCompositeRoassalTest >> controllerClass [
 	^ OPDemoMultipleCompositeTransactionController
 ]
 
-{ #category : 'accessing' }
-OPDemoMultipleCompositeRoassalTest >> diagramElementClass [
-	^ OPDemoMultipleCompositeTransactionShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPDemoMultipleCompositeRoassalTest >> modelClass [
 	^ OPDemoMultipleCompositeTransaction
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoMultipleCompositeRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

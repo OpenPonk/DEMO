@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoCompositeActorShape.
+Verifies the lifecycle and structural properties of composite actor diagram elements.
+"
 Class {
 	#name : 'OPDemoCompositeActorShapeTest',
 	#superclass : 'OPDemoShapeTest',
@@ -11,7 +15,7 @@ OPDemoCompositeActorShapeTest >> modelClass [
 	^ OPDemoCompositeActor
 ]
 
-{ #category : 'instance creation' }
+{ #category : 'hooks' }
 OPDemoCompositeActorShapeTest >> shapeClass [
 	^ OPDemoCompositeActorShape 
 ]

@@ -1,5 +1,5 @@
 "
-I represent a model for an Access Link
+Model representing an access link in a DEMO CSD diagram. Denotes a connection where an actor role has access to an information bank or transaction result.
 "
 Class {
 	#name : 'OPDemoAccessLink',

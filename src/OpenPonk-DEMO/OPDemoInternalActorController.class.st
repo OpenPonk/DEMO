@@ -1,5 +1,6 @@
 "
-I am a controller for an internal Actor Role
+Controller for DEMO internal Actor Roles.
+Manages diagram lifecycle and interactions for internal actor elements.
 "
 Class {
 	#name : 'OPDemoInternalActorController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoInternalActorController >> diagramElementClass [
+OPDemoInternalActorController class >> diagramElementClass [
 
 	^ OPDemoInternalActorShape
 ]
 
 { #category : 'accessing' }
-OPDemoInternalActorController >> modelClass [
-	^ OPDemoInternalActor
+OPDemoInternalActorController class >> viewModelClass [
+	^ OPDemoInternalActorViewModel
 ]

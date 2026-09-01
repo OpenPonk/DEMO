@@ -1,5 +1,6 @@
 "
-I am in charge of displaying a multiple composite Transaction
+I am a diagram element representing a DEMO multiple composite transaction.
+I manage the rendering details of its underlying Roassal shape, including its multiple square indicator and attached shapes.
 "
 Class {
 	#name : 'OPDemoMultipleCompositeTransactionShape',
@@ -26,7 +27,7 @@ OPDemoMultipleCompositeTransactionShape >> attachedShapes [
 		  multipleSquare }
 ]
 
-{ #category : 'accessing' }
+{ #category : 'rendering' }
 OPDemoMultipleCompositeTransactionShape >> renderBasicShape [
 
 	^ super renderBasicShape color: Color gray;

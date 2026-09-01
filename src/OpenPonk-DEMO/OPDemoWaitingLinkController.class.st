@@ -1,5 +1,6 @@
 "
-I represent a controller for Waiting Link
+Controller for DEMO waiting links.
+Manages diagram lifecycle and interactions for connections denoting a waiting dependency between elements.
 "
 Class {
 	#name : 'OPDemoWaitingLinkController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoWaitingLinkController >> diagramElementClass [
+OPDemoWaitingLinkController class >> diagramElementClass [
 
 	^ OPDemoWaitingLinkShape 
 ]
 
-{ #category : 'construction' }
-OPDemoWaitingLinkController >> modelClass [
-	^ OPDemoWaitingLink 
+{ #category : 'accessing' }
+OPDemoWaitingLinkController class >> viewModelClass [
+	^ OPDemoWaitingLinkViewModel
 ]

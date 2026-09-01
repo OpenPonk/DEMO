@@ -1,5 +1,6 @@
 "
-I am a class implementing an abstract parent class for all the Links
+Abstract base controller for DEMO diagram edges (links).
+Manages the lifecycle, visibility, and diagram interactions of connections between DEMO elements.
 "
 Class {
 	#name : 'OPDemoLinkController',
@@ -8,23 +9,3 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'
 }
-
-{ #category : 'construction' }
-OPDemoLinkController >> diagramElementClass [
-
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
-OPDemoLinkController >> modelClass [
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
-OPDemoLinkController >> removeModel [
-	
-	self model owner remove: self model.
-
-	self diagramController model remove: self model.
-	super removeModel
-]

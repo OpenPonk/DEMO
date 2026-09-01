@@ -1,5 +1,6 @@
 "
-My responsibility is to display a Waiting Link
+I am a diagram element (edge) representing a DEMO waiting link.
+I manage the edge styling and specific head markers to visually denote a waiting dependency in its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoWaitingLinkShape',

@@ -1,5 +1,6 @@
 "
-I represent a model for a multiple composite Transaction
+Model representing a multiple composite transaction in a DEMO CSD diagram.
+Denotes a transaction that occurs multiple times and encapsulates an internal process structure.
 "
 Class {
 	#name : 'OPDemoMultipleCompositeTransaction',

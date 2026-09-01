@@ -1,5 +1,6 @@
 "
-I am a controller for a multiple internal Transaction
+Controller for DEMO multiple internal transactions.
+Manages the diagram lifecycle, rendering interactions, and state synchronization for multiple internal transactions.
 "
 Class {
 	#name : 'OPDemoMultipleInternalTransactionController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoMultipleInternalTransactionController >> diagramElementClass [
+OPDemoMultipleInternalTransactionController class >> diagramElementClass [
 
 	^ OPDemoMultipleInternalTransactionShape 
 ]
 
 { #category : 'accessing' }
-OPDemoMultipleInternalTransactionController >> modelClass [
-	^ OPDemoMultipleInternalTransaction 
+OPDemoMultipleInternalTransactionController class >> viewModelClass [
+	^ OPDemoMultipleInternalTransactionViewModel
 ]

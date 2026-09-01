@@ -1,3 +1,7 @@
+"
+Abstract base class for DEMO diagram element tests.
+Verifies the lifecycle (add, remove) and properties of basic DEMO diagram shapes/nodes.
+"
 Class {
 	#name : 'OPDemoShapeTest',
 	#superclass : 'OPAbstractNodeTest',
@@ -9,15 +13,4 @@ Class {
 { #category : 'testing' }
 OPDemoShapeTest class >> isAbstract [
 	^ self = OPDemoShapeTest
-]
-
-{ #category : 'instance creation' }
-OPDemoShapeTest >> modelClass [
-
-	^ self subclassResponsibility
-]
-
-{ #category : 'hooks' }
-OPDemoShapeTest >> shapeClass [
-	^ self subclassResponsibility
 ]

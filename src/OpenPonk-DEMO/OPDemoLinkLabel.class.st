@@ -1,5 +1,6 @@
 "
-I am a class corresponding to a Link. I am responsible for a label attached to a Link
+I am a diagram element representing a label attached to a DEMO link.
+I manage the textual rendering, anchoring, and positioning along the link's underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoLinkLabel',
@@ -9,19 +10,19 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'adding' }
 OPDemoLinkLabel >> defaultAnchorConstraintPosition [
 
 	^ OPRSAnchorConstraintBalanceReference balance: 0.2
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'adding' }
 OPDemoLinkLabel >> defaultMinDistance [
 
 	^ 5
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPDemoLinkLabel >> defaultText [
 
 	^ self modelElement name

@@ -1,5 +1,6 @@
 "
-I represent an abstract parent class for Links designes
+I am an abstract diagram element (edge) representing a DEMO Link.
+I manage the creation of the underlying Roassal shape for links, defining line rendering, head markers, and interactions.
 "
 Class {
 	#name : 'OPDemoLinkShape',
@@ -9,7 +10,7 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'rendering' }
+{ #category : 'initialization' }
 OPDemoLinkShape >> createOwnedElementsWithoutController [
 
 	self ownedElements ifNotEmpty: [ ^ self ].

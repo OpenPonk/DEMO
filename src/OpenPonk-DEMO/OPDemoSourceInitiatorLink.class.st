@@ -1,5 +1,6 @@
 "
-I represent a model for an Executor Link
+Model representing a source initiator link (often conceptually acting as an executor link) in a DEMO CSD diagram.
+Connects an actor role to a transaction it executes or initiates.
 "
 Class {
 	#name : 'OPDemoSourceInitiatorLink',

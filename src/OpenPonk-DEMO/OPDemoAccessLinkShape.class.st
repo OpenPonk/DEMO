@@ -1,5 +1,6 @@
 "
-My responsibility is to display an Access Link
+I am a diagram element (edge) representing a DEMO Access Link.
+I define the rendering and styling rules for creating the underlying Roassal shape for access edges in the diagram.
 "
 Class {
 	#name : 'OPDemoAccessLinkShape',

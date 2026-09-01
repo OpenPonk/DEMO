@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoStandardInternalTransactionController and its integration with diagram elements.
+Verifies rendering and diagram interactions for standard internal transactions.
+"
 Class {
 	#name : 'OPDemoStandardInternalRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,22 +10,22 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoStandardInternalRoassalTest class >> diagramElementClass [
+	^ OPDemoStandardInternalTransactionShape
+]
+
+{ #category : 'constants' }
 OPDemoStandardInternalRoassalTest >> controllerClass [
 	^ OPDemoStandardInternalTransactionController
 ]
 
-{ #category : 'accessing' }
-OPDemoStandardInternalRoassalTest >> diagramElementClass [
-	^ OPDemoStandardInternalTransactionShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPDemoStandardInternalRoassalTest >> modelClass [
 	^ OPDemoStandardInternalTransaction
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoStandardInternalRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

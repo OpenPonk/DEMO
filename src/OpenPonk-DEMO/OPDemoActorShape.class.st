@@ -1,5 +1,6 @@
 "
-I am a parent class for the Actor Role elements
+I am an abstract diagram element representing a DEMO Actor Role.
+I manage the underlying Roassal shapes, handling inner shapes, dual labels, and draggable interactions on the diagram.
 "
 Class {
 	#name : 'OPDemoActorShape',
@@ -13,7 +14,7 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'rendering' }
+{ #category : 'interactions' }
 OPDemoActorShape >> addSelectionDraggableInteraction [
 
 	roassalShape
@@ -21,7 +22,7 @@ OPDemoActorShape >> addSelectionDraggableInteraction [
 			 innerRoassalShapesBlock)
 ]
 
-{ #category : 'rendering' }
+{ #category : 'accessing' }
 OPDemoActorShape >> attachedShapes [
 
 	^ super attachedShapes , { 
@@ -52,7 +53,7 @@ OPDemoActorShape >> renderBasicShape [
 		  yourself
 ]
 
-{ #category : 'rendering' }
+{ #category : 'interactions' }
 OPDemoActorShape >> shouldBeResizableByUser [
 
 	^ true

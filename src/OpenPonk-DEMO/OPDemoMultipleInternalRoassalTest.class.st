@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoMultipleInternalTransactionController and its integration with diagram elements.
+Verifies rendering and diagram interactions for multiple internal transactions.
+"
 Class {
 	#name : 'OPDemoMultipleInternalRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,22 +10,22 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoMultipleInternalRoassalTest class >> diagramElementClass [
+	^ OPDemoMultipleInternalTransactionShape
+]
+
+{ #category : 'constants' }
 OPDemoMultipleInternalRoassalTest >> controllerClass [
 	^ OPDemoMultipleInternalTransactionController
 ]
 
-{ #category : 'accessing' }
-OPDemoMultipleInternalRoassalTest >> diagramElementClass [
-	^ OPDemoMultipleInternalTransactionShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPDemoMultipleInternalRoassalTest >> modelClass [
 	^ OPDemoMultipleInternalTransaction
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoMultipleInternalRoassalTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.

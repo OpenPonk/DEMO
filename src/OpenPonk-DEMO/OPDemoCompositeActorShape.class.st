@@ -1,5 +1,6 @@
 "
-I am responsible for displaying a composite Actor Role
+I am a diagram element representing a DEMO composite Actor Role.
+I manage the rendering details and updates of its underlying Roassal shape, accommodating internal transactions.
 "
 Class {
 	#name : 'OPDemoCompositeActorShape',

@@ -1,5 +1,6 @@
 "
-I am implementing rules for displaying a Fact Bank
+I am a diagram element representing a DEMO Fact Bank.
+I manage the rendering of basic geometric shapes, multiple squares, and attached elements for creating its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoFactsShape',
@@ -38,7 +39,7 @@ OPDemoFactsShape >> labelSecond [
 	^ label_second 
 ]
 
-{ #category : 'accessing' }
+{ #category : 'rendering' }
 OPDemoFactsShape >> renderBasicShape [
 
 	^ RSCircle new

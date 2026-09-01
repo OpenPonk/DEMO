@@ -1,5 +1,6 @@
 "
-I represent a controller for Executor Link
+Controller for DEMO source initiator (executor) links.
+Manages diagram lifecycle and interactions for connections linking an actor role to a transaction it executes.
 "
 Class {
 	#name : 'OPDemoSourceInitiatorLinkController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoSourceInitiatorLinkController >> diagramElementClass [
+OPDemoSourceInitiatorLinkController class >> diagramElementClass [
 
 	^ OPDemoSourceInitiatorLinkShape 
 ]
 
-{ #category : 'construction' }
-OPDemoSourceInitiatorLinkController >> modelClass [
-	^ OPDemoSourceInitiatorLink 
+{ #category : 'accessing' }
+OPDemoSourceInitiatorLinkController class >> viewModelClass [
+	^ OPDemoSourceInitiatorLinkViewModel
 ]

@@ -1,7 +1,5 @@
 "
-I represent a class storing the main rules about the plugin itself
-
-I am basically mapping the top-level controllers, models and so on
+Defines the plugin configuration for DEMO CSD. Maps top-level controllers, models, view models, and serializers for the OpenPonk framework.
 "
 Class {
 	#name : 'OPDemoPlugin',
@@ -42,7 +40,7 @@ OPDemoPlugin >> name [
 	^ 'DEMO Diagram'
 ]
 
-{ #category : 'accessing' }
+{ #category : 'testing' }
 OPDemoPlugin >> supportsHidingElements [
 	^ true
 ]

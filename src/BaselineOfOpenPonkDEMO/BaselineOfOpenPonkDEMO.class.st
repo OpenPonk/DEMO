@@ -1,3 +1,6 @@
+"
+Metacello baseline for the OpenPonk DEMO (Design and Engineering Methodology for Organizations) plugin, defining its package dependencies and load configurations.
+"
 Class {
 	#name : 'BaselineOfOpenPonkDEMO',
 	#superclass : 'BaselineOf',

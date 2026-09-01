@@ -1,5 +1,6 @@
 "
-I represent a model for a standard composite Transaction
+Model representing a standard composite transaction in a DEMO CSD diagram.
+Denotes a singular transaction that encapsulates an internal process structure.
 "
 Class {
 	#name : 'OPDemoStandardCompositeTransaction',

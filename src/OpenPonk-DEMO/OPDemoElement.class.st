@@ -1,12 +1,9 @@
 "
-I am an abstract parent class for all the nodes elements in a diagram
+Abstract base model for all DEMO diagram nodes. Defines generic relationships, tracking of edges, and ownership properties for elements within a DEMO model.
 "
 Class {
 	#name : 'OPDemoElement',
 	#superclass : 'OPModelObject',
-	#instVars : [
-		'element_id'
-	],
 	#category : 'OpenPonk-DEMO-Models',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'

@@ -1,3 +1,7 @@
+"
+Unit tests for OPDemoInternalActorController and its integration with diagram elements.
+Verifies the rendering logic and diagram lifecycle for internal actors.
+"
 Class {
 	#name : 'OPDemoInternalActorRoassalTest',
 	#superclass : 'OPDemoRoassalTest',
@@ -6,29 +10,34 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
-OPDemoInternalActorRoassalTest >> controllerClass [
-	^ OPDemoInternalActorController 
-]
-
-{ #category : 'construction' }
-OPDemoInternalActorRoassalTest >> diagramElementClass [
+{ #category : 'constants' }
+OPDemoInternalActorRoassalTest class >> diagramElementClass [
 
 	^ OPDemoInternalActorShape 
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPDemoInternalActorRoassalTest >> controllerClass [
+	^ OPDemoInternalActorController 
+]
+
+{ #category : 'constants' }
 OPDemoInternalActorRoassalTest >> modelClass [
 	^ OPDemoInternalActor
 ]
 
-{ #category : 'accessing' }
+{ #category : 'tests' }
 OPDemoInternalActorRoassalTest >> testCreateUsingAddAsTarget [
+
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSBox).
 	self assert: controller roassalShape color equals: Color white.
 	self assert: controller roassalShape border color equals: Color black.
-	self assert: controller roassalShape extent x equals: (actorWidthHeight + actorBorderSize ).
-	self assert: controller roassalShape extent y equals: (actorWidthHeight + actorBorderSize ).
+	self
+		assert: controller roassalShape extent x
+		equals: actorWidthHeight + actorBorderSize.
+	self
+		assert: controller roassalShape extent y
+		equals: actorWidthHeight + actorBorderSize
 ]

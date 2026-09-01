@@ -1,5 +1,6 @@
 "
-I represent a class responsible for displaying a Scope of Interest
+I am a diagram element representing a DEMO Scope of Interest.
+I handle the rendering rules and selection-based draggable interactions for its underlying Roassal shape (the scope boundary frame).
 "
 Class {
 	#name : 'OPDemoScopeOfInterestShape',
@@ -9,14 +10,14 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'rendering' }
+{ #category : 'interactions' }
 OPDemoScopeOfInterestShape >> addSelectionDraggableInteraction [
 
 	roassalShape
 	@ OPRSSelectionDraggableBorder
 ]
 
-{ #category : 'rendering' }
+{ #category : 'accessing' }
 OPDemoScopeOfInterestShape >> attachedShapes [
 
 	^ super attachedShapes , {
@@ -57,7 +58,7 @@ OPDemoScopeOfInterestShape >> renderShapeDetails [
 		add: label
 ]
 
-{ #category : 'rendering' }
+{ #category : 'interactions' }
 OPDemoScopeOfInterestShape >> shouldBeResizableByUser [
 
 	^ true

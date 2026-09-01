@@ -1,18 +1,16 @@
 "
-I am in charge of displaying a standard internal Transaction
+I am a diagram element representing a DEMO standard internal transaction.
+I manage the rendering details and attached shapes of its underlying Roassal shape.
 "
 Class {
 	#name : 'OPDemoStandardInternalTransactionShape',
 	#superclass : 'OPDemoTransactionShape',
-	#instVars : [
-		'type'
-	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'rendering' }
+{ #category : 'accessing' }
 OPDemoStandardInternalTransactionShape >> attachedShapes [
 
 	^ super attachedShapes , {

@@ -1,5 +1,6 @@
 "
-I represent a model for an Initiator Link
+Model representing a target initiator link in a DEMO CSD diagram.
+Connects a transaction to its associated initiating actor role.
 "
 Class {
 	#name : 'OPDemoTargetInitiatorLink',

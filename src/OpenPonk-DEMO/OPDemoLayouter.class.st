@@ -1,11 +1,9 @@
 "
-I include information about all the elements present
-
-I represent a layout
+Applies automated layout algorithms to DEMO CSD diagrams. Positions transactions inside actors and aligns related nodes and edges to maintain visual semantics.
 "
 Class {
 	#name : 'OPDemoLayouter',
-	#superclass : 'OPLayouter',
+	#superclass : 'OPNodesAndEdgesLayouter',
 	#category : 'OpenPonk-DEMO-Plugin',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Plugin'
@@ -37,36 +35,40 @@ OPDemoLayouter >> allNodes [
 
 { #category : 'layouts' }
 OPDemoLayouter >> defaultLayout [
-	(diagramController model name = 'Car Rental Example')
+
+	diagramController model name = 'Car Rental Example'
 		ifTrue: [ self layoutDiagramExample: diagramController model ]
-		ifFalse: self gridLayout
+		ifFalse: [ self gridLayout ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutCompositeActorExample: aNode [
-	|nodeController|
-	nodeController := diagramController controllerForModel: aNode.
-	aNode name = 'CA1' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-546) y:(-6)).
-			(nodeController diagramElement labelFirst) position: (Point x:(-546) y:(-6)).
-			(nodeController diagramElement labelSecond) position: (Point x:(-546) y:(36)).
-			].
-	aNode name = 'CA2' ifTrue: [ 
-			nodeController roassalShape position: (Point x:569 y:(-43)).
-			nodeController roassalShape height: 243.
-			(nodeController diagramElement labelFirst) position: (Point x:569 y:(-43)).
-			(nodeController diagramElement labelSecond) position: (Point x:569 y:70).
-			].
-	aNode name = 'CA3' ifTrue: [ 
-			nodeController roassalShape position: (Point x:569 y:157).
-			(nodeController diagramElement labelFirst) position: (Point x:569 y:157).
-			(nodeController diagramElement labelSecond) position: (Point x:569 y:199).
-			].
-	aNode name = 'CA4' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-546) y:139).
-			(nodeController diagramElement labelFirst) position: (Point x:(-546) y:139).
-			(nodeController diagramElement labelSecond) position: (Point x:(-546) y:181).
-			].
+
+	| actions |
+	actions := {
+		           ('CA1' -> [ :ctrl :elem |
+			            ctrl roassalShape position: -546 @ -6.
+			            elem labelFirst position: -546 @ -6.
+			            elem labelSecond position: -546 @ 36 ]).
+		           ('CA2' -> [ :ctrl :elem |
+			            ctrl roassalShape
+				            position: 569 @ -43;
+				            height: 243.
+			            elem labelFirst position: 569 @ -43.
+			            elem labelSecond position: 569 @ 70 ]).
+		           ('CA3' -> [ :ctrl :elem |
+			            ctrl roassalShape position: 569 @ 157.
+			            elem labelFirst position: 569 @ 157.
+			            elem labelSecond position: 569 @ 199 ]).
+		           ('CA4' -> [ :ctrl :elem |
+			            ctrl roassalShape position: -546 @ 139.
+			            elem labelFirst position: -546 @ 139.
+			            elem labelSecond position: -546 @ 181 ]) } asDictionary.
+
+	actions at: aNode name ifPresent: [ :action |
+			| nodeController |
+			nodeController := diagramController controllerForModel: aNode.
+			action value: nodeController value: nodeController diagramElement ]
 ]
 
 { #category : 'layouts' }
@@ -83,65 +85,57 @@ OPDemoLayouter >> layoutDiagramExample: aDiagram [
 	self updateCanvas.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutFactsExample: aNode [
-	|nodeController|
-	nodeController := diagramController controllerForModel: aNode.
-	aNode name = 'AT1' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-93) y:(-396)).
-			nodeController diagramElement attachedCircle position: (Point x:(-101) y:(-396)).
-			nodeController diagramElement attachedSquare position: (Point x:(-101) y:(-396)).
-			(nodeController diagramElement labelFirst) position: (Point x:(-101) y:(-396)).
-			(nodeController diagramElement labelSecond) position: (Point x:(-99) y:(-426)).
-			].
-	aNode name = 'AT2' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(244) y:(-396)).
-			nodeController diagramElement attachedCircle position: (Point x:(236) y:(-396)).
-			nodeController diagramElement attachedSquare position: (Point x:(236) y:(-396)).
-			(nodeController diagramElement labelFirst) position: (Point x:(236) y:(-396)).
-			(nodeController diagramElement labelSecond) position: (Point x:(238) y:(-426)).
-			].
-	aNode name = 'AT3' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(75) y:(-396)).
-			nodeController diagramElement attachedCircle position: (Point x:(67) y:(-396)).
-			nodeController diagramElement attachedSquare position: (Point x:(67) y:(-396)).
-			(nodeController diagramElement labelFirst) position: (Point x:(67) y:(-396)).
-			(nodeController diagramElement labelSecond) position: (Point x:(69) y:(-426)).
-			].
+
+	| positions |
+	positions := {
+		             ('AT1' -> (-101 @ -396)).
+		             ('AT2' -> (236 @ -396)).
+		             ('AT3' -> (67 @ -396)) } asDictionary.
+
+	positions at: aNode name ifPresent: [ :mainPos |
+			| nodeController element |
+			nodeController := diagramController controllerForModel: aNode.
+			element := nodeController diagramElement.
+
+			nodeController roassalShape position: mainPos + (8 @ 0).
+			element attachedCircle position: mainPos.
+			element attachedSquare position: mainPos.
+			element labelFirst position: mainPos.
+			element labelSecond position: mainPos + (2 @ -30) ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutInternalActorExample: aNode [
-	|nodeController|
-	nodeController := diagramController controllerForModel: aNode.
-	aNode name = 'A1' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-246) y:67).
-			nodeController roassalShape height: 247.
-			(nodeController diagramElement labelFirst) position: (Point x:(-246) y:67).
-			(nodeController diagramElement labelSecond) position: (Point x:(-246) y:182).
-			].
-	aNode name = 'A6' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-246) y:(-144)).
-			(nodeController diagramElement labelFirst) position: (Point x:(-246) y:(-144)).
-			(nodeController diagramElement labelSecond) position: (Point x:(-246) y:(-102)).
-			].
-	aNode name = 'A3' ifTrue: [ 
-			nodeController roassalShape position: (Point x:254 y:23).
-			(nodeController diagramElement labelFirst) position: (Point x:254 y:23).
-			nodeController roassalShape height: 373.
-			(nodeController diagramElement labelSecond) position: (Point x:254 y:202).
-			].
-	aNode name = 'A2' ifTrue: [ 
-			nodeController roassalShape position: (Point x:75 y:(-144)).
-			(nodeController diagramElement labelFirst) position: (Point x:75 y:(-193)).
-			nodeController roassalShape width: 150.
-			nodeController roassalShape height: 137.
-			(nodeController diagramElement labelSecond) position: (Point x:75 y:(-84)).
-			self layoutTransactionInsideActorExample: aNode.
-			].
+    | actions |
+    actions := {
+        'A1' -> [ :ctrl :elem |
+            ctrl roassalShape position: -246 @ 67; height: 247.
+            elem labelFirst position: -246 @ 67.
+            elem labelSecond position: -246 @ 182 ].
+        'A6' -> [ :ctrl :elem |
+            ctrl roassalShape position: -246 @ -144.
+            elem labelFirst position: -246 @ -144.
+            elem labelSecond position: -246 @ -102 ].
+        'A3' -> [ :ctrl :elem |
+            ctrl roassalShape position: 254 @ 23; height: 373.
+            elem labelFirst position: 254 @ 23.
+            elem labelSecond position: 254 @ 202 ].
+        'A2' -> [ :ctrl :elem |
+            ctrl roassalShape position: 75 @ -144; width: 150; height: 137.
+            elem labelFirst position: 75 @ -193.
+            elem labelSecond position: 75 @ -84.
+            self layoutTransactionInsideActorExample: aNode ]
+    } asDictionary.
+
+    actions at: aNode name ifPresent: [ :action | 
+        | nodeController |
+        nodeController := diagramController controllerForModel: aNode.
+        action value: nodeController value: nodeController diagramElement ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutNode: aNode [
 	(aNode isKindOf: OPDemoInternalActor) ifTrue: [ self layoutInternalActorExample: aNode ].
 	(aNode isKindOf: OPDemoStandardInternalTransaction) ifTrue: [ self layoutStandardInternalTransactionExample: aNode ].
@@ -149,71 +143,66 @@ OPDemoLayouter >> layoutNode: aNode [
 	(aNode isKindOf: OPDemoFacts) ifTrue: [ self layoutFactsExample: aNode ].
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutScopeOfInterest: aScope [
-	|scopeController|
+
+	| scopeController |
 	scopeController := diagramController controllerForModel: aScope.
-	(aScope elements) do: [ :each | self layoutNode: each].
-	scopeController roassalShape position: (Point x:9 y:(-14)).
-	scopeController roassalShape width: 806.
-	scopeController roassalShape height: 532.
-	(scopeController diagramElement labelFirst) position: (Point x:9 y:(-262)).
-	aScope elements do: [ :each | ((each isKindOf: OPDemoInternalActor) and: (each name = 'A2')) ifTrue: [ ^ each ] ]
+	aScope elements do: [ :each | self layoutNode: each ].
+
+	scopeController roassalShape
+		position: 9 @ -14;
+		width: 806;
+		height: 532.
+	scopeController diagramElement labelFirst position: 9 @ -262.
+
+	aScope elements detect: [ :any |
+		(any isKindOf: OPDemoInternalActor) and: [ any name = 'A2' ] ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutStandardInternalTransactionExample: aNode [
-	|nodeController|
-	nodeController := diagramController controllerForModel: aNode.
-	aNode name = 'T1' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-392) y:(-6)).
-			nodeController diagramElement attachedSquare position: (Point x:(-392) y:(-6)).
-			(nodeController diagramElement labelFirst) position: (Point x:(-392) y:(-6)).
-			].
-	aNode name = 'T2' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-392) y:139).
-			nodeController diagramElement attachedSquare position: (Point x:(-392) y:139).
-			(nodeController diagramElement labelFirst) position: (Point x:(-392) y:139).
-			].
-	aNode name = 'T3' ifTrue: [ 
-			nodeController roassalShape position: (Point x:409 y:(-114)).
-			nodeController diagramElement attachedSquare position: (Point x:409 y:(-114)).
-			(nodeController diagramElement labelFirst) position: (Point x:409 y:(-114)).
-			].
-	aNode name = 'T4' ifTrue: [ 
-			nodeController roassalShape position: (Point x:409 y:23).
-			nodeController diagramElement attachedSquare position: (Point x:409 y:23).
-			(nodeController diagramElement labelFirst) position: (Point x:409 y:23).
-			].
-	aNode name = 'T5' ifTrue: [ 
-			nodeController roassalShape position: (Point x:409 y:157).
-			nodeController diagramElement attachedSquare position: (Point x:409 y:157).
-			(nodeController diagramElement labelFirst) position: (Point x:409 y:157).
-			].
-	aNode name = 'T6' ifTrue: [ 
-			nodeController roassalShape position: (Point x:(-93) y:(-144)).
-			nodeController diagramElement attachedSquare position: (Point x:(-93) y:(-144)).
-			(nodeController diagramElement labelFirst) position: (Point x:(-93) y:(-144)).
-			].
+
+	| nodeController positions |
+	positions := {
+		             ('T1' -> (-392 @ -6)).
+		             ('T2' -> (-392 @ 139)).
+		             ('T3' -> (409 @ -114)).
+		             ('T4' -> (409 @ 23)).
+		             ('T5' -> (409 @ 157)).
+		             ('T6' -> (-93 @ -144)) } asDictionary.
+
+	positions at: aNode name ifPresent: [ :targetPosition |
+			| element |
+			nodeController := diagramController controllerForModel: aNode.
+			element := nodeController diagramElement.
+
+			nodeController roassalShape position: targetPosition.
+			element attachedSquare position: targetPosition.
+			element labelFirst position: targetPosition ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> layoutTransactionInsideActorExample: aNode [
-	|transactionController|
+
+	| transactionController |
 	self updateCanvas.
-	transactionController := diagramController controllerForModel: (aNode elements at: 1).
-	transactionController roassalShape position: (Point x:75 y:(-132)).
+	transactionController := diagramController controllerForModel:
+		                         aNode elements first.
+	transactionController roassalShape position: 75 @ -132.
 	self updateCanvas.
-	transactionController diagramElement attachedSquare position: (Point x:75 y:(-132)).
+	transactionController diagramElement attachedSquare position:
+		75 @ -132.
 	self updateCanvas.
-	transactionController diagramElement labelFirst position: (Point x:75 y:(-132)).
-	self updateCanvas.
+	transactionController diagramElement labelFirst position: 75 @ -132.
+	self updateCanvas
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'processing' }
 OPDemoLayouter >> updateActor: actorA2 [
-	|actorController|
+
+	| actorController |
 	actorController := diagramController controllerForModel: actorA2.
-	(actorController diagramElement labelFirst) position: (Point x:75 y:(-193)).
-	self layoutTransactionInsideActorExample: actorA2 .
+	actorController diagramElement labelFirst position: 75 @ -193.
+	self layoutTransactionInsideActorExample: actorA2
 ]

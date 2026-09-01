@@ -1,5 +1,6 @@
 "
-I am a class representing a composite Actor Role model
+Model representing a composite Actor Role in a DEMO CSD diagram.
+Defines an actor role that encapsulates internal transactions and internal logic, allowing structural decomposition.
 "
 Class {
 	#name : 'OPDemoCompositeActor',
@@ -8,15 +9,6 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Models'
 }
-
-{ #category : 'testing' }
-OPDemoCompositeActor class >> isComposite [
-	"comment stating purpose of instance-side method"
-	"scope: class-variables  &  instance-variables"
-
-	||
-	^ super isComposite 
-]
 
 { #category : 'testing' }
 OPDemoCompositeActor >> isComposite [

@@ -1,5 +1,6 @@
 "
-I am a controller for a composite Actor Role
+Controller for DEMO composite Actor Roles.
+Manages diagram lifecycle and UI synchronization for actors containing internal transaction elements.
 "
 Class {
 	#name : 'OPDemoCompositeActorController',
@@ -10,12 +11,12 @@ Class {
 }
 
 { #category : 'construction' }
-OPDemoCompositeActorController >> diagramElementClass [
+OPDemoCompositeActorController class >> diagramElementClass [
 
 	^ OPDemoCompositeActorShape
 ]
 
 { #category : 'accessing' }
-OPDemoCompositeActorController >> modelClass [
-	^ OPDemoCompositeActor
+OPDemoCompositeActorController class >> viewModelClass [
+	^ OPDemoCompositeActorViewModel
 ]

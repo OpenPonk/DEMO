@@ -1,5 +1,6 @@
 "
-I implement a controller for a Fact Bank element
+Controller for DEMO Fact Bank elements.
+Manages diagram interactions, validates connections, and synchronizes the Fact Bank model with the view.
 "
 Class {
 	#name : 'OPDemoFactsController',
@@ -9,32 +10,13 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'accessing' }
-OPDemoFactsController >> buildEditorForm: aForm [
-	|text|
-	text := self model labelFacts.
-	super buildEditorForm: aForm.
-
-	(aForm addText: 'Name')
-		text: text;
-		whenTextChangedDo: [ :newValue |
-			self model labelFacts: newValue.
-			self modelChanged ]
-]
-
-{ #category : 'accessing' }
-OPDemoFactsController >> canBeSourceFor: aController [
-	^ (aController respondsTo: #modelClass) and:
-	[aController modelClass = OPDemoAccessLink]
-]
-
 { #category : 'construction' }
-OPDemoFactsController >> diagramElementClass [
+OPDemoFactsController class >> diagramElementClass [
 
 	^ OPDemoFactsShape 
 ]
 
 { #category : 'accessing' }
-OPDemoFactsController >> modelClass [
-	^ OPDemoFacts 
+OPDemoFactsController class >> viewModelClass [
+	^ OPDemoFactsViewModel
 ]
