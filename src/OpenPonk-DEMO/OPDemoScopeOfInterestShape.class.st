@@ -39,23 +39,10 @@ OPDemoScopeOfInterestShape >> renderBasicShape [
 
 { #category : 'rendering' }
 OPDemoScopeOfInterestShape >> renderShapeDetails [
-	|location|
 	super renderShapeDetails.
-	label := RSLabel new
-		         color: Color black;
-					fontSize: 17;
-					bold;
-		         height: 11;
-		         model: self;
-		         yourself.
-		
-	location := RSLocation new.
-	location top.
-	location center.
-	location offset: 0@5.
-	location stick: label on: self roassalShape.
-	self canvas
-		add: label
+	label := RSComposite new.
+	self updateLabel.
+	self canvas add: label
 ]
 
 { #category : 'interactions' }
@@ -65,9 +52,21 @@ OPDemoScopeOfInterestShape >> shouldBeResizableByUser [
 ]
 
 { #category : 'rendering' }
-OPDemoScopeOfInterestShape >> updateRenderFromModel [
+OPDemoScopeOfInterestShape >> updateLabel [
+	self
+		updateMultilineLabel: label
+		withText: self modelElement name
+		fontSize: 17
+		bold: true.
+	RSLocation new
+		top;
+		center;
+		offset: 0 @ 15;
+		stick: label on: self roassalShape
+]
 
-	label text: self modelElement name.
-	super updateRenderFromModel.
+{ #category : 'rendering' }
+OPDemoScopeOfInterestShape >> updateRenderFromModel [
+	self updateLabel.
 	roassalShape signalUpdate
 ]

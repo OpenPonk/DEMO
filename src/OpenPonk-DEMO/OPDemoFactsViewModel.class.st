@@ -16,14 +16,11 @@ OPDemoFactsViewModel class >> modelClass [ ^ OPDemoFacts
 
 { #category : 'forms' }
 OPDemoFactsViewModel >> buildEditorForm: aForm [
-	|text|
-	text := self model labelFacts.
 	super buildEditorForm: aForm.
-
-	(aForm addText: 'Name')
-		text: text;
+	(aForm addTextInput: 'Name')
+		text: (self model labelFacts ifNil: [ '' ]);
 		whenTextChangedDo: [ :newValue |
-			self model labelFacts: newValue.
+			self model labelFacts: newValue asString.
 			self modelChanged ]
 ]
 

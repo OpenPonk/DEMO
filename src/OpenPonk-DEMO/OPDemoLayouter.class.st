@@ -73,16 +73,17 @@ OPDemoLayouter >> layoutCompositeActorExample: aNode [
 
 { #category : 'layouts' }
 OPDemoLayouter >> layoutDiagramExample: aDiagram [
-	|scope compositeActors facts actorA2|
-	scope := (aDiagram getScopeOfInterest at: 1).
+
+	| scope compositeActors facts actorA2 |
+	scope := aDiagram getScopeOfInterest first.
 	actorA2 := self layoutScopeOfInterest: scope.
-	compositeActors := (aDiagram getCompositeActors).
-	compositeActors do: [ :each | self layoutNode: each].
-	facts := (aDiagram getFacts).
-	facts do: [ :each | self layoutNode: each].
+	compositeActors := aDiagram getCompositeActors.
+	compositeActors do: [ :each | self layoutNode: each ].
+	facts := aDiagram getFacts.
+	facts do: [ :each | self layoutNode: each ].
 	self updateCanvas.
-	self updateActor: actorA2.
-	self updateCanvas.
+	actorA2 ifNotNil: [ self updateActor: actorA2 ].
+	self updateCanvas
 ]
 
 { #category : 'processing' }
@@ -145,19 +146,17 @@ OPDemoLayouter >> layoutNode: aNode [
 
 { #category : 'processing' }
 OPDemoLayouter >> layoutScopeOfInterest: aScope [
-
 	| scopeController |
 	scopeController := diagramController controllerForModel: aScope.
 	aScope elements do: [ :each | self layoutNode: each ].
-
 	scopeController roassalShape
 		position: 9 @ -14;
 		width: 806;
 		height: 532.
 	scopeController diagramElement labelFirst position: 9 @ -262.
-
-	aScope elements detect: [ :any |
-		(any isKindOf: OPDemoInternalActor) and: [ any name = 'A2' ] ]
+	^ aScope elements
+		detect: [ :any | (any isKindOf: OPDemoInternalActor) and: [ any name = 'A2' ] ]
+		ifNone: [ nil ]
 ]
 
 { #category : 'processing' }

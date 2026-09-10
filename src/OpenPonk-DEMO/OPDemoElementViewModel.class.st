@@ -21,12 +21,13 @@ OPDemoElementViewModel class >> modelClass [ ^ OPDemoElement
 
 { #category : 'forms' }
 OPDemoElementViewModel >> buildEditorForm: aForm [
-	
-	(aForm addText: 'ID')
-		text: self model name;
+	(self isIdMultiline
+		ifTrue: [ aForm addText: 'ID' ]
+		ifFalse: [ aForm addTextInput: 'ID' ])
+		text: (self model name ifNil: [ '' ]);
 		whenTextChangedDo: [ :newValue |
 			self model name: newValue asString.
-			self modelChanged ].
+			self modelChanged ]
 ]
 
 { #category : 'accessing' }
@@ -37,4 +38,9 @@ OPDemoElementViewModel >> childrenModels [ ^ self model incoming asArray , self 
 OPDemoElementViewModel >> dependentElements [
 
 	^ (self model incoming , self model outgoing) asSet
+]
+
+{ #category : 'testing' }
+OPDemoElementViewModel >> isIdMultiline [
+	^ false
 ]

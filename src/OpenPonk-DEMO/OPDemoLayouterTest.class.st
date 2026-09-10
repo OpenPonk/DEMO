@@ -70,3 +70,31 @@ OPDemoLayouterTest >> testApplyLayout [
 		  diagramController: diagramController;
 		  applyLayout: [ :a :b |  ]
 ]
+
+{ #category : 'tests' }
+OPDemoLayouterTest >> testCarRentalExampleDefaultLayout [
+	| layouter carRentalModel |
+	carRentalModel := OPDemoExamples exampleCarRental.
+	diagramController model: carRentalModel.
+	diagramController showAllElements.
+
+	layouter := OPDemoLayouter new.
+	layouter diagramController: diagramController.
+	layouter defaultLayout
+]
+
+{ #category : 'tests' }
+OPDemoLayouterTest >> testLayoutScopeOfInterestReturnsActor [
+	| layouter carRentalModel scope actor |
+	carRentalModel := OPDemoExamples exampleCarRental.
+	diagramController model: carRentalModel.
+	diagramController showAllElements.
+
+	layouter := OPDemoLayouter new.
+	layouter diagramController: diagramController.
+	scope := carRentalModel getScopeOfInterest first.
+	actor := layouter layoutScopeOfInterest: scope.
+
+	self assert: (actor isKindOf: OPDemoInternalActor).
+	self assert: actor name equals: 'A2'
+]

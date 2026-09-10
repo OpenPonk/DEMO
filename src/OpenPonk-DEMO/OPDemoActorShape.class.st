@@ -37,8 +37,21 @@ OPDemoActorShape >> innerRoassalShapesBlock: aBlock [
 ]
 
 { #category : 'rendering' }
+OPDemoActorShape >> labelIdLocation [
+	^ RSLocation new
+]
+
+{ #category : 'rendering' }
 OPDemoActorShape >> labelSecond [
 	^ label_second 
+]
+
+{ #category : 'rendering' }
+OPDemoActorShape >> labelSecondLocation [
+	^ RSLocation new
+		bottom;
+		center;
+		offset: 0 @ -12
 ]
 
 { #category : 'rendering' }
@@ -53,8 +66,42 @@ OPDemoActorShape >> renderBasicShape [
 		  yourself
 ]
 
+{ #category : 'rendering' }
+OPDemoActorShape >> renderShapeDetails [
+	super renderShapeDetails.
+	label := RSComposite new.
+	label_second := RSComposite new.
+	self updateLabels.
+	self canvas
+		add: label;
+		add: label_second
+]
+
 { #category : 'interactions' }
 OPDemoActorShape >> shouldBeResizableByUser [
 
 	^ true
+]
+
+{ #category : 'rendering' }
+OPDemoActorShape >> updateLabels [
+	self
+		updateMultilineLabel: label
+		withText: self modelElement name
+		fontSize: 17
+		bold: true.
+	self labelIdLocation stick: label on: self roassalShape.
+
+	self
+		updateMultilineLabel: label_second
+		withText: self modelElement labelActor
+		fontSize: 11
+		bold: false.
+	self labelSecondLocation stick: label_second on: self roassalShape
+]
+
+{ #category : 'rendering' }
+OPDemoActorShape >> updateRenderFromModel [
+	self updateLabels.
+	roassalShape signalUpdate
 ]

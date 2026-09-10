@@ -24,3 +24,27 @@ OPDemoElementShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightBorderColorBlue
 ]
+
+{ #category : 'rendering' }
+OPDemoElementShape >> updateMultilineLabel: aComposite withText: anObject fontSize: anInteger bold: aBoolean [
+
+	| rawString textLines |
+	aComposite children copy do: [ :each | aComposite removeShape: each ].
+	rawString := anObject ifNil: [ '' ] ifNotNil: [ :object | object asString ].
+	textLines := rawString lines.
+	textLines ifEmpty: [ textLines := #( '' ) ].
+	aComposite addAll: (textLines collect: [ :eachLine |
+				 | lbl |
+				 lbl := RSLabel new
+					        text: eachLine;
+					        color: Color black;
+					        fontSize: anInteger;
+					        yourself.
+				 aBoolean ifTrue: [ lbl bold ].
+				 lbl ]).
+	RSVerticalLineLayout new
+		alignCenter;
+		verticalGap: 2;
+		on: aComposite children.
+	aComposite adjustToChildren
+]

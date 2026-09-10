@@ -53,3 +53,8 @@ OPDemoActorViewModel >> dependentElements [
 OPDemoActorViewModel >> essentialChildrenModels [
 			^ self model elements asArray
 ]
+
+{ #category : 'testing' }
+OPDemoActorViewModel >> isIdMultiline [
+	^ true
+]
