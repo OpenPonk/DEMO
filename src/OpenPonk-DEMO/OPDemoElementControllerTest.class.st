@@ -22,7 +22,7 @@ Class {
 
 { #category : 'testing' }
 OPDemoElementControllerTest class >> isAbstract [
-	^ self = OPDemoRoassalTest
+	^ self = OPDemoElementControllerTest
 ]
 
 { #category : 'constants' }
