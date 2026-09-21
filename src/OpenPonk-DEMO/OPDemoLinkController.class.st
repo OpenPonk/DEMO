@@ -9,3 +9,8 @@ Class {
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'
 }
+
+{ #category : 'testing' }
+OPDemoLinkController class >> isAbstract [
+	^ self == OPDemoLinkController
+]

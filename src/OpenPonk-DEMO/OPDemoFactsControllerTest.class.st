@@ -3,30 +3,30 @@ Unit tests for OPDemoFactsController and its integration with diagram elements.
 Verifies the rendering logic and diagram lifecycle for fact banks.
 "
 Class {
-	#name : 'OPDemoFactsRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoFactsControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoFactsRoassalTest class >> diagramElementClass [
+OPDemoFactsControllerTest class >> diagramElementClass [
 	^ OPDemoFactsShape
 ]
 
 { #category : 'constants' }
-OPDemoFactsRoassalTest >> controllerClass [
+OPDemoFactsControllerTest >> controllerClass [
 	^ OPDemoFactsController 
 ]
 
 { #category : 'constants' }
-OPDemoFactsRoassalTest >> modelClass [
+OPDemoFactsControllerTest >> modelClass [
 	^ OPDemoFacts
 ]
 
 { #category : 'tests' }
-OPDemoFactsRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoFactsControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircle).

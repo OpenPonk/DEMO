@@ -3,30 +3,30 @@ Unit tests for OPDemoStandardInternalTransactionController and its integration w
 Verifies rendering and diagram interactions for standard internal transactions.
 "
 Class {
-	#name : 'OPDemoStandardInternalRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoStandardInternalControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoStandardInternalRoassalTest class >> diagramElementClass [
+OPDemoStandardInternalControllerTest class >> diagramElementClass [
 	^ OPDemoStandardInternalTransactionShape
 ]
 
 { #category : 'constants' }
-OPDemoStandardInternalRoassalTest >> controllerClass [
+OPDemoStandardInternalControllerTest >> controllerClass [
 	^ OPDemoStandardInternalTransactionController
 ]
 
 { #category : 'constants' }
-OPDemoStandardInternalRoassalTest >> modelClass [
+OPDemoStandardInternalControllerTest >> modelClass [
 	^ OPDemoStandardInternalTransaction
 ]
 
 { #category : 'tests' }
-OPDemoStandardInternalRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoStandardInternalControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircle).

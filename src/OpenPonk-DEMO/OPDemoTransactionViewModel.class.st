@@ -22,17 +22,11 @@ OPDemoTransactionViewModel class >> modelClass [ ^ OPDemoTransaction
 
 { #category : 'forms' }
 OPDemoTransactionViewModel >> buildEditorForm: aForm [
+	"Build declarative form fields for transaction type, product kind, and identification."
 	super buildEditorForm: aForm.
-	(aForm addDroplist: 'Type')
-		items: #('Ontological' 'Informational' 'Documental' 'Material');
-		display: [ :type | type asString ];
-		selectItem: self model type;
-		whenSelectedItemChangedDo: [ :newValue |
-			self model type: newValue.
-			self modelChanged ].
-	(aForm addTextInput: 'Product Kind')
-		text: (self model productKind ifNil: [ '' ]);
-		whenTextChangedDo: [ :newValue |
-			self model productKind: newValue asString.
-			self modelChanged ]
+	aForm
+		bindDroplist: 'Type'
+		property: #type
+		items: #( 'Ontological' 'Informational' 'Documental' 'Material' ).
+	aForm bindTextInput: 'Product Kind' property: #productKind
 ]

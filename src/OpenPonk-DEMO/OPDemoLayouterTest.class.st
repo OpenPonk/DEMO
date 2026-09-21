@@ -72,6 +72,37 @@ OPDemoLayouterTest >> testApplyLayout [
 ]
 
 { #category : 'tests' }
+OPDemoLayouterTest >> testCarRentalDefaultLayoutIsUndoable [
+	| layouter carRentalModel undoManager boundElements initialPositions |
+	carRentalModel := OPDemoExamples exampleCarRental.
+	diagramController model: carRentalModel.
+	diagramController showAllElements.
+
+	undoManager := OPUndoManager new.
+	diagramController undoManager: undoManager.
+
+	boundElements := (diagramController controllers
+		select: [ :eachController | eachController diagramElement isKindOf: OPBoundNode ]
+		thenCollect: #diagramElement) asSet.
+
+	initialPositions := Dictionary new.
+	boundElements do: [ :eachElement |
+		eachElement roassalShape ifNotNil: [ :eachShape |
+			initialPositions at: eachElement put: eachShape position copy ] ].
+
+	layouter := OPDemoLayouter new diagramController: diagramController.
+	layouter defaultLayout.
+
+	self assert: undoManager canUndo.
+
+	diagramController undo.
+
+	boundElements do: [ :eachElement |
+		eachElement roassalShape ifNotNil: [ :eachShape |
+			self assert: eachShape position equals: (initialPositions at: eachElement) ] ]
+]
+
+{ #category : 'tests' }
 OPDemoLayouterTest >> testCarRentalExampleDefaultLayout [
 	| layouter carRentalModel |
 	carRentalModel := OPDemoExamples exampleCarRental.

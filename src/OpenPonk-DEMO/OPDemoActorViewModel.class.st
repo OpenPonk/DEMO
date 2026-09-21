@@ -28,15 +28,9 @@ OPDemoActorViewModel >> basicRemoveModel [
 
 { #category : 'forms' }
 OPDemoActorViewModel >> buildEditorForm: aForm [
-	|text|
-	text := self model labelActor.
+	"Build declarative form fields for actor role and identification."
 	super buildEditorForm: aForm.
-
-	(aForm addText: 'Name')
-		text: text;
-		whenTextChangedDo: [ :newValue |
-			self model labelActor: newValue.
-			self modelChanged ]
+	aForm bindText: 'Name' property: #labelActor
 ]
 
 { #category : 'accessing' }

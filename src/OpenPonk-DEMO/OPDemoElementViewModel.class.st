@@ -21,13 +21,10 @@ OPDemoElementViewModel class >> modelClass [ ^ OPDemoElement
 
 { #category : 'forms' }
 OPDemoElementViewModel >> buildEditorForm: aForm [
-	(self isIdMultiline
-		ifTrue: [ aForm addText: 'ID' ]
-		ifFalse: [ aForm addTextInput: 'ID' ])
-		text: (self model name ifNil: [ '' ]);
-		whenTextChangedDo: [ :newValue |
-			self model name: newValue asString.
-			self modelChanged ]
+	"Build declarative form field for element identification."
+	self isIdMultiline
+		ifTrue: [ aForm bindText: 'ID' property: #name ]
+		ifFalse: [ aForm bindTextInput: 'ID' property: #name ]
 ]
 
 { #category : 'accessing' }

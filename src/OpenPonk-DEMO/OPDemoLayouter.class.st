@@ -35,9 +35,10 @@ OPDemoLayouter >> allNodes [
 
 { #category : 'layouts' }
 OPDemoLayouter >> defaultLayout [
-
 	diagramController model name = 'Car Rental Example'
-		ifTrue: [ self layoutDiagramExample: diagramController model ]
+		ifTrue: [
+			self applyLayout: [ :nodes124 :edges124 |
+				self layoutDiagramExample: diagramController model ] ]
 		ifFalse: [ self gridLayout ]
 ]
 

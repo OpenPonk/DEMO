@@ -3,30 +3,30 @@ Unit tests for OPDemoScopeOfInterestController and its integration with diagram 
 Verifies rendering logic and boundary constraints for the scope of interest.
 "
 Class {
-	#name : 'OPDemoScopeOfInterestRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoScopeOfInterestControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoScopeOfInterestRoassalTest class >> diagramElementClass [
+OPDemoScopeOfInterestControllerTest class >> diagramElementClass [
 	^ OPDemoScopeOfInterestShape 
 ]
 
 { #category : 'constants' }
-OPDemoScopeOfInterestRoassalTest >> controllerClass [
+OPDemoScopeOfInterestControllerTest >> controllerClass [
 	^ OPDemoScopeOfInterestController 
 ]
 
 { #category : 'constants' }
-OPDemoScopeOfInterestRoassalTest >> modelClass [
+OPDemoScopeOfInterestControllerTest >> modelClass [
 	^ OPDemoScopeOfInterest 
 ]
 
 { #category : 'tests' }
-OPDemoScopeOfInterestRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoScopeOfInterestControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSBox).

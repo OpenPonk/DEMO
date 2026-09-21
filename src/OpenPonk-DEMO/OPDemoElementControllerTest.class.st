@@ -3,7 +3,7 @@ Abstract base class for DEMO Roassal diagram element tests.
 Provides shared setup and utility methods for testing rendering logic and layout properties of DEMO diagram elements.
 "
 Class {
-	#name : 'OPDemoRoassalTest',
+	#name : 'OPDemoElementControllerTest',
 	#superclass : 'OPAbstractElementControllerTest',
 	#instVars : [
 		'actorBorderSize',
@@ -21,22 +21,22 @@ Class {
 }
 
 { #category : 'testing' }
-OPDemoRoassalTest class >> isAbstract [
+OPDemoElementControllerTest class >> isAbstract [
 	^ self = OPDemoRoassalTest
 ]
 
 { #category : 'constants' }
-OPDemoRoassalTest >> diagramControllerClass [
+OPDemoElementControllerTest >> diagramControllerClass [
 	^ OPDemoController
 ]
 
 { #category : 'constants' }
-OPDemoRoassalTest >> diagramModelClass [
+OPDemoElementControllerTest >> diagramModelClass [
 	^ OPDemo
 ]
 
 { #category : 'running' }
-OPDemoRoassalTest >> setUp [
+OPDemoElementControllerTest >> setUp [
 	super setUp.
 	actorBorderSize := 2.
 	transactionBorderSize := 1.5.

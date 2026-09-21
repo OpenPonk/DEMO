@@ -16,12 +16,8 @@ OPDemoScopeOfInterestViewModel class >> modelClass [ ^ OPDemoScopeOfInterest
 
 { #category : 'forms' }
 OPDemoScopeOfInterestViewModel >> buildEditorForm: aForm [
-
-	(aForm addText: 'Name')
-		text: self model name;
-		whenTextChangedDo: [ :newValue |
-			self model name: newValue.
-			self modelChanged ]
+	"Build declarative form field for scope of interest name."
+	aForm bindText: 'Name' property: #name
 ]
 
 { #category : 'accessing' }

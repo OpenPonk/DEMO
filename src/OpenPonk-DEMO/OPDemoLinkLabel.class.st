@@ -30,10 +30,5 @@ OPDemoLinkLabel >> defaultText [
 
 { #category : 'rendering' }
 OPDemoLinkLabel >> renderShapeDetails [
-
-	super renderShapeDetails.
-	self roassalShape
-		when: RSMouseDoubleClick
-		do: [ :evt | OPRenameElementCommand executeOn: self modelElement ]
-		for: self
+	super renderShapeDetails
 ]

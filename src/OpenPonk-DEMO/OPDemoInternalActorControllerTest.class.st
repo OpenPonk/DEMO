@@ -3,31 +3,31 @@ Unit tests for OPDemoInternalActorController and its integration with diagram el
 Verifies the rendering logic and diagram lifecycle for internal actors.
 "
 Class {
-	#name : 'OPDemoInternalActorRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoInternalActorControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoInternalActorRoassalTest class >> diagramElementClass [
+OPDemoInternalActorControllerTest class >> diagramElementClass [
 
 	^ OPDemoInternalActorShape 
 ]
 
 { #category : 'constants' }
-OPDemoInternalActorRoassalTest >> controllerClass [
+OPDemoInternalActorControllerTest >> controllerClass [
 	^ OPDemoInternalActorController 
 ]
 
 { #category : 'constants' }
-OPDemoInternalActorRoassalTest >> modelClass [
+OPDemoInternalActorControllerTest >> modelClass [
 	^ OPDemoInternalActor
 ]
 
 { #category : 'tests' }
-OPDemoInternalActorRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoInternalActorControllerTest >> testCreateUsingAddAsTarget [
 
 	self setUp.
 	super testCreateUsingAddAsTarget.

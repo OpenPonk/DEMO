@@ -1,32 +1,32 @@
 "
-Unit tests for OPDemoMultipleCompositeTransactionController and its integration with diagram elements.
-Verifies rendering and diagram interactions for multiple composite transactions.
+Unit tests for OPDemoStandardCompositeTransactionController and its integration with diagram elements.
+Verifies rendering and diagram interactions for standard composite transactions.
 "
 Class {
-	#name : 'OPDemoMultipleCompositeRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoStandardCompositeControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoMultipleCompositeRoassalTest class >> diagramElementClass [
-	^ OPDemoMultipleCompositeTransactionShape
+OPDemoStandardCompositeControllerTest class >> diagramElementClass [
+	^ OPDemoStandardCompositeTransactionShape
 ]
 
 { #category : 'constants' }
-OPDemoMultipleCompositeRoassalTest >> controllerClass [
-	^ OPDemoMultipleCompositeTransactionController
+OPDemoStandardCompositeControllerTest >> controllerClass [
+	^ OPDemoStandardCompositeTransactionController
 ]
 
 { #category : 'constants' }
-OPDemoMultipleCompositeRoassalTest >> modelClass [
-	^ OPDemoMultipleCompositeTransaction
+OPDemoStandardCompositeControllerTest >> modelClass [
+	^ OPDemoStandardCompositeTransaction
 ]
 
 { #category : 'tests' }
-OPDemoMultipleCompositeRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoStandardCompositeControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircle).
@@ -36,6 +36,4 @@ OPDemoMultipleCompositeRoassalTest >> testCreateUsingAddAsTarget [
 	self assert: controller roassalShape extent y equals: (transactionWidthHeight + transactionBorderSize ).
 	self assert: controller diagramElement attachedSquare color equals: Color transparent.
 	self assert: controller diagramElement attachedSquare border color equals: Color red.
-	self assert: controller diagramElement attachedCircle color equals: Color gray.
-	self assert: controller diagramElement attachedCircle border color equals: Color black.
 ]

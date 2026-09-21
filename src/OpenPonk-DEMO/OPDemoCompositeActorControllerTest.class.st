@@ -3,31 +3,31 @@ Unit tests for OPDemoCompositeActorController and its integration with diagram e
 Verifies diagram interactions such as creation using target additions.
 "
 Class {
-	#name : 'OPDemoCompositeActorRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoCompositeActorControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoCompositeActorRoassalTest class >> diagramElementClass [
+OPDemoCompositeActorControllerTest class >> diagramElementClass [
 
 	^ OPDemoCompositeActorShape 
 ]
 
 { #category : 'constants' }
-OPDemoCompositeActorRoassalTest >> controllerClass [
+OPDemoCompositeActorControllerTest >> controllerClass [
 	^ OPDemoCompositeActorController 
 ]
 
 { #category : 'constants' }
-OPDemoCompositeActorRoassalTest >> modelClass [
+OPDemoCompositeActorControllerTest >> modelClass [
 	^ OPDemoCompositeActor
 ]
 
 { #category : 'tests' }
-OPDemoCompositeActorRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoCompositeActorControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSBox).

@@ -16,12 +16,9 @@ OPDemoFactsViewModel class >> modelClass [ ^ OPDemoFacts
 
 { #category : 'forms' }
 OPDemoFactsViewModel >> buildEditorForm: aForm [
+	"Build declarative form fields for facts identification and label."
 	super buildEditorForm: aForm.
-	(aForm addTextInput: 'Name')
-		text: (self model labelFacts ifNil: [ '' ]);
-		whenTextChangedDo: [ :newValue |
-			self model labelFacts: newValue asString.
-			self modelChanged ]
+	aForm bindTextInput: 'Name' property: #labelFacts
 ]
 
 { #category : 'accessing' }

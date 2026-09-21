@@ -3,30 +3,30 @@ Unit tests for OPDemoMultipleInternalTransactionController and its integration w
 Verifies rendering and diagram interactions for multiple internal transactions.
 "
 Class {
-	#name : 'OPDemoMultipleInternalRoassalTest',
-	#superclass : 'OPDemoRoassalTest',
+	#name : 'OPDemoMultipleInternalControllerTest',
+	#superclass : 'OPDemoElementControllerTest',
 	#category : 'OpenPonk-DEMO-Tests',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Tests'
 }
 
 { #category : 'constants' }
-OPDemoMultipleInternalRoassalTest class >> diagramElementClass [
+OPDemoMultipleInternalControllerTest class >> diagramElementClass [
 	^ OPDemoMultipleInternalTransactionShape
 ]
 
 { #category : 'constants' }
-OPDemoMultipleInternalRoassalTest >> controllerClass [
+OPDemoMultipleInternalControllerTest >> controllerClass [
 	^ OPDemoMultipleInternalTransactionController
 ]
 
 { #category : 'constants' }
-OPDemoMultipleInternalRoassalTest >> modelClass [
+OPDemoMultipleInternalControllerTest >> modelClass [
 	^ OPDemoMultipleInternalTransaction
 ]
 
 { #category : 'tests' }
-OPDemoMultipleInternalRoassalTest >> testCreateUsingAddAsTarget [
+OPDemoMultipleInternalControllerTest >> testCreateUsingAddAsTarget [
 	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircle).
