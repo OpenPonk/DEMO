@@ -121,24 +121,6 @@ OPDemoExamples class >> exampleCarRental [
 ]
 
 { #category : 'examples' }
-OPDemoExamples class >> menuCommandOn: aBuilder [
-
-	<worldMenu>
-	(aBuilder item: #OPDEMO)
-		label: 'DEMO';
-		icon: OPDemoEditorIcons demo16Icon;
-		action: [ self openExampleEmptyModel ];
-		parent: #MostUsedTools;
-		order: 220;
-		with: [  
-			(aBuilder item: #'DEMO Example')
-				parent: #OPDEMO;
-				label: 'DEMO Example Car Rental';
-				icon: OPDemoEditorIcons demo16Icon;
-				action: [ self openExample ]].
-]
-
-{ #category : 'examples' }
 OPDemoExamples class >> openExample [
 
 	<example>

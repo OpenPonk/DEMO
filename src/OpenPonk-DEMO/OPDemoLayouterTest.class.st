@@ -23,44 +23,44 @@ Class {
 
 { #category : 'running' }
 OPDemoLayouterTest >> setUp [
-    | project |
-    super setUp.
-    transactionController := OPDemoStandardInternalTransactionController new.
-    actorController := OPDemoInternalActorController new.
-    executorLinkController := OPDemoSourceInitiatorLinkController new.
-    
-    model := OPDemo new.
-    transactionModel := OPDemoStandardInternalTransaction new.
-    actorModel := OPDemoInternalActor new.
-    executorLinkModel := OPDemoSourceInitiatorLink
-        from: actorModel
-        to: transactionModel.
-    model
-        add: transactionModel;
-        add: actorModel;
-        add: executorLinkModel.
+	| project projectController |
+	super setUp.
+	transactionController := OPDemoStandardInternalTransactionController new.
+	actorController := OPDemoInternalActorController new.
+	executorLinkController := OPDemoSourceInitiatorLinkController new.
+	
+	model := OPDemo new.
+	transactionModel := OPDemoStandardInternalTransaction new.
+	actorModel := OPDemoInternalActor new.
+	executorLinkModel := OPDemoSourceInitiatorLink
+		from: actorModel
+		to: transactionModel.
+	model
+		add: transactionModel;
+		add: actorModel;
+		add: executorLinkModel.
 
-    "Create a dummy project to break the circular initialization dependency"
-    project := OPProject new.
+	project := OPProject new.
+	project addModel: model.
+	projectController := OPProjectController forProject: project.
 
-    diagramController := OPDemoController new.
-    canvasPresenter := OPCanvasPresenter new.
-    canvasPresenter attachController: diagramController.
-    diagramController diagramElement: (OPOpenPonkDiagram forModelElement: model).
-    
-    diagramController viewModelRegistry: (OPViewModelRegistry forProject: project).
-    diagramController model: model.
-    
-    transactionController viewModelRegistry: diagramController viewModelRegistry.
-    transactionController model: transactionModel.
-    
-    actorController viewModelRegistry: diagramController viewModelRegistry.
-    actorController model: actorModel.
-    
-    executorLinkController viewModelRegistry: diagramController viewModelRegistry.
-    executorLinkController model: executorLinkModel.
+	diagramController := OPDemoController new.
+	projectController addDiagramController: diagramController.
+	canvasPresenter := OPCanvasPresenter new.
+	canvasPresenter attachController: diagramController.
+	diagramController diagramElement: (OPOpenPonkDiagram forModelElement: model).
+	diagramController model: model.
+	
+	transactionController diagramController: diagramController.
+	transactionController model: transactionModel.
+	
+	actorController diagramController: diagramController.
+	actorController model: actorModel.
+	
+	executorLinkController diagramController: diagramController.
+	executorLinkController model: executorLinkModel.
 
-    diagramController showAllElements
+	diagramController showAllElements
 ]
 
 { #category : 'running' }
@@ -78,8 +78,7 @@ OPDemoLayouterTest >> testCarRentalDefaultLayoutIsUndoable [
 	diagramController model: carRentalModel.
 	diagramController showAllElements.
 
-	undoManager := OPUndoManager new.
-	diagramController undoManager: undoManager.
+	undoManager := diagramController undoManager.
 
 	boundElements := (diagramController controllers
 		select: [ :eachController | eachController diagramElement isKindOf: OPBoundNode ]

@@ -14,6 +14,18 @@ OPDemoPlugin >> diagramControllerClass [
 	^ OPDemoController
 ]
 
+{ #category : 'templates' }
+OPDemoPlugin >> exampleProjectTemplates [
+	"Answers example project templates for DEMO diagrams."
+
+	^ { 
+		(OPProjectTemplate
+			named: 'Car Rental'
+			icon: self icon
+			modelFactory: [ OPDemoExamples exampleCarRental ]
+			isExample: true) }
+]
+
 { #category : 'accessing' }
 OPDemoPlugin >> icon [
 	^ OPDemoEditorIcons demo16Icon
