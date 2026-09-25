@@ -34,21 +34,19 @@ OPDemoController >> canBeTargetFor: aController [
 
 { #category : 'accessing' }
 OPDemoController >> controllerFactory [
-
 	^ super controllerFactory
-		  register: OPDemoScopeOfInterestController forModel: OPDemoScopeOfInterest;
-   		  register: OPDemoCompositeActorController forModel: OPDemoCompositeActor;
-		  register: OPDemoInternalActorController forModel: OPDemoInternalActor;
-		  register: OPDemoStandardInternalTransactionController forModel: OPDemoStandardInternalTransaction;
-		  register: OPDemoStandardCompositeTransactionController forModel: OPDemoStandardCompositeTransaction;
-		  register: OPDemoMultipleInternalTransactionController forModel: OPDemoMultipleInternalTransaction;
-		  register: OPDemoMultipleCompositeTransactionController forModel: OPDemoMultipleCompositeTransaction;
-		  register: OPDemoAccessLinkController forModel: OPDemoAccessLink;
-		  register: OPDemoSourceInitiatorLinkController forModel: OPDemoSourceInitiatorLink;
-		  register: OPDemoTargetInitiatorLinkController forModel: OPDemoTargetInitiatorLink;
-		  register: OPDemoWaitingLinkController forModel: OPDemoWaitingLink;
-		  register: OPDemoLinkController forModel: OPDemoLink;
-		  register: OPDemoFactsController forModel: OPDemoFacts
+		register: OPDemoCompositeActorController forModel: OPDemoCompositeActor;
+		register: OPDemoInternalActorController forModel: OPDemoInternalActor;
+		register: OPDemoStandardCompositeTransactionController forModel: OPDemoStandardCompositeTransaction;
+		register: OPDemoMultipleCompositeTransactionController forModel: OPDemoMultipleCompositeTransaction;
+		register: OPDemoStandardInternalTransactionController forModel: OPDemoStandardInternalTransaction;
+		register: OPDemoMultipleInternalTransactionController forModel: OPDemoMultipleInternalTransaction;
+		register: OPDemoFactsController forModel: OPDemoFacts;
+		register: OPDemoScopeOfInterestController forModel: OPDemoScopeOfInterest;
+		register: OPDemoAccessLinkController forModel: OPDemoAccessLink;
+		register: OPDemoSourceInitiatorLinkController forModel: OPDemoSourceInitiatorLink;
+		register: OPDemoTargetInitiatorLinkController forModel: OPDemoTargetInitiatorLink;
+		register: OPDemoWaitingLinkController forModel: OPDemoWaitingLink
 ]
 
 { #category : 'ui interaction' }

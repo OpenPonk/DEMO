@@ -10,6 +10,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPDemoPlugin class >> repositoryName [
+	^ #demo
+]
+
+{ #category : 'accessing' }
 OPDemoPlugin >> diagramControllerClass [
 	^ OPDemoController
 ]
@@ -18,12 +23,17 @@ OPDemoPlugin >> diagramControllerClass [
 OPDemoPlugin >> exampleProjectTemplates [
 	"Answers example project templates for DEMO diagrams."
 
-	^ { 
-		(OPProjectTemplate
-			named: 'Car Rental'
-			icon: self icon
-			modelFactory: [ OPDemoExamples exampleCarRental ]
-			isExample: true) }
+	^ {
+		  (OPProjectTemplate
+			   named: 'Car Rental'
+			   icon: self icon
+			   modelFactory: [ OPDemoExamples exampleCarRental ]
+			   isExample: true).
+		  (OPProjectTemplate
+			   named: 'Procurement Process'
+			   icon: self icon
+			   modelFactory: [ OPDemoExamples exampleProcurementProcess ]
+			   isExample: true) }
 ]
 
 { #category : 'accessing' }

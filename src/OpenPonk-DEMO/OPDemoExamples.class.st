@@ -121,6 +121,48 @@ OPDemoExamples class >> exampleCarRental [
 ]
 
 { #category : 'examples' }
+OPDemoExamples class >> exampleProcurementProcess [
+	<script: 'self exampleProcurementProcess inspect'>
+	| demoModel scopeOfInterest buyerActor supplierActor warehouseActor orderTransaction batchTransaction inspectionTransaction orderInitiatorLink orderExecutionLink waitingLink inspectionInitiatorLink inspectionExecutionLink |
+	demoModel := OPDemo named: 'Procurement Process'.
+
+	scopeOfInterest := OPDemoScopeOfInterest named: 'Purchasing Department'.
+	buyerActor := OPDemoInternalActor named: 'A1'.
+	buyerActor labelActor: 'buyer'.
+	warehouseActor := OPDemoInternalActor named: 'A2'.
+	warehouseActor labelActor: 'warehouse clerk'.
+	supplierActor := OPDemoCompositeActor named: 'CA1'.
+	supplierActor labelActor: 'contracted supplier'.
+
+	orderTransaction := OPDemoStandardCompositeTransaction named: 'T1'.
+	batchTransaction := OPDemoMultipleCompositeTransaction named: 'T2'.
+	inspectionTransaction := OPDemoMultipleInternalTransaction named: 'T3'.
+
+	orderInitiatorLink := OPDemoTargetInitiatorLink from: orderTransaction to: buyerActor.
+	orderExecutionLink := OPDemoSourceInitiatorLink from: supplierActor to: orderTransaction.
+	waitingLink := OPDemoWaitingLink from: orderTransaction to: buyerActor.
+
+	inspectionInitiatorLink := OPDemoTargetInitiatorLink from: inspectionTransaction to: buyerActor.
+	inspectionExecutionLink := OPDemoSourceInitiatorLink from: warehouseActor to: inspectionTransaction.
+
+	demoModel add: scopeOfInterest.
+	demoModel add: supplierActor.
+	scopeOfInterest add: buyerActor.
+	scopeOfInterest add: warehouseActor.
+	scopeOfInterest add: orderTransaction.
+	scopeOfInterest add: batchTransaction.
+	scopeOfInterest add: inspectionTransaction.
+
+	demoModel add: orderInitiatorLink.
+	demoModel add: orderExecutionLink.
+	demoModel add: waitingLink.
+	demoModel add: inspectionInitiatorLink.
+	demoModel add: inspectionExecutionLink.
+
+	^ demoModel
+]
+
+{ #category : 'examples' }
 OPDemoExamples class >> openExample [
 
 	<example>
