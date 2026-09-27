@@ -10,11 +10,20 @@ Class {
 	#tag : 'DiagramElements'
 }
 
+{ #category : 'layout' }
+OPDemoScopeOfInterestShape >> adaptBoundsToInnerBounds: anInnerRectangle [
+	"Adapts scope bounding box to safely enclose inner actors and transactions."
+	| newBounds |
+	newBounds := anInnerRectangle expandBy: 40 @ 40.
+	self roassalShape
+		extent: newBounds extent;
+		translateTo: newBounds center.
+	self isRendered ifTrue: [ self updateLabel ]
+]
+
 { #category : 'interactions' }
 OPDemoScopeOfInterestShape >> addSelectionDraggableInteraction [
-
-	roassalShape
-	@ OPRSSelectionDraggableBorder
+	roassalShape @ (OPRSSelectionDraggableBorder thatAlsoDragsShapesProvidedByBlock: [ self innerDraggableRoassalShapes ])
 ]
 
 { #category : 'accessing' }
@@ -22,6 +31,11 @@ OPDemoScopeOfInterestShape >> attachedShapes [
 
 	^ super attachedShapes , {
 		  label}
+]
+
+{ #category : 'testing' }
+OPDemoScopeOfInterestShape >> isContainer [
+	^ true
 ]
 
 { #category : 'rendering' }

@@ -6,7 +6,6 @@ Class {
 	#name : 'OPDemoActorShape',
 	#superclass : 'OPDemoElementShape',
 	#instVars : [
-		'innerRoassalShapesBlock',
 		'label_second'
 	],
 	#category : 'OpenPonk-DEMO-DiagramElements',
@@ -14,12 +13,19 @@ Class {
 	#tag : 'DiagramElements'
 }
 
+{ #category : 'layout' }
+OPDemoActorShape >> adaptBoundsToInnerBounds: anInnerRectangle [
+	"Resizes actor shape to accommodate its executed transactions if any."
+	| requiredExtent |
+	requiredExtent := (anInnerRectangle extent + (40 @ 40)) max: 100 @ 100.
+	self roassalShape extent: requiredExtent.
+	self roassalShape translateTo: anInnerRectangle center.
+	self isRendered ifTrue: [ self updateLabels ]
+]
+
 { #category : 'interactions' }
 OPDemoActorShape >> addSelectionDraggableInteraction [
-
-	roassalShape
-	@ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock:
-			 innerRoassalShapesBlock)
+	roassalShape @ (OPRSSelectionDraggable thatAlsoDragsShapesProvidedByBlock: [ self innerDraggableRoassalShapes ])
 ]
 
 { #category : 'accessing' }
@@ -30,10 +36,9 @@ OPDemoActorShape >> attachedShapes [
 			label_second }
 ]
 
-{ #category : 'rendering' }
-OPDemoActorShape >> innerRoassalShapesBlock: aBlock [
-
-	innerRoassalShapesBlock := aBlock
+{ #category : 'testing' }
+OPDemoActorShape >> isContainer [
+	^ true
 ]
 
 { #category : 'rendering' }

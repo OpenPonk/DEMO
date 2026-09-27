@@ -15,17 +15,6 @@ OPDemoController class >> viewModelClass [
 	^ OPDemoViewModel
 ]
 
-{ #category : 'userinterface' }
-OPDemoController >> applyLayout: anAlgorithm [
-	| roassalShapes edges |
-	roassalShapes := self controllers
-		           select: [ :each | each isKindOf: OPDemoElementController ]
-		           thenCollect: [ :each | each roassalShape ].
-	edges := (roassalShapes flatCollect: #connectedLines) reject: [ :each |
-		         each from = each to ].
-	anAlgorithm on: roassalShapes asGroup edges: edges asGroup
-]
-
 { #category : 'connecting' }
 OPDemoController >> canBeTargetFor: aController [
 	^ (super canBeTargetFor: aController)

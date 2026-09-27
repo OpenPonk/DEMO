@@ -40,36 +40,8 @@ OPDemoActorController >> canBeTargetFor: aController [
 	^ aController source isKindOf: OPDemoTransactionController
 ]
 
-{ #category : 'construction' }
-OPDemoActorController >> hookDiagramElement [
-
-	super hookDiagramElement.
-
-	self diagramElement innerRoassalShapesBlock: [
-		self nodeRoassalShapes ]
-]
-
 { #category : 'initialization' }
 OPDemoActorController >> initialize [
 	super initialize.
 	transactionCount := 0
-]
-
-{ #category : 'accessing' }
-OPDemoActorController >> nodeRoassalShapes [
-
-	^ self model transactions
-		  collect: [ :eachModel | 
-			  self diagramController
-				  controllerForModel: eachModel
-				  ifFound: #roassalShape ]
-		  thenSelect: #isNotNil
-]
-
-{ #category : 'diagram elements' }
-OPDemoActorController >> unhookDiagramElement [
-
-	super unhookDiagramElement.
-	(self diagramElement ifNotExists: [ ^ self ])
-		innerRoassalShapesBlock: [  ]
 ]
