@@ -1,3 +1,6 @@
+"
+Abstract base test suite providing shared assertions for DEMO link controllers.
+"
 Class {
 	#name : 'OPDemoLinkControllerTest',
 	#superclass : 'OPAbstractDirectionalRelationshipControllerTest',

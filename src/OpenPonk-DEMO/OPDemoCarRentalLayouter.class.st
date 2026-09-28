@@ -1,3 +1,6 @@
+"
+A specialized diagram layouter that positions elements in the DEMO Car Rental example model.
+"
 Class {
 	#name : 'OPDemoCarRentalLayouter',
 	#superclass : 'OPDemoLayouter',

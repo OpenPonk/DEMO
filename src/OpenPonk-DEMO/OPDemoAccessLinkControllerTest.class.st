@@ -1,3 +1,6 @@
+"
+Tests controller logic and arrow presentations for DEMO access links.
+"
 Class {
 	#name : 'OPDemoAccessLinkControllerTest',
 	#superclass : 'OPDemoLinkControllerTest',

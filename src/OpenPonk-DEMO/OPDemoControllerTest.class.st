@@ -1,3 +1,6 @@
+"
+Tests diagram-level controller behaviors, transaction creation, and links in DEMO diagrams.
+"
 Class {
 	#name : 'OPDemoControllerTest',
 	#superclass : 'OPAbstractDiagramControllerTest',

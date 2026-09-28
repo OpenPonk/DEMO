@@ -1,3 +1,6 @@
+"
+Verifies the initialization, registration, and shutdown lifecycle of the DEMO plugin.
+"
 Class {
 	#name : 'OPDemoPluginLifecycleTest',
 	#superclass : 'OPAbstractPluginExampleLifecycleTest',

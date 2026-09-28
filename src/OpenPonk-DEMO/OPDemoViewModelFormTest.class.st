@@ -1,3 +1,6 @@
+"
+Tests dynamic property form generation, field bindings, and validation for DEMO view models.
+"
 Class {
 	#name : 'OPDemoViewModelFormTest',
 	#superclass : 'TestCase',

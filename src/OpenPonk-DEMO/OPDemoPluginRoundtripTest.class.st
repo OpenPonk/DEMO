@@ -1,3 +1,6 @@
+"
+Verifies the serialization and deserialization roundtrip persistence for DEMO models and diagrams.
+"
 Class {
 	#name : 'OPDemoPluginRoundtripTest',
 	#superclass : 'OPAbstractPluginExampleRoundtripTest',

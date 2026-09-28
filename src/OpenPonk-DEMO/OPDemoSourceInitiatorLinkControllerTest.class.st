@@ -1,3 +1,6 @@
+"
+Tests controller operations and line styling for DEMO source-initiator links.
+"
 Class {
 	#name : 'OPDemoSourceInitiatorLinkControllerTest',
 	#superclass : 'OPDemoLinkControllerTest',

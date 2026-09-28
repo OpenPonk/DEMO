@@ -1,3 +1,6 @@
+"
+Tests controller interactions and visual indicators for DEMO waiting links.
+"
 Class {
 	#name : 'OPDemoWaitingLinkControllerTest',
 	#superclass : 'OPDemoLinkControllerTest',
