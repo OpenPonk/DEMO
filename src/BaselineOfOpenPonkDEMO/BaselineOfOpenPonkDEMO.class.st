@@ -15,7 +15,7 @@ BaselineOfOpenPonkDEMO >> baseline: spec [
 	spec for: #common do: [
 		spec
 			baseline: 'OpenPonk'
-			with: [ spec repository: 'github://openponk/openponk' ].
+			with: [ spec repository: 'github://OpenPonk/openponk' ].
 		spec
 			baseline: 'OpenPonkModel'
 			with: [ spec repository: 'github://OpenPonk/openponk-model' ].
