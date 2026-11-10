@@ -33,10 +33,11 @@ OPDemoInternalActorShapeTest >> testAdd [
 
 { #category : 'hooks' }
 OPDemoInternalActorShapeTest >> testRemove [
+
 	shape modelElement: OPDemoInternalActor new.
-	self assert: canvas nodes isEmpty.
+	self assertEmpty: canvas nodes.
 	shape renderBasicShapeIn: canvas.
-	self assert: canvas nodes isNotEmpty.
+	self denyEmpty: canvas nodes.
 	shape remove.
-	self assert: canvas nodes isEmpty.
+	self assertEmpty: canvas nodes
 ]

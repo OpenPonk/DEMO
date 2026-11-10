@@ -33,10 +33,11 @@ OPDemoCompositeActorShapeTest >> testAdd [
 
 { #category : 'instance creation' }
 OPDemoCompositeActorShapeTest >> testRemove [
+
 	shape modelElement: OPDemoCompositeActor new.
-	self assert: canvas nodes isEmpty.
+	self assertEmpty: canvas nodes.
 	shape renderBasicShapeIn: canvas.
-	self assert: canvas nodes isNotEmpty.
+	self denyEmpty: canvas nodes.
 	shape remove.
-	self assert: canvas nodes isEmpty.
+	self assertEmpty: canvas nodes
 ]

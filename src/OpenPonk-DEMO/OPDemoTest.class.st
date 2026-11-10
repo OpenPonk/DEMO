@@ -38,32 +38,39 @@ OPDemoTest >> setUp [
 { #category : 'running' }
 OPDemoTest >> testAdd [
 	"checking if the initialization causes an empty diagram"
-	self assert: diagram elements isEmpty.
+
+	self assertEmpty: diagram elements.
 	"adding a scope of interest"
 	diagram add: scopeOfInterest.
 	self assert: diagram elements size equals: 1.
 	self assert: ((diagram elements at: 1) isKindOf: OPDemoScopeOfInterest).
-	self assert: ((diagram elements at: 1) name asString) equals: 'TestScopeOfInterest'.
+	self assert: (diagram elements at: 1) name asString equals: 'TestScopeOfInterest'.
 	"adding a composite actor role, fact bank and a multiple composite transaction"
 	diagram add: compositeActor.
 	diagram add: factBank.
 	diagram add: multipleCompositeTransaction.
 	self assert: diagram elements size equals: 4.
-	self assertCollection: diagram ownedElements hasSameElements: (Array with: scopeOfInterest with: compositeActor with: factBank with: multipleCompositeTransaction ).
+	self assertCollection: diagram ownedElements hasSameElements: (Array
+			 with: scopeOfInterest
+			 with: compositeActor
+			 with: factBank
+			 with: multipleCompositeTransaction).
 	"adding elements into scope of interest"
 	scopeOfInterest add: standardInternalTransactionA.
 	scopeOfInterest add: internalActor.
-	self assertCollection: scopeOfInterest ownedElements hasSameElements: (Array with: standardInternalTransactionA with: internalActor ).
+	self
+		assertCollection: scopeOfInterest ownedElements
+		hasSameElements: (Array with: standardInternalTransactionA with: internalActor).
 	"adding a link"
 	diagram add: accessLink.
 	self assert: (diagram elements at: 5) equals: accessLink.
-	self assertCollection: factBank outgoing hasSameElements: (Array with: accessLink ).
-	self assertCollection: scopeOfInterest incoming hasSameElements: (Array with: accessLink ).
+	self assertCollection: factBank outgoing hasSameElements: (Array with: accessLink).
+	self assertCollection: scopeOfInterest incoming hasSameElements: (Array with: accessLink).
 	"testing a transaction inside an actor role"
 	self assert: internalActor hasTransaction not.
 	internalActor add: standardInternalTransactionB.
-	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB ).
-	self assert: internalActor hasTransaction.
+	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB).
+	self assert: internalActor hasTransaction
 ]
 
 { #category : 'running' }
@@ -88,12 +95,20 @@ OPDemoTest >> testRemoveDependencies [
 
 { #category : 'running' }
 OPDemoTest >> testRemoveSequential [
+
 	self testAdd.
-	self assertCollection: diagram ownedElements hasSameElements: (Array with: scopeOfInterest with: compositeActor with: factBank with: multipleCompositeTransaction with: accessLink ).
-	self assertCollection: scopeOfInterest ownedElements hasSameElements: (Array with: standardInternalTransactionA with: internalActor ).
-	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB ).
+	self assertCollection: diagram ownedElements hasSameElements: (Array
+			 with: scopeOfInterest
+			 with: compositeActor
+			 with: factBank
+			 with: multipleCompositeTransaction
+			 with: accessLink).
+	self
+		assertCollection: scopeOfInterest ownedElements
+		hasSameElements: (Array with: standardInternalTransactionA with: internalActor).
+	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB).
 	self assert: internalActor hasTransaction.
-	
+
 	standardInternalTransactionB remove.
 	self assert: internalActor hasTransaction not.
 	self assert: standardInternalTransactionB owner isNil.
@@ -106,11 +121,11 @@ OPDemoTest >> testRemoveSequential [
 	accessLink remove.
 	self assert: accessLink source isNil.
 	self assert: accessLink target isNil.
-	self assert: factBank outgoing isEmpty.
-	self assert: scopeOfInterest incoming isEmpty.	
+	self assertEmpty: factBank outgoing.
+	self assertEmpty: scopeOfInterest incoming.
 	multipleCompositeTransaction remove.
 	factBank remove.
 	compositeActor remove.
 	scopeOfInterest remove.
-	self assert: diagram elements isEmpty.
+	self assertEmpty: diagram elements
 ]
