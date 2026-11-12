@@ -5,9 +5,9 @@ Verifies the lifecycle (add, remove) and properties of basic DEMO diagram shapes
 Class {
 	#name : 'OPDemoShapeTest',
 	#superclass : 'OPAbstractNodeTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-DiagramElements',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'DiagramElements'
 }
 
 { #category : 'testing' }

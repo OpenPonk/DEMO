@@ -4,9 +4,9 @@ Verifies the initialization, registration, and shutdown lifecycle of the DEMO pl
 Class {
 	#name : 'OPDemoPluginLifecycleTest',
 	#superclass : 'OPAbstractPluginExampleLifecycleTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Plugin',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'accessing' }

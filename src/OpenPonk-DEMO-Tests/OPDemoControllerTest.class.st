@@ -4,8 +4,8 @@ Tests diagram-level controller behaviors, transaction creation, and links in DEM
 Class {
 	#name : 'OPDemoControllerTest',
 	#superclass : 'OPAbstractDiagramControllerTest',
-	#category : 'OpenPonk-DEMO-Controllers',
-	#package : 'OpenPonk-DEMO',
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
 	#tag : 'Controllers'
 }
 

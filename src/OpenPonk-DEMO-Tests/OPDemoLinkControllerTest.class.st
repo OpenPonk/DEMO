@@ -4,8 +4,8 @@ Abstract base test suite providing shared assertions for DEMO link controllers.
 Class {
 	#name : 'OPDemoLinkControllerTest',
 	#superclass : 'OPAbstractDirectionalRelationshipControllerTest',
-	#category : 'OpenPonk-DEMO-Controllers',
-	#package : 'OpenPonk-DEMO',
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
 	#tag : 'Controllers'
 }
 

@@ -5,9 +5,9 @@ Verifies the rendering logic and diagram lifecycle for fact banks.
 Class {
 	#name : 'OPDemoFactsControllerTest',
 	#superclass : 'OPDemoElementControllerTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'constants' }

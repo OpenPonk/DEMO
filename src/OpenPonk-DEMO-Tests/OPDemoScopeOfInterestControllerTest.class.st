@@ -5,9 +5,9 @@ Verifies rendering logic and boundary constraints for the scope of interest.
 Class {
 	#name : 'OPDemoScopeOfInterestControllerTest',
 	#superclass : 'OPDemoElementControllerTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'constants' }

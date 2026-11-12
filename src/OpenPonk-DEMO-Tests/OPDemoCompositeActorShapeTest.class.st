@@ -5,9 +5,9 @@ Verifies the lifecycle and structural properties of composite actor diagram elem
 Class {
 	#name : 'OPDemoCompositeActorShapeTest',
 	#superclass : 'OPDemoShapeTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-DiagramElements',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'DiagramElements'
 }
 
 { #category : 'instance creation' }

@@ -23,6 +23,9 @@ BaselineOfOpenPonkDEMO >> baseline: spec [
 			package: 'OpenPonk-DEMO'
 			with: [
 			spec requires: #( 'OpenPonkModel' ) ].
-		spec group: 'plugin' with: #( 'OpenPonk-DEMO' ).
+		spec
+			package: 'OpenPonk-DEMO-Tests'
+			with: [ spec requires: #( 'OpenPonk-DEMO' ) ].
+		spec group: 'plugin' with: #( 'OpenPonk-DEMO' 'OpenPonk-DEMO-Tests' ).
 		spec group: 'default' with: #( 'OpenPonk' 'plugin' ) ]
 ]

@@ -16,9 +16,9 @@ Class {
 		'executorLinkModel',
 		'canvasPresenter'
 	],
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Plugin',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'running' }

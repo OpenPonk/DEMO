@@ -15,9 +15,9 @@ Class {
 		'scopeOfInterestWidth',
 		'scopeOfInterestBorderSize'
 	],
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'testing' }

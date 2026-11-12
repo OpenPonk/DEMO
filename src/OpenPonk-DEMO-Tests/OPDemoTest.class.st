@@ -16,9 +16,9 @@ Class {
 		'accessLink',
 		'standardInternalTransactionB'
 	],
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Models',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Models'
 }
 
 { #category : 'running' }

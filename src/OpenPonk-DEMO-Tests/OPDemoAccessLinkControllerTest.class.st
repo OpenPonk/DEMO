@@ -4,8 +4,8 @@ Tests controller logic and arrow presentations for DEMO access links.
 Class {
 	#name : 'OPDemoAccessLinkControllerTest',
 	#superclass : 'OPDemoLinkControllerTest',
-	#category : 'OpenPonk-DEMO-Controllers',
-	#package : 'OpenPonk-DEMO',
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
 	#tag : 'Controllers'
 }
 

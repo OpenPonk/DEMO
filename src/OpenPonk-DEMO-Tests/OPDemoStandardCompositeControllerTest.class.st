@@ -5,9 +5,9 @@ Verifies rendering and diagram interactions for standard composite transactions.
 Class {
 	#name : 'OPDemoStandardCompositeControllerTest',
 	#superclass : 'OPDemoElementControllerTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'constants' }

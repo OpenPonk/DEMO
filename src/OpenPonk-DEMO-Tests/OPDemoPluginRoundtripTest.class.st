@@ -4,9 +4,9 @@ Verifies the serialization and deserialization roundtrip persistence for DEMO mo
 Class {
 	#name : 'OPDemoPluginRoundtripTest',
 	#superclass : 'OPAbstractPluginExampleRoundtripTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Plugin',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'accessing' }

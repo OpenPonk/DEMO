@@ -4,8 +4,8 @@ Tests controller operations and line styling for DEMO target-initiator links.
 Class {
 	#name : 'OPDemoTargetInitiatorLinkControllerTest',
 	#superclass : 'OPDemoLinkControllerTest',
-	#category : 'OpenPonk-DEMO-Controllers',
-	#package : 'OpenPonk-DEMO',
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
 	#tag : 'Controllers'
 }
 

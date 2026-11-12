@@ -5,9 +5,9 @@ Verifies the lifecycle and structural properties of internal actor diagram eleme
 Class {
 	#name : 'OPDemoInternalActorShapeTest',
 	#superclass : 'OPDemoShapeTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-DiagramElements',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'DiagramElements'
 }
 
 { #category : 'instance creation' }

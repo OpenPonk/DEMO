@@ -8,9 +8,9 @@ Class {
 		'undoManager',
 		'form'
 	],
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-ViewModels',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'ViewModels'
 }
 
 { #category : 'running' }

@@ -5,9 +5,9 @@ Verifies diagram interactions such as creation using target additions.
 Class {
 	#name : 'OPDemoCompositeActorControllerTest',
 	#superclass : 'OPDemoElementControllerTest',
-	#category : 'OpenPonk-DEMO-Tests',
-	#package : 'OpenPonk-DEMO',
-	#tag : 'Tests'
+	#category : 'OpenPonk-DEMO-Tests-Controllers',
+	#package : 'OpenPonk-DEMO-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'constants' }
