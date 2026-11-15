@@ -27,11 +27,12 @@ OPDemoStandardInternalControllerTest >> modelClass [
 
 { #category : 'tests' }
 OPDemoStandardInternalControllerTest >> testCreateUsingAddAsTarget [
+
 	self setUp.
 	super testCreateUsingAddAsTarget.
-	self assert: (controller roassalShape isKindOf: RSCircle).
+	self assert: controller roassalShape class identicalTo: RSCircle.
 	self assert: controller roassalShape color equals: Color white.
 	self assert: controller roassalShape border color equals: Color black.
-	self assert: controller roassalShape extent x equals: (transactionWidthHeight + transactionBorderSize ).
-	self assert: controller roassalShape extent y equals: (transactionWidthHeight + transactionBorderSize ).
+	self assert: controller roassalShape extent x equals: transactionWidthHeight + transactionBorderSize.
+	self assert: controller roassalShape extent y equals: transactionWidthHeight + transactionBorderSize
 ]

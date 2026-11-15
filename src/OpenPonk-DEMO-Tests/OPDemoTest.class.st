@@ -43,8 +43,9 @@ OPDemoTest >> testAdd [
 	"adding a scope of interest"
 	diagram add: scopeOfInterest.
 	self assert: diagram elements size equals: 1.
-	self assert: ((diagram elements at: 1) isKindOf: OPDemoScopeOfInterest).
-	self assert: (diagram elements at: 1) name asString equals: 'TestScopeOfInterest'.
+	self assert: diagram elements first identicalTo: scopeOfInterest.
+	self assert: diagram elements first class identicalTo: OPDemoScopeOfInterest.
+	self assert: diagram elements first name asString equals: 'TestScopeOfInterest'.
 	"adding a composite actor role, fact bank and a multiple composite transaction"
 	diagram add: compositeActor.
 	diagram add: factBank.
@@ -67,30 +68,45 @@ OPDemoTest >> testAdd [
 	self assertCollection: factBank outgoing hasSameElements: (Array with: accessLink).
 	self assertCollection: scopeOfInterest incoming hasSameElements: (Array with: accessLink).
 	"testing a transaction inside an actor role"
-	self assert: internalActor hasTransaction not.
+	self assertEmpty: internalActor elements.
+	self
+		deny: internalActor hasTransaction
+		description: 'Internal actor without child transactions must report hasTransaction = false'.
 	internalActor add: standardInternalTransactionB.
 	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB).
-	self assert: internalActor hasTransaction
+	self
+		assert: internalActor hasTransaction
+		description: 'Internal actor containing a transaction must report hasTransaction = true'
 ]
 
 { #category : 'running' }
 OPDemoTest >> testRemoveDependencies [
+
 	self testAdd.
-	self assertCollection: diagram ownedElements hasSameElements: (Array with: scopeOfInterest with: compositeActor with: factBank with: multipleCompositeTransaction with: accessLink ).
-	self assertCollection: scopeOfInterest ownedElements hasSameElements: (Array with: standardInternalTransactionA with: internalActor ).
-	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB ).
+	self assertCollection: diagram ownedElements hasSameElements: (Array
+			 with: scopeOfInterest
+			 with: compositeActor
+			 with: factBank
+			 with: multipleCompositeTransaction
+			 with: accessLink).
+	self
+		assertCollection: scopeOfInterest ownedElements
+		hasSameElements: (Array with: standardInternalTransactionA with: internalActor).
+	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB).
 	scopeOfInterest remove.
-	self assert: scopeOfInterest owner isNil.
-	self assert: standardInternalTransactionB owner isNil.
-	self assert: internalActor owner isNil.
-	self assert: standardInternalTransactionA owner isNil.
-	self assert: accessLink source isNil.
-	self assert: accessLink target isNil.
-	self assertCollection: diagram ownedElements hasSameElements: (Array with: compositeActor with: factBank with: multipleCompositeTransaction ).
+	self assert: scopeOfInterest owner identicalTo: nil.
+	self assert: standardInternalTransactionB owner identicalTo: nil.
+	self assert: internalActor owner identicalTo: nil.
+	self assert: standardInternalTransactionA owner identicalTo: nil.
+	self assert: accessLink source identicalTo: nil.
+	self assert: accessLink target identicalTo: nil.
+	self
+		assertCollection: diagram ownedElements
+		hasSameElements: (Array with: compositeActor with: factBank with: multipleCompositeTransaction).
 	compositeActor remove.
 	factBank remove.
 	multipleCompositeTransaction remove.
-	self assert: diagram elements size equals: 0.
+	self assertEmpty: diagram elements
 ]
 
 { #category : 'running' }
@@ -107,20 +123,25 @@ OPDemoTest >> testRemoveSequential [
 		assertCollection: scopeOfInterest ownedElements
 		hasSameElements: (Array with: standardInternalTransactionA with: internalActor).
 	self assertCollection: internalActor ownedElements hasSameElements: (Array with: standardInternalTransactionB).
-	self assert: internalActor hasTransaction.
+	self
+		assert: internalActor hasTransaction
+		description: 'Internal actor containing standardInternalTransactionB must report hasTransaction = true'.
 
 	standardInternalTransactionB remove.
-	self assert: internalActor hasTransaction not.
-	self assert: standardInternalTransactionB owner isNil.
+	self assertEmpty: internalActor elements.
+	self
+		deny: internalActor hasTransaction
+		description: 'Internal actor after removing its only transaction must report hasTransaction = false'.
+	self assert: standardInternalTransactionB owner identicalTo: nil.
 	internalActor remove.
 	self assertCollection: scopeOfInterest ownedElements hasSameElements: (Array with: standardInternalTransactionA).
-	self assert: internalActor owner isNil.
+	self assert: internalActor owner identicalTo: nil.
 	standardInternalTransactionA remove.
-	self assert: scopeOfInterest elements size equals: 0.
-	self assert: standardInternalTransactionA owner isNil.
+	self assertEmpty: scopeOfInterest elements.
+	self assert: standardInternalTransactionA owner identicalTo: nil.
 	accessLink remove.
-	self assert: accessLink source isNil.
-	self assert: accessLink target isNil.
+	self assert: accessLink source identicalTo: nil.
+	self assert: accessLink target identicalTo: nil.
 	self assertEmpty: factBank outgoing.
 	self assertEmpty: scopeOfInterest incoming.
 	multipleCompositeTransaction remove.

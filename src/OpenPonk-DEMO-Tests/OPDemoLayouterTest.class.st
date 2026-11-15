@@ -66,7 +66,7 @@ OPDemoLayouterTest >> setUp [
 { #category : 'tests' }
 OPDemoLayouterTest >> testActorEncompassesExecutedTransactionsAfterDefaultLayout [
 
-	| layouter carRentalModel actorShape innerShapes |
+	| layouter carRentalModel actorBounds innerShapes |
 	carRentalModel := OPDemoExamples exampleCarRental.
 	diagramController model: carRentalModel.
 	diagramController showAllElements.
@@ -76,24 +76,41 @@ OPDemoLayouterTest >> testActorEncompassesExecutedTransactionsAfterDefaultLayout
 
 	actorController := diagramController controllers detect: [ :eachController |
 		                   (eachController isKindOf: OPDemoActorController) and: [ eachController model name = 'A2' ] ].
-	actorShape := actorController roassalShape.
+	actorBounds := actorController roassalShape encompassingRectangle.
 	innerShapes := actorController diagramElement innerNodeRoassalShapes.
-	self denyEmpty: innerShapes.
+	self assert: innerShapes size equals: 1.
 	innerShapes do: [ :eachNodeShape |
-		self assert: (actorShape encompassingRectangle containsRect: eachNodeShape encompassingRectangle) ]
+			| nodeBounds |
+			nodeBounds := eachNodeShape encompassingRectangle.
+			self assert: (actorBounds intersect: nodeBounds) equals: nodeBounds ]
 ]
 
-{ #category : 'running' }
+{ #category : 'tests' }
 OPDemoLayouterTest >> testApplyLayout [
 
-	^ OPDemoLayouter new
-		  diagramController: diagramController;
-		  applyLayout: [ :a :b |  ]
+	| passedBoxes passedEdges actorShape transactionShape linkShape |
+	passedBoxes := nil.
+	passedEdges := nil.
+	OPDemoLayouter new
+		diagramController: diagramController;
+		applyLayout: [ :topBoxes :topEdges |
+				passedBoxes := topBoxes.
+				passedEdges := topEdges ].
+	actorShape := (diagramController controllerForModel: actorModel) roassalShape.
+	transactionShape := (diagramController controllerForModel: transactionModel) roassalShape.
+	linkShape := (diagramController controllerForModel: executorLinkModel) roassalShape.
+	self assert: diagramController controllers size equals: 3.
+	self assertCollection: passedBoxes hasSameElements: {
+			actorShape.
+			transactionShape }.
+	self assertCollection: passedEdges hasSameElements: { linkShape }.
+	self deny: diagramController undoManager canUndo description: 'No-op layout block must not push undo commands onto undoManager'
 ]
 
 { #category : 'tests' }
 OPDemoLayouterTest >> testCarRentalDefaultLayoutIsUndoable [
-	| layouter carRentalModel undoManager boundElements initialPositions |
+
+	| layouter carRentalModel undoManager boundElements initialPositions compositeActorModel compositeActorShape |
 	carRentalModel := OPDemoExamples exampleCarRental.
 	diagramController model: carRentalModel.
 	diagramController showAllElements.
@@ -101,34 +118,41 @@ OPDemoLayouterTest >> testCarRentalDefaultLayoutIsUndoable [
 	undoManager := diagramController undoManager.
 
 	boundElements := (diagramController controllers
-		select: [ :eachController | eachController diagramElement isKindOf: OPBoundNode ]
-		thenCollect: #diagramElement) asSet.
+		                  select: [ :eachController | eachController diagramElement isKindOf: OPBoundNode ]
+		                  thenCollect: #diagramElement) asSet.
 	self denyEmpty: boundElements.
 
 	initialPositions := Dictionary new.
 	boundElements do: [ :eachElement |
-		| eachShape |
-		eachShape := eachElement roassalShape.
-		self assert: eachShape isNotNil.
-		initialPositions at: eachElement put: eachShape position copy ].
+			| eachShape |
+			eachShape := eachElement roassalShape.
+			self assertCollection: diagramController canvas shapes includesAll: { eachShape }.
+			initialPositions at: eachElement put: eachShape position copy ].
 
 	layouter := OPDemoLayouter new diagramController: diagramController.
 	layouter defaultLayout.
 
-	self assert: undoManager canUndo.
+	self assert: undoManager canUndo description: 'Default layout must push an undoable command'.
+	self assert: undoManager undoStack size equals: 1.
+	compositeActorModel := carRentalModel elements detect: [ :eachElement | eachElement name = 'CA1' ].
+	compositeActorShape := (diagramController controllerForModel: compositeActorModel) roassalShape.
+	self assert: compositeActorShape position equals: -546 @ -6.
 
 	diagramController undo.
 
+	self deny: undoManager canUndo description: 'Undoing default layout must exhaust the undo stack'.
+	self assertEmpty: undoManager undoStack.
 	boundElements do: [ :eachElement |
-		| eachShape |
-		eachShape := eachElement roassalShape.
-		self assert: eachShape isNotNil.
-		self assert: eachShape position equals: (initialPositions at: eachElement) ]
+			| eachShape |
+			eachShape := eachElement roassalShape.
+			self assertCollection: diagramController canvas shapes includesAll: { eachShape }.
+			self assert: eachShape position equals: (initialPositions at: eachElement) ]
 ]
 
 { #category : 'tests' }
 OPDemoLayouterTest >> testCarRentalExampleDefaultLayout [
-	| layouter carRentalModel |
+
+	| layouter carRentalModel scopeModel actorModelA1 actorModelA2 transactionModelT7 factsModelAT1 canvasBounds |
 	carRentalModel := OPDemoExamples exampleCarRental.
 	diagramController model: carRentalModel.
 	diagramController showAllElements.
@@ -137,13 +161,35 @@ OPDemoLayouterTest >> testCarRentalExampleDefaultLayout [
 	layouter diagramController: diagramController.
 	layouter defaultLayout.
 
-	self denyEmpty: diagramController controllers.
-	self assert: diagramController canvas shapes isNotEmpty.
-	self assert: diagramController canvas encompassingRectangle extent > (0 @ 0)
+	self
+		assert: (diagramController controllers count: [ :eachController | eachController model rootOwner == carRentalModel ])
+		equals: 34.
+	self assert: diagramController controllers size equals: 37.
+	self denyEmpty: diagramController canvas shapes.
+
+	scopeModel := carRentalModel getScopeOfInterest first.
+	actorModelA1 := scopeModel elements detect: [ :eachElement | eachElement name = 'A1' ].
+	actorModelA2 := scopeModel elements detect: [ :eachElement | eachElement name = 'A2' ].
+	transactionModelT7 := actorModelA2 elements first.
+	factsModelAT1 := carRentalModel getFacts detect: [ :eachElement | eachElement name = 'AT1' ].
+	canvasBounds := diagramController canvas encompassingRectangle.
+
+	{
+		((carRentalModel elements detect: [ :eachElement | eachElement name = 'CA1' ]) -> (-546 @ -6)).
+		(actorModelA1 -> (-246 @ 67)).
+		(actorModelA2 -> (75 @ -132)).
+		(transactionModelT7 -> (75 @ -132)).
+		(factsModelAT1 -> (-93 @ -396)) } do: [ :eachPair |
+			| elementShape elementBounds |
+			elementShape := (diagramController controllerForModel: eachPair key) roassalShape.
+			self assert: elementShape position equals: eachPair value.
+			elementBounds := elementShape encompassingRectangle.
+			self assert: (canvasBounds intersect: elementBounds) equals: elementBounds ]
 ]
 
 { #category : 'tests' }
 OPDemoLayouterTest >> testLayoutScopeOfInterestReturnsActor [
+
 	| layouter carRentalModel scope actor |
 	carRentalModel := OPDemoExamples exampleCarRental.
 	diagramController model: carRentalModel.
@@ -154,14 +200,15 @@ OPDemoLayouterTest >> testLayoutScopeOfInterestReturnsActor [
 	scope := carRentalModel getScopeOfInterest first.
 	actor := layouter layoutScopeOfInterest: scope.
 
-	self assert: (actor isKindOf: OPDemoInternalActor).
+	self assert: actor class identicalTo: OPDemoInternalActor.
+	self assert: actor identicalTo: (scope elements detect: [ :eachElement | eachElement name = 'A2' ]).
 	self assert: actor name equals: 'A2'
 ]
 
 { #category : 'tests' }
 OPDemoLayouterTest >> testScopeOfInterestEncompassesInnerElementsAfterDefaultLayout [
 
-	| layouter carRentalModel scopeController scopeShape innerShapes |
+	| layouter carRentalModel scopeController scopeBounds innerShapes |
 	carRentalModel := OPDemoExamples exampleCarRental.
 	diagramController model: carRentalModel.
 	diagramController showAllElements.
@@ -171,17 +218,19 @@ OPDemoLayouterTest >> testScopeOfInterestEncompassesInnerElementsAfterDefaultLay
 
 	scopeController := diagramController controllers detect: [ :eachController |
 		                   eachController isKindOf: OPDemoScopeOfInterestController ].
-	scopeShape := scopeController roassalShape.
+	scopeBounds := scopeController roassalShape encompassingRectangle.
 	innerShapes := scopeController diagramElement innerNodeRoassalShapes.
-	self denyEmpty: innerShapes.
+	self assert: innerShapes size equals: 10.
 	innerShapes do: [ :eachNodeShape |
-		self assert: (scopeShape encompassingRectangle containsRect: eachNodeShape encompassingRectangle) ]
+			| nodeBounds |
+			nodeBounds := eachNodeShape encompassingRectangle.
+			self assert: (scopeBounds intersect: nodeBounds) equals: nodeBounds ]
 ]
 
 { #category : 'tests' }
 OPDemoLayouterTest >> testScopeOfInterestEncompassesInnerElementsInGenericDiagram [
 
-	| genericModel genericScope genericActor genericTx project projectController testDiagController layouter scopeController scopeShape innerShapes |
+	| genericModel genericScope genericActor genericTx project projectController testDiagController layouter scopeController scopeBounds innerShapes |
 	genericModel := OPDemo new name: 'GenericSystemModel'.
 	genericScope := OPDemoScopeOfInterest new name: 'SystemBoundary'.
 	genericActor := OPDemoInternalActor new name: 'WorkerActor'.
@@ -211,9 +260,11 @@ OPDemoLayouterTest >> testScopeOfInterestEncompassesInnerElementsInGenericDiagra
 	layouter defaultLayout.
 
 	scopeController := testDiagController controllerForModel: genericScope.
-	scopeShape := scopeController roassalShape.
+	scopeBounds := scopeController roassalShape encompassingRectangle.
 	innerShapes := scopeController diagramElement innerNodeRoassalShapes.
-	self denyEmpty: innerShapes.
+	self assert: innerShapes size equals: 2.
 	innerShapes do: [ :eachNodeShape |
-		self assert: (scopeShape encompassingRectangle containsRect: eachNodeShape encompassingRectangle) ]
+			| nodeBounds |
+			nodeBounds := eachNodeShape encompassingRectangle.
+			self assert: (scopeBounds intersect: nodeBounds) equals: nodeBounds ]
 ]

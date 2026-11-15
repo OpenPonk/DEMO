@@ -27,11 +27,12 @@ OPDemoScopeOfInterestControllerTest >> modelClass [
 
 { #category : 'tests' }
 OPDemoScopeOfInterestControllerTest >> testCreateUsingAddAsTarget [
+
 	self setUp.
 	super testCreateUsingAddAsTarget.
-	self assert: (controller roassalShape isKindOf: RSBox).
-	self assert: controller roassalShape color equals: Color transparent .
+	self assert: controller roassalShape class identicalTo: RSBox.
+	self assert: controller roassalShape color equals: Color transparent.
 	self assert: controller roassalShape border color equals: Color gray.
-	self assert: controller roassalShape extent x equals: (scopeOfInterestWidth + scopeOfInterestBorderSize ).
-	self assert: controller roassalShape extent y equals: (scopeOfInterestHeight + scopeOfInterestBorderSize ).
+	self assert: controller roassalShape extent x equals: scopeOfInterestWidth + scopeOfInterestBorderSize.
+	self assert: controller roassalShape extent y equals: scopeOfInterestHeight + scopeOfInterestBorderSize
 ]

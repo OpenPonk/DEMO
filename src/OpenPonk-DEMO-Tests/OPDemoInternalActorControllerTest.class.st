@@ -31,13 +31,9 @@ OPDemoInternalActorControllerTest >> testCreateUsingAddAsTarget [
 
 	self setUp.
 	super testCreateUsingAddAsTarget.
-	self assert: (controller roassalShape isKindOf: RSBox).
+	self assert: controller roassalShape class identicalTo: RSBox.
 	self assert: controller roassalShape color equals: Color white.
 	self assert: controller roassalShape border color equals: Color black.
-	self
-		assert: controller roassalShape extent x
-		equals: actorWidthHeight + actorBorderSize.
-	self
-		assert: controller roassalShape extent y
-		equals: actorWidthHeight + actorBorderSize
+	self assert: controller roassalShape extent x equals: actorWidthHeight + actorBorderSize.
+	self assert: controller roassalShape extent y equals: actorWidthHeight + actorBorderSize
 ]

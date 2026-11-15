@@ -33,13 +33,21 @@ OPDemoViewModelFormTest >> tearDown [
 { #category : 'tests' }
 OPDemoViewModelFormTest >> testFactsViewModelFormBindingAndUndo [
 	"Verify declarative bindings for ID and Facts Label on Facts ViewModel."
+
 	| model viewModel labelBinding |
-	model := OPDemoFacts new name: 'F1'; labelFacts: 'Initial Fact'.
+	model := OPDemoFacts new
+		         name: 'F1';
+		         labelFacts: 'Initial Fact'.
 	viewModel := OPDemoFactsViewModel new model: model.
 	form viewModel: viewModel.
 
-	self assert: (form bindings anySatisfy: [ :each | each selector = #name ]).
-	self assert: (form bindings anySatisfy: [ :each | each selector = #labelFacts ]).
+	self assert: (form bindings collect: #selector as: Array) equals: #( #name #labelFacts ).
+	self assert: (form bindings collect: #class as: Array) equals: {
+			OPFormTextBinding.
+			OPFormTextBinding }.
+	self assert: (form bindings collect: [ :each | each presenter class ] as: Array) equals: {
+			SpTextInputFieldPresenter.
+			SpTextInputFieldPresenter }.
 
 	labelBinding := form bindings detect: [ :each | each selector = #labelFacts ].
 	labelBinding writeModelValue: 'Updated Fact'.
@@ -52,13 +60,21 @@ OPDemoViewModelFormTest >> testFactsViewModelFormBindingAndUndo [
 { #category : 'tests' }
 OPDemoViewModelFormTest >> testInternalActorViewModelFormBindingAndUndo [
 	"Verify declarative bindings for ID and Actor Label on Internal Actor ViewModel."
+
 	| model viewModel nameBinding labelBinding |
-	model := OPDemoInternalActor new name: 'A1'; labelActor: 'Customer'.
+	model := OPDemoInternalActor new
+		         name: 'A1';
+		         labelActor: 'Customer'.
 	viewModel := OPDemoInternalActorViewModel new model: model.
 	form viewModel: viewModel.
 
-	self assert: (form bindings anySatisfy: [ :each | each selector = #name ]).
-	self assert: (form bindings anySatisfy: [ :each | each selector = #labelActor ]).
+	self assert: (form bindings collect: #selector as: Array) equals: #( #name #labelActor ).
+	self assert: (form bindings collect: #class as: Array) equals: {
+			OPFormTextBinding.
+			OPFormTextBinding }.
+	self assert: (form bindings collect: [ :each | each presenter class ] as: Array) equals: {
+			SpTextPresenter.
+			SpTextPresenter }.
 
 	nameBinding := form bindings detect: [ :each | each selector = #name ].
 	labelBinding := form bindings detect: [ :each | each selector = #labelActor ].
@@ -77,12 +93,16 @@ OPDemoViewModelFormTest >> testInternalActorViewModelFormBindingAndUndo [
 { #category : 'tests' }
 OPDemoViewModelFormTest >> testScopeOfInterestViewModelFormBindingAndUndo [
 	"Verify declarative binding for Name on Scope of Interest ViewModel."
+
 	| model viewModel nameBinding |
 	model := OPDemoScopeOfInterest new name: 'Initial Scope'.
 	viewModel := OPDemoScopeOfInterestViewModel new model: model.
 	form viewModel: viewModel.
 
-	self assert: (form bindings anySatisfy: [ :each | each selector = #name ]).
+	self assert: (form bindings collect: #selector as: Array) equals: #( #name ).
+	self assert: (form bindings collect: #class as: Array) equals: { OPFormTextBinding }.
+	self assert: (form bindings collect: [ :each | each presenter class ] as: Array) equals: { SpTextPresenter }.
+
 	nameBinding := form bindings detect: [ :each | each selector = #name ].
 	nameBinding writeModelValue: 'Expanded Scope'.
 	self assert: model name equals: 'Expanded Scope'.
@@ -94,17 +114,24 @@ OPDemoViewModelFormTest >> testScopeOfInterestViewModelFormBindingAndUndo [
 { #category : 'tests' }
 OPDemoViewModelFormTest >> testStandardInternalTransactionViewModelFormBindingAndUndo [
 	"Verify declarative bindings for ID, Type, and Product Kind on Transaction ViewModel."
+
 	| model viewModel nameBinding typeBinding productBinding |
 	model := OPDemoStandardInternalTransaction new
-		name: 'T1';
-		type: 'Ontological';
-		productKind: 'Car'.
+		         name: 'T1';
+		         type: 'Ontological';
+		         productKind: 'Car'.
 	viewModel := OPDemoStandardInternalTransactionViewModel new model: model.
 	form viewModel: viewModel.
 
-	self assert: (form bindings anySatisfy: [ :each | each selector = #name ]).
-	self assert: (form bindings anySatisfy: [ :each | each selector = #type ]).
-	self assert: (form bindings anySatisfy: [ :each | each selector = #productKind ]).
+	self assert: (form bindings collect: #selector as: Array) equals: #( #name #type #productKind ).
+	self assert: (form bindings collect: #class as: Array) equals: {
+			OPFormTextBinding.
+			OPFormDropListBinding.
+			OPFormTextBinding }.
+	self assert: (form bindings collect: [ :each | each presenter class ] as: Array) equals: {
+			SpTextInputFieldPresenter.
+			SpDropListPresenter.
+			SpTextInputFieldPresenter }.
 
 	nameBinding := form bindings detect: [ :each | each selector = #name ].
 	typeBinding := form bindings detect: [ :each | each selector = #type ].
