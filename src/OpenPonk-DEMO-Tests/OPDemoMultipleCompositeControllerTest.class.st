@@ -28,7 +28,6 @@ OPDemoMultipleCompositeControllerTest >> modelClass [
 { #category : 'tests' }
 OPDemoMultipleCompositeControllerTest >> testCreateUsingAddAsTarget [
 
-	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: controller roassalShape class identicalTo: RSCircle.
 	self assert: controller roassalShape color equals: Color gray.

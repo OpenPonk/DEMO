@@ -11,12 +11,6 @@ Class {
 }
 
 { #category : 'testing' }
-OPDemoSourceInitiatorLink >> isAccess [ 
-
-	^ false
-]
-
-{ #category : 'testing' }
 OPDemoSourceInitiatorLink >> isInitiator [ 
 
 	^ true
@@ -26,16 +20,4 @@ OPDemoSourceInitiatorLink >> isInitiator [
 OPDemoSourceInitiatorLink >> isSourceInitiator [ 
 
 	^ true
-]
-
-{ #category : 'testing' }
-OPDemoSourceInitiatorLink >> isTargetInitiator [ 
-
-	^ false
-]
-
-{ #category : 'testing' }
-OPDemoSourceInitiatorLink >> isWaiting [
-
-	^ false
 ]

@@ -31,11 +31,6 @@ OPDemoLink class >> from: aSource to: aTarget named: aString [
 ]
 
 { #category : 'testing' }
-OPDemoLink >> allEdges [
-	^ self
-]
-
-{ #category : 'testing' }
 OPDemoLink >> asEdge [
 	^ self
 ]
@@ -48,12 +43,42 @@ OPDemoLink >> detach [
 ]
 
 { #category : 'testing' }
+OPDemoLink >> isAccess [
+
+	^ false
+]
+
+{ #category : 'testing' }
 OPDemoLink >> isEdge [
 	^ true
 ]
 
 { #category : 'testing' }
+OPDemoLink >> isInitiator [
+
+	^ false
+]
+
+{ #category : 'testing' }
 OPDemoLink >> isNode [
+	^ false
+]
+
+{ #category : 'testing' }
+OPDemoLink >> isSourceInitiator [
+
+	^ false
+]
+
+{ #category : 'testing' }
+OPDemoLink >> isTargetInitiator [
+
+	^ false
+]
+
+{ #category : 'testing' }
+OPDemoLink >> isWaiting [
+
 	^ false
 ]
 

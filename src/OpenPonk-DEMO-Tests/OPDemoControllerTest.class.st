@@ -58,14 +58,29 @@ OPDemoControllerTest >> testControllerFactory [
 { #category : 'tests' }
 OPDemoControllerTest >> testInitializePalette [
 
-	| palette entryLabels |
+	| palette entries expectedToolClasses |
 	palette := OPPalette new.
 	controller initializePalette: palette.
 	self assert: palette items size equals: 18.
-	entryLabels := palette items select: [ :eachItem | eachItem class == OPPaletteEntry ] thenCollect: #label.
-	self
-		assert: entryLabels asArray
-		equals:
-			#( 'Select' 'Composite Actor' 'Internal Actor' 'Transaction' 'Composite Transaction' 'Multiple Transaction'
-			   'Multiple Composite Transaction' 'Facts' 'Access Link' 'Executor Link' 'Initiator Link' 'Waiting Link' 'Scope of interest' )
+	entries := palette items select: [ :eachItem | eachItem class == OPPaletteEntry ].
+	expectedToolClasses := {
+		                       ('Composite Actor' -> OPDemoCompositeActorController).
+		                       ('Internal Actor' -> OPDemoInternalActorController).
+		                       ('Transaction' -> OPDemoStandardInternalTransactionController).
+		                       ('Composite Transaction' -> OPDemoStandardCompositeTransactionController).
+		                       ('Multiple Transaction' -> OPDemoMultipleInternalTransactionController).
+		                       ('Multiple Composite Transaction' -> OPDemoMultipleCompositeTransactionController).
+		                       ('Facts' -> OPDemoFactsController).
+		                       ('Access Link' -> OPDemoAccessLinkController).
+		                       ('Executor Link' -> OPDemoSourceInitiatorLinkController).
+		                       ('Initiator Link' -> OPDemoTargetInitiatorLinkController).
+		                       ('Waiting Link' -> OPDemoWaitingLinkController).
+		                       ('Scope of interest' -> OPDemoScopeOfInterestController) }.
+	self assert: (entries collect: #label as: Array) equals: { 'Select' } , (expectedToolClasses collect: #key).
+	expectedToolClasses do: [ :eachPair |
+			| entry createdController |
+			entry := entries detect: [ :eachEntry | eachEntry label = eachPair key ].
+			entry performAction.
+			createdController := palette selectedTool instVarNamed: #controller.
+			self assert: createdController class identicalTo: eachPair value ]
 ]

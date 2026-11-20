@@ -19,13 +19,6 @@ OPDemoActorViewModel class >> isAbstract [
 OPDemoActorViewModel class >> modelClass [ ^ OPDemoActor
 ]
 
-{ #category : 'private' }
-OPDemoActorViewModel >> basicRemoveModel [
-
-	self model elements do: [ :each | each removeModel ].
-	super basicRemoveModel
-]
-
 { #category : 'forms' }
 OPDemoActorViewModel >> buildEditorForm: aForm [
 	"Build declarative form fields for actor role and identification."

@@ -21,10 +21,10 @@ OPDemoTransactionController >> canBeSourceFor: aController [
 ]
 
 { #category : 'connecting' }
-OPDemoTransactionController >> canBeTargetFor: aController [ 
-	
-	(super canBeTargetFor: aController) ifFalse: [^ false].
-	(self model owner isKindOf: OPDemoActor) ifTrue: [^ false].
-	((aController isKindOf: OPDemoTargetInitiatorLinkController) or: (aController isKindOf: OPDemoSourceInitiatorLinkController)) ifFalse: [ ^ true ].
+OPDemoTransactionController >> canBeTargetFor: aController [
+
+	(super canBeTargetFor: aController) ifFalse: [ ^ false ].
+	((aController isKindOf: OPDemoTargetInitiatorLinkController) or: [ aController isKindOf: OPDemoSourceInitiatorLinkController ])
+		ifFalse: [ ^ true ].
 	^ aController source isKindOf: OPDemoActorController
 ]

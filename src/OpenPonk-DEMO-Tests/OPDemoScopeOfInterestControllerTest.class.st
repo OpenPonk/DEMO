@@ -28,7 +28,6 @@ OPDemoScopeOfInterestControllerTest >> modelClass [
 { #category : 'tests' }
 OPDemoScopeOfInterestControllerTest >> testCreateUsingAddAsTarget [
 
-	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: controller roassalShape class identicalTo: RSBox.
 	self assert: controller roassalShape color equals: Color transparent.

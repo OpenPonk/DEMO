@@ -63,6 +63,21 @@ OPDemoLayouterTest >> setUp [
 	diagramController showAllElements
 ]
 
+{ #category : 'running' }
+OPDemoLayouterTest >> tearDown [
+
+	canvasPresenter := nil.
+	diagramController := nil.
+	transactionController := nil.
+	actorController := nil.
+	executorLinkController := nil.
+	model := nil.
+	transactionModel := nil.
+	actorModel := nil.
+	executorLinkModel := nil.
+	super tearDown
+]
+
 { #category : 'tests' }
 OPDemoLayouterTest >> testActorEncompassesExecutedTransactionsAfterDefaultLayout [
 
@@ -203,6 +218,39 @@ OPDemoLayouterTest >> testLayoutScopeOfInterestReturnsActor [
 	self assert: actor class identicalTo: OPDemoInternalActor.
 	self assert: actor identicalTo: (scope elements detect: [ :eachElement | eachElement name = 'A2' ]).
 	self assert: actor name equals: 'A2'
+]
+
+{ #category : 'tests' }
+OPDemoLayouterTest >> testLayoutScopeOfInterestReturnsNilWithoutActorA2 [
+
+	| genericModel genericScope genericActor project projectController testDiagramController layouter result |
+	genericModel := OPDemo named: 'WithoutA2'.
+	genericScope := OPDemoScopeOfInterest named: 'Scope'.
+	genericActor := OPDemoInternalActor named: 'A1'.
+	genericModel add: genericScope.
+	genericScope add: genericActor.
+
+	project := OPProject named: 'Test Project'.
+	project addModel: genericModel.
+	projectController := OPProjectController forProject: project.
+	testDiagramController := OPDemoController new.
+	projectController addDiagramController: testDiagramController.
+	testDiagramController
+		canvasPresenter: OPHeadlessCanvasPresenter new;
+		diagramElement: (OPOpenPonkDiagram forModelElement: genericModel);
+		model: genericModel.
+	testDiagramController showAllElements.
+
+	layouter := OPDemoLayouter new diagramController: testDiagramController.
+	result := layouter layoutScopeOfInterest: genericScope.
+
+	self assert: result identicalTo: nil
+]
+
+{ #category : 'tests' }
+OPDemoLayouterTest >> testPluginRepositoryName [
+
+	self assert: OPDemoPlugin repositoryName equals: #demo
 ]
 
 { #category : 'tests' }

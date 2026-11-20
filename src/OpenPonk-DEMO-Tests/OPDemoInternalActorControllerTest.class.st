@@ -29,7 +29,6 @@ OPDemoInternalActorControllerTest >> modelClass [
 { #category : 'tests' }
 OPDemoInternalActorControllerTest >> testCreateUsingAddAsTarget [
 
-	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: controller roassalShape class identicalTo: RSBox.
 	self assert: controller roassalShape color equals: Color white.

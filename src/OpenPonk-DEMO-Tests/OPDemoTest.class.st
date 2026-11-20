@@ -35,6 +35,15 @@ OPDemoTest >> setUp [
 	standardInternalTransactionB := OPDemoStandardInternalTransaction named: 'TestStandardInternalTransactionB'.
 ]
 
+{ #category : 'tests' }
+OPDemoTest >> testActorPredicates [
+
+	self assert: compositeActor isComposite description: 'Composite actor must report isComposite = true'.
+	self deny: compositeActor isInternal description: 'Composite actor must report isInternal = false'.
+	self deny: internalActor isComposite description: 'Internal actor must report isComposite = false'.
+	self assert: internalActor isInternal description: 'Internal actor must report isInternal = true'
+]
+
 { #category : 'running' }
 OPDemoTest >> testAdd [
 	"checking if the initialization causes an empty diagram"
@@ -77,6 +86,56 @@ OPDemoTest >> testAdd [
 	self
 		assert: internalActor hasTransaction
 		description: 'Internal actor containing a transaction must report hasTransaction = true'
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testDiagramNodeAndEdgePredicates [
+
+	self deny: diagram isEdge description: 'Root DEMO diagram must not be an edge'.
+	self deny: diagram isNode description: 'Root DEMO diagram must not be a node'
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testEmptyModelExample [
+
+	| emptyModel |
+	emptyModel := OPDemoExamples emptyModel.
+	self assert: emptyModel class identicalTo: OPDemo.
+	self assert: emptyModel name equals: 'New DEMO diagram'.
+	self assertEmpty: emptyModel elements
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testLinkPredicates [
+
+	| sourceInitiatorLink targetInitiatorLink waitingLink |
+	sourceInitiatorLink := OPDemoSourceInitiatorLink new.
+	targetInitiatorLink := OPDemoTargetInitiatorLink new.
+	waitingLink := OPDemoWaitingLink new.
+
+	self assert: accessLink isAccess description: 'Access link must report isAccess = true'.
+	self deny: accessLink isInitiator description: 'Access link must report isInitiator = false'.
+	self deny: accessLink isSourceInitiator description: 'Access link must report isSourceInitiator = false'.
+	self deny: accessLink isTargetInitiator description: 'Access link must report isTargetInitiator = false'.
+	self deny: accessLink isWaiting description: 'Access link must report isWaiting = false'.
+
+	self deny: sourceInitiatorLink isAccess description: 'Source initiator link must report isAccess = false'.
+	self assert: sourceInitiatorLink isInitiator description: 'Source initiator link must report isInitiator = true'.
+	self assert: sourceInitiatorLink isSourceInitiator description: 'Source initiator link must report isSourceInitiator = true'.
+	self deny: sourceInitiatorLink isTargetInitiator description: 'Source initiator link must report isTargetInitiator = false'.
+	self deny: sourceInitiatorLink isWaiting description: 'Source initiator link must report isWaiting = false'.
+
+	self deny: targetInitiatorLink isAccess description: 'Target initiator link must report isAccess = false'.
+	self assert: targetInitiatorLink isInitiator description: 'Target initiator link must report isInitiator = true'.
+	self deny: targetInitiatorLink isSourceInitiator description: 'Target initiator link must report isSourceInitiator = false'.
+	self assert: targetInitiatorLink isTargetInitiator description: 'Target initiator link must report isTargetInitiator = true'.
+	self deny: targetInitiatorLink isWaiting description: 'Target initiator link must report isWaiting = false'.
+
+	self deny: waitingLink isAccess description: 'Waiting link must report isAccess = false'.
+	self deny: waitingLink isInitiator description: 'Waiting link must report isInitiator = false'.
+	self deny: waitingLink isSourceInitiator description: 'Waiting link must report isSourceInitiator = false'.
+	self deny: waitingLink isTargetInitiator description: 'Waiting link must report isTargetInitiator = false'.
+	self assert: waitingLink isWaiting description: 'Waiting link must report isWaiting = true'
 ]
 
 { #category : 'running' }
@@ -149,4 +208,51 @@ OPDemoTest >> testRemoveSequential [
 	compositeActor remove.
 	scopeOfInterest remove.
 	self assertEmpty: diagram elements
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testRootOwnerWithoutOwnerReturnsSelf [
+
+	| detachedActor |
+	detachedActor := OPDemoInternalActor named: 'Detached'.
+	self assert: detachedActor rootOwner identicalTo: detachedActor.
+	diagram add: scopeOfInterest.
+	scopeOfInterest add: detachedActor.
+	self assert: detachedActor rootOwner identicalTo: diagram
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testTransactionPredicates [
+
+	| standardCompositeTransaction multipleInternalTransaction |
+	standardCompositeTransaction := OPDemoStandardCompositeTransaction new.
+	multipleInternalTransaction := OPDemoMultipleInternalTransaction new.
+
+	self deny: standardInternalTransactionA isComposite description: 'Standard internal transaction must not be composite'.
+	self deny: standardInternalTransactionA isMultiple description: 'Standard internal transaction must not be multiple'.
+
+	self assert: standardCompositeTransaction isComposite description: 'Standard composite transaction must be composite'.
+	self deny: standardCompositeTransaction isMultiple description: 'Standard composite transaction must not be multiple'.
+
+	self deny: multipleInternalTransaction isComposite description: 'Multiple internal transaction must not be composite'.
+	self assert: multipleInternalTransaction isMultiple description: 'Multiple internal transaction must be multiple'.
+
+	self assert: multipleCompositeTransaction isComposite description: 'Multiple composite transaction must be composite'.
+	self assert: multipleCompositeTransaction isMultiple description: 'Multiple composite transaction must be multiple'
+]
+
+{ #category : 'tests' }
+OPDemoTest >> testTransactionTypeColors [
+
+	standardInternalTransactionA type: 'Ontological'.
+	self assert: standardInternalTransactionA typeColor equals: Color red.
+
+	standardInternalTransactionA type: 'Informational'.
+	self assert: standardInternalTransactionA typeColor equals: Color green.
+
+	standardInternalTransactionA type: 'Documental'.
+	self assert: standardInternalTransactionA typeColor equals: Color blue.
+
+	standardInternalTransactionA type: 'Material'.
+	self assert: standardInternalTransactionA typeColor equals: Color black
 ]

@@ -28,7 +28,6 @@ OPDemoStandardInternalControllerTest >> modelClass [
 { #category : 'tests' }
 OPDemoStandardInternalControllerTest >> testCreateUsingAddAsTarget [
 
-	self setUp.
 	super testCreateUsingAddAsTarget.
 	self assert: controller roassalShape class identicalTo: RSCircle.
 	self assert: controller roassalShape color equals: Color white.

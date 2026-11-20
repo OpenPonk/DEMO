@@ -4,9 +4,6 @@ Controller for DEMO Actor Roles. Manages diagram interactions, validates connect
 Class {
 	#name : 'OPDemoActorController',
 	#superclass : 'OPDemoElementController',
-	#instVars : [
-		'transactionCount'
-	],
 	#category : 'OpenPonk-DEMO-Controllers',
 	#package : 'OpenPonk-DEMO',
 	#tag : 'Controllers'
@@ -38,10 +35,4 @@ OPDemoActorController >> canBeTargetFor: aController [
 		 (aController isKindOf: OPDemoSourceInitiatorLinkController))
 		ifFalse: [ ^ true ].
 	^ aController source isKindOf: OPDemoTransactionController
-]
-
-{ #category : 'initialization' }
-OPDemoActorController >> initialize [
-	super initialize.
-	transactionCount := 0
 ]
