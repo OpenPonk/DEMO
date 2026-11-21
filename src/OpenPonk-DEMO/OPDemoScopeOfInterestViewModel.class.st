@@ -21,7 +21,9 @@ OPDemoScopeOfInterestViewModel >> buildEditorForm: aForm [
 ]
 
 { #category : 'accessing' }
-OPDemoScopeOfInterestViewModel >> childrenModels [ ^ super childrenModels , self model nodes asArray , self model edges asArray
+OPDemoScopeOfInterestViewModel >> childrenModels [
+
+	^ super childrenModels , self model nodes asArray
 ]
 
 { #category : 'accessing' }
@@ -30,11 +32,6 @@ OPDemoScopeOfInterestViewModel >> dependentElements [
 	onlyNodes := (self model elements select: [ :each | each isNode ]).
 	onlyNodes do: [ :each | UIManager default inform: each asString ]."
 	^ (self model incoming , self model outgoing , self model elements ) asSet
-]
-
-{ #category : 'accessing' }
-OPDemoScopeOfInterestViewModel >> essentialChildrenModels [
-			^ self model elements asArray
 ]
 
 { #category : 'accessing' }

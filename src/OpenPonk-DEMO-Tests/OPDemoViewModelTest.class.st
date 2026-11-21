@@ -1,5 +1,5 @@
 "
-Unit tests for DEMO view models, covering icon accessors, model class mappings, essential child discovery, and safe domain removal of actors containing transactions.
+Unit tests for DEMO view models, covering icon accessors, model class mappings, child model discovery, and safe domain removal of actors containing transactions.
 "
 Class {
 	#name : 'OPDemoViewModelTest',
@@ -69,7 +69,7 @@ OPDemoViewModelTest >> testActorRemoveModelRemovesChildTransactionAndActor [
 ]
 
 { #category : 'tests' }
-OPDemoViewModelTest >> testEssentialChildrenModels [
+OPDemoViewModelTest >> testChildrenModels [
 
 	| demoModel scope actor transaction demoViewModel scopeViewModel actorViewModel |
 	demoModel := OPDemo named: 'Demo'.
@@ -84,9 +84,33 @@ OPDemoViewModelTest >> testEssentialChildrenModels [
 	scopeViewModel := OPDemoScopeOfInterestViewModel new model: scope.
 	actorViewModel := OPDemoInternalActorViewModel new model: actor.
 
-	self assert: demoViewModel essentialChildrenModels equals: { scope }.
-	self assert: scopeViewModel essentialChildrenModels equals: { actor }.
-	self assert: actorViewModel essentialChildrenModels equals: { transaction }
+	self assertCollection: demoViewModel childrenModels hasSameElements: { scope }.
+	self assertCollection: scopeViewModel childrenModels hasSameElements: { actor }.
+	self assertCollection: actorViewModel childrenModels hasSameElements: { transaction }
+]
+
+{ #category : 'tests' }
+OPDemoViewModelTest >> testScopeOfInterestChildrenModelsDoesNotDuplicateConnectedEdges [
+
+	| demoModel scope actor externalActor link scopeViewModel children |
+	demoModel := OPDemo named: 'Demo'.
+	scope := OPDemoScopeOfInterest named: 'Scope'.
+	actor := OPDemoInternalActor named: 'A1'.
+	externalActor := OPDemoCompositeActor named: 'CA1'.
+	link := OPDemoAccessLink from: externalActor to: scope.
+	demoModel
+		add: scope;
+		add: externalActor;
+		add: link.
+	scope add: actor.
+
+	scopeViewModel := OPDemoScopeOfInterestViewModel new model: scope.
+	children := scopeViewModel childrenModels.
+
+	self assert: children size equals: 2.
+	self assertCollection: children hasSameElements: {
+			actor.
+			link }
 ]
 
 { #category : 'tests' }

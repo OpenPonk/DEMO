@@ -1,5 +1,5 @@
 "
-View model for the top-level DEMO CSD model. Provides essential child models and icon definitions for the workbench tree and form integrations.
+View model for the top-level DEMO CSD model. Provides child models and icon definitions for the workbench tree and form integrations.
 "
 Class {
 	#name : 'OPDemoViewModel',
@@ -21,11 +21,6 @@ OPDemoViewModel class >> modelClass [ ^ OPDemo
 
 { #category : 'accessing' }
 OPDemoViewModel >> childrenModels [ ^ self model nodes
-]
-
-{ #category : 'accessing' }
-OPDemoViewModel >> essentialChildrenModels [
-			^ self model elements asArray
 ]
 
 { #category : 'accessing' }

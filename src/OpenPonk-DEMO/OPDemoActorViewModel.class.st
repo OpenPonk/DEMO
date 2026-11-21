@@ -36,11 +36,6 @@ OPDemoActorViewModel >> dependentElements [
 	^ (self model incoming , self model outgoing , self model elements) asSet
 ]
 
-{ #category : 'accessing' }
-OPDemoActorViewModel >> essentialChildrenModels [
-			^ self model elements asArray
-]
-
 { #category : 'testing' }
 OPDemoActorViewModel >> isIdMultiline [
 	^ true
